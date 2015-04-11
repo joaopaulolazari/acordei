@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61D57F6BCB3776F50CF9C38B /* libPods-Acordei-Transparencia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F002C37B13543625326E7720 /* libPods-Acordei-Transparencia.a */; };
+		4F3E5A797364CFB5C148BF5B /* libPods-Acordei-TransparenciaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */; };
+		5C63CDDD4AB8ED6A42519543 /* libPods-Acordei-Transparencia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */; };
+		66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66220CF21AD9947F002B69A9 /* CacheAPI.m */; };
 		66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
 		66C1323C1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
-		66C1323F1AD977CC00CF2142 /* CacheAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323E1AD977CC00CF2142 /* CacheAPI.m */; };
-		66C132401AD977CC00CF2142 /* CacheAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323E1AD977CC00CF2142 /* CacheAPI.m */; };
 		9F3673E01AD96A53002FDAC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673DF1AD96A53002FDAC4 /* main.m */; };
 		9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E21AD96A53002FDAC4 /* AppDelegate.m */; };
 		9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E51AD96A53002FDAC4 /* ViewController.m */; };
 		9F3673E91AD96A53002FDAC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673E71AD96A53002FDAC4 /* Main.storyboard */; };
 		9F3673EB1AD96A53002FDAC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EA1AD96A53002FDAC4 /* Images.xcassets */; };
 		9F3673EE1AD96A53002FDAC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */; };
-		9F3673FA1AD96A53002FDAC4 /* Acordei_TransparenciaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */; };
-		F9B306928AD96176EA3B3758 /* libPods-Acordei-TransparenciaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AC349AF9DDEE263E4FFF9B /* libPods-Acordei-TransparenciaTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,12 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21631CB6AE80A4BFCCC31A8B /* Pods-Acordei-Transparencia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-Transparencia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-Transparencia/Pods-Acordei-Transparencia.release.xcconfig"; sourceTree = "<group>"; };
+		4D813B62B1704A3E663E73CA /* Pods-Acordei-TransparenciaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-TransparenciaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AAD2907D9BE86BEBA0DD254 /* Pods-Acordei-TransparenciaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-TransparenciaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests.release.xcconfig"; sourceTree = "<group>"; };
+		66220CF11AD9947F002B69A9 /* CacheAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheAPI.h; path = Cache/CacheAPI.h; sourceTree = "<group>"; };
+		66220CF21AD9947F002B69A9 /* CacheAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheAPI.m; path = Cache/CacheAPI.m; sourceTree = "<group>"; };
 		66C132361AD96CCC00CF2142 /* ApiCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiCall.h; path = Rest/ApiCall.h; sourceTree = "<group>"; };
 		66C1323A1AD9767500CF2142 /* ApiCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApiCall.m; path = Rest/ApiCall.m; sourceTree = "<group>"; };
-		66C1323E1AD977CC00CF2142 /* CacheAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheAPI.m; path = Cache/CacheAPI.m; sourceTree = "<group>"; };
-		66C132441AD9799F00CF2142 /* CacheAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CacheAPI.h; path = Cache/CacheAPI.h; sourceTree = "<group>"; };
-		77864DE43CFAC7171A83045D /* Pods-Acordei-Transparencia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-Transparencia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-Transparencia/Pods-Acordei-Transparencia.release.xcconfig"; sourceTree = "<group>"; };
-		8B41C135E383EF77286D2123 /* Pods-Acordei-TransparenciaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-TransparenciaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7520625321B7FC6E8BBD1BF2 /* Pods-Acordei-Transparencia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-Transparencia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-Transparencia/Pods-Acordei-Transparencia.debug.xcconfig"; sourceTree = "<group>"; };
 		9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Acordei-Transparencia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3673DE1AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3673DF1AD96A53002FDAC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,11 +51,8 @@
 		9F3673ED1AD96A53002FDAC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9F3673F31AD96A53002FDAC4 /* Acordei-TransparenciaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acordei-TransparenciaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3673F81AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Acordei_TransparenciaTests.m; sourceTree = "<group>"; };
-		CB898EA48963FD5BF040529D /* Pods-Acordei-TransparenciaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-TransparenciaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7AC349AF9DDEE263E4FFF9B /* libPods-Acordei-TransparenciaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-TransparenciaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F002C37B13543625326E7720 /* libPods-Acordei-Transparencia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-Transparencia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD9F153F13123D3B475E2D40 /* Pods-Acordei-Transparencia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-Transparencia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-Transparencia/Pods-Acordei-Transparencia.debug.xcconfig"; sourceTree = "<group>"; };
+		BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-TransparenciaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-Transparencia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61D57F6BCB3776F50CF9C38B /* libPods-Acordei-Transparencia.a in Frameworks */,
+				5C63CDDD4AB8ED6A42519543 /* libPods-Acordei-Transparencia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9B306928AD96176EA3B3758 /* libPods-Acordei-TransparenciaTests.a in Frameworks */,
+				4F3E5A797364CFB5C148BF5B /* libPods-Acordei-TransparenciaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +87,8 @@
 		66C1323D1AD9777E00CF2142 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				66C1323E1AD977CC00CF2142 /* CacheAPI.m */,
-				66C132441AD9799F00CF2142 /* CacheAPI.h */,
+				66220CF11AD9947F002B69A9 /* CacheAPI.h */,
+				66220CF21AD9947F002B69A9 /* CacheAPI.m */,
 			);
 			name = cache;
 			sourceTree = "<group>";
@@ -102,8 +99,8 @@
 				9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */,
 				9F3673F61AD96A53002FDAC4 /* Acordei-TransparenciaTests */,
 				9F3673DB1AD96A53002FDAC4 /* Products */,
-				C8D7B81C9E2DD628FD47051B /* Pods */,
 				C120216BE2285F89915F16BA /* Frameworks */,
+				A80DD32593EFA8F85EF0DBBC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,7 +142,6 @@
 		9F3673F61AD96A53002FDAC4 /* Acordei-TransparenciaTests */ = {
 			isa = PBXGroup;
 			children = (
-				9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */,
 				9F3673F71AD96A53002FDAC4 /* Supporting Files */,
 			);
 			path = "Acordei-TransparenciaTests";
@@ -159,24 +155,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A80DD32593EFA8F85EF0DBBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7520625321B7FC6E8BBD1BF2 /* Pods-Acordei-Transparencia.debug.xcconfig */,
+				21631CB6AE80A4BFCCC31A8B /* Pods-Acordei-Transparencia.release.xcconfig */,
+				4D813B62B1704A3E663E73CA /* Pods-Acordei-TransparenciaTests.debug.xcconfig */,
+				5AAD2907D9BE86BEBA0DD254 /* Pods-Acordei-TransparenciaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C120216BE2285F89915F16BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F002C37B13543625326E7720 /* libPods-Acordei-Transparencia.a */,
-				D7AC349AF9DDEE263E4FFF9B /* libPods-Acordei-TransparenciaTests.a */,
+				CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */,
+				BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C8D7B81C9E2DD628FD47051B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FD9F153F13123D3B475E2D40 /* Pods-Acordei-Transparencia.debug.xcconfig */,
-				77864DE43CFAC7171A83045D /* Pods-Acordei-Transparencia.release.xcconfig */,
-				8B41C135E383EF77286D2123 /* Pods-Acordei-TransparenciaTests.debug.xcconfig */,
-				CB898EA48963FD5BF040529D /* Pods-Acordei-TransparenciaTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,11 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F3673FD1AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-Transparencia" */;
 			buildPhases = (
-				3811C67C8C6B9CA8269D7548 /* Check Pods Manifest.lock */,
+				0940D74681BFAAF7D485FE5B /* Check Pods Manifest.lock */,
 				9F3673D61AD96A53002FDAC4 /* Sources */,
 				9F3673D71AD96A53002FDAC4 /* Frameworks */,
 				9F3673D81AD96A53002FDAC4 /* Resources */,
-				E2C502A8A3F9E9B001A9EF3E /* Copy Pods Resources */,
+				F71813EEE6D76FAEC622DD4A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,11 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F3674001AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-TransparenciaTests" */;
 			buildPhases = (
-				39A8686AE8387EECC62904E7 /* Check Pods Manifest.lock */,
+				E4B07F6969630BB4105CE8EE /* Check Pods Manifest.lock */,
 				9F3673EF1AD96A53002FDAC4 /* Sources */,
 				9F3673F01AD96A53002FDAC4 /* Frameworks */,
 				9F3673F11AD96A53002FDAC4 /* Resources */,
-				24B50EB7B7F503BA3BD0207D /* Copy Pods Resources */,
+				20219335C5E905F2DF7B76CC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,7 +275,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24B50EB7B7F503BA3BD0207D /* Copy Pods Resources */ = {
+		0940D74681BFAAF7D485FE5B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		20219335C5E905F2DF7B76CC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,7 +305,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3811C67C8C6B9CA8269D7548 /* Check Pods Manifest.lock */ = {
+		E4B07F6969630BB4105CE8EE /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -309,22 +320,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		39A8686AE8387EECC62904E7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E2C502A8A3F9E9B001A9EF3E /* Copy Pods Resources */ = {
+		F71813EEE6D76FAEC622DD4A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -349,7 +345,7 @@
 				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
 				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
 				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
-				66C1323F1AD977CC00CF2142 /* CacheAPI.m in Sources */,
+				66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,9 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C132401AD977CC00CF2142 /* CacheAPI.m in Sources */,
 				66C1323C1AD9767500CF2142 /* ApiCall.m in Sources */,
-				9F3673FA1AD96A53002FDAC4 /* Acordei_TransparenciaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +466,7 @@
 		};
 		9F3673FE1AD96A53002FDAC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD9F153F13123D3B475E2D40 /* Pods-Acordei-Transparencia.debug.xcconfig */;
+			baseConfigurationReference = 7520625321B7FC6E8BBD1BF2 /* Pods-Acordei-Transparencia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
@@ -483,7 +477,7 @@
 		};
 		9F3673FF1AD96A53002FDAC4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77864DE43CFAC7171A83045D /* Pods-Acordei-Transparencia.release.xcconfig */;
+			baseConfigurationReference = 21631CB6AE80A4BFCCC31A8B /* Pods-Acordei-Transparencia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
@@ -494,7 +488,7 @@
 		};
 		9F3674011AD96A53002FDAC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B41C135E383EF77286D2123 /* Pods-Acordei-TransparenciaTests.debug.xcconfig */;
+			baseConfigurationReference = 4D813B62B1704A3E663E73CA /* Pods-Acordei-TransparenciaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -514,7 +508,7 @@
 		};
 		9F3674021AD96A53002FDAC4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB898EA48963FD5BF040529D /* Pods-Acordei-TransparenciaTests.release.xcconfig */;
+			baseConfigurationReference = 5AAD2907D9BE86BEBA0DD254 /* Pods-Acordei-TransparenciaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 
 target 'Acordei-Transparencia' do
- pod 'FMDB'
+pod 'FMDB'
 end
 
 target 'Acordei-TransparenciaTests' do
