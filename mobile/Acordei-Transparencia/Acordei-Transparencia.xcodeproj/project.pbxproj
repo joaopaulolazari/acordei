@@ -19,6 +19,9 @@
 		9F3673E91AD96A53002FDAC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673E71AD96A53002FDAC4 /* Main.storyboard */; };
 		9F3673EB1AD96A53002FDAC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EA1AD96A53002FDAC4 /* Images.xcassets */; };
 		9F3673EE1AD96A53002FDAC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */; };
+		9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */; };
+		9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */; };
+		9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		9F3673ED1AD96A53002FDAC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9F3673F31AD96A53002FDAC4 /* Acordei-TransparenciaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acordei-TransparenciaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3673F81AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FA6823F1AD9B11E002C9981 /* PoliticsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoliticsCustomCell.h; path = "Custom Cells/PoliticsCustomCell.h"; sourceTree = "<group>"; };
+		9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoliticsCustomCell.m; path = "Custom Cells/PoliticsCustomCell.m"; sourceTree = "<group>"; };
+		9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCustomCell.h; path = "Custom Cells/ProfileCustomCell.h"; sourceTree = "<group>"; };
+		9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCustomCell.m; path = "Custom Cells/ProfileCustomCell.m"; sourceTree = "<group>"; };
+		9FBB65791AD9C50C00319FAE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = UI/ProfileViewController.h; sourceTree = "<group>"; };
+		9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = UI/ProfileViewController.m; sourceTree = "<group>"; };
 		BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-TransparenciaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Acordei-Transparencia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,12 +128,12 @@
 		9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */ = {
 			isa = PBXGroup;
 			children = (
+				9FBB65781AD9C4F500319FAE /* UI */,
+				9FA6823E1AD9AF08002C9981 /* CustomCells */,
 				66C1323D1AD9777E00CF2142 /* cache */,
 				66C132321AD96B1F00CF2142 /* rest */,
 				9F3673E11AD96A53002FDAC4 /* AppDelegate.h */,
 				9F3673E21AD96A53002FDAC4 /* AppDelegate.m */,
-				9F3673E41AD96A53002FDAC4 /* ViewController.h */,
-				9F3673E51AD96A53002FDAC4 /* ViewController.m */,
 				9F3673E71AD96A53002FDAC4 /* Main.storyboard */,
 				9F3673EA1AD96A53002FDAC4 /* Images.xcassets */,
 				9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */,
@@ -156,6 +165,28 @@
 				9F3673F81AD96A53002FDAC4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FA6823E1AD9AF08002C9981 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				9FA6823F1AD9B11E002C9981 /* PoliticsCustomCell.h */,
+				9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */,
+				9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */,
+				9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		9FBB65781AD9C4F500319FAE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673E41AD96A53002FDAC4 /* ViewController.h */,
+				9F3673E51AD96A53002FDAC4 /* ViewController.m */,
+				9FBB65791AD9C50C00319FAE /* ProfileViewController.h */,
+				9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		A80DD32593EFA8F85EF0DBBC /* Pods */ = {
@@ -348,7 +379,10 @@
 			files = (
 				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
 				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
+				9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */,
 				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
+				9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */,
+				9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */,
 				66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
 			);
