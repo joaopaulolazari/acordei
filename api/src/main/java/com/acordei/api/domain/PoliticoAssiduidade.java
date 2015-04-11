@@ -4,19 +4,21 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Politico {
-    private PoliticoAssiduidade assiduidade;
+import java.util.List;
 
-    public Politico(PoliticoAssiduidade assiduidade) {
-        this.assiduidade = assiduidade;
+public class PoliticoAssiduidade {
+    private List<PoliticoAssiduidadeEvento> eventos;
+
+    public PoliticoAssiduidade(List<PoliticoAssiduidadeEvento> eventos) {
+        this.eventos = eventos;
     }
 
-    public PoliticoAssiduidade getAssiduidade() {
-        return assiduidade;
+    public List<PoliticoAssiduidadeEvento> getEventos() {
+        return eventos;
     }
 
-    public void setAssiduidade(PoliticoAssiduidade assiduidade) {
-        this.assiduidade = assiduidade;
+    public void setEventos(List<PoliticoAssiduidadeEvento> eventos) {
+        this.eventos = eventos;
     }
 
     @Override
@@ -33,5 +35,4 @@ public class Politico {
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }
-
 }
