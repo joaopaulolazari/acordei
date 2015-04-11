@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F3673E01AD96A53002FDAC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673DF1AD96A53002FDAC4 /* main.m */; };
+		9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E21AD96A53002FDAC4 /* AppDelegate.m */; };
+		9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E51AD96A53002FDAC4 /* ViewController.m */; };
+		9F3673E91AD96A53002FDAC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673E71AD96A53002FDAC4 /* Main.storyboard */; };
+		9F3673EB1AD96A53002FDAC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EA1AD96A53002FDAC4 /* Images.xcassets */; };
+		9F3673EE1AD96A53002FDAC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */; };
+		9F3673FA1AD96A53002FDAC4 /* Acordei_TransparenciaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F3673F41AD96A53002FDAC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F3673D21AD96A53002FDAC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F3673D91AD96A53002FDAC4;
+			remoteInfo = "Acordei-Transparencia";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Acordei-Transparencia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F3673DE1AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F3673DF1AD96A53002FDAC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F3673E11AD96A53002FDAC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F3673E21AD96A53002FDAC4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F3673E41AD96A53002FDAC4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F3673E51AD96A53002FDAC4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F3673E81AD96A53002FDAC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F3673EA1AD96A53002FDAC4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9F3673ED1AD96A53002FDAC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9F3673F31AD96A53002FDAC4 /* Acordei-TransparenciaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acordei-TransparenciaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F3673F81AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Acordei_TransparenciaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F3673D71AD96A53002FDAC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F3673F01AD96A53002FDAC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9F3673D11AD96A53002FDAC4 = {
+			isa = PBXGroup;
+			children = (
+				9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */,
+				9F3673F61AD96A53002FDAC4 /* Acordei-TransparenciaTests */,
+				9F3673DB1AD96A53002FDAC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F3673DB1AD96A53002FDAC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */,
+				9F3673F31AD96A53002FDAC4 /* Acordei-TransparenciaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673E11AD96A53002FDAC4 /* AppDelegate.h */,
+				9F3673E21AD96A53002FDAC4 /* AppDelegate.m */,
+				9F3673E41AD96A53002FDAC4 /* ViewController.h */,
+				9F3673E51AD96A53002FDAC4 /* ViewController.m */,
+				9F3673E71AD96A53002FDAC4 /* Main.storyboard */,
+				9F3673EA1AD96A53002FDAC4 /* Images.xcassets */,
+				9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */,
+				9F3673DD1AD96A53002FDAC4 /* Supporting Files */,
+			);
+			path = "Acordei-Transparencia";
+			sourceTree = "<group>";
+		};
+		9F3673DD1AD96A53002FDAC4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673DE1AD96A53002FDAC4 /* Info.plist */,
+				9F3673DF1AD96A53002FDAC4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F3673F61AD96A53002FDAC4 /* Acordei-TransparenciaTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673F91AD96A53002FDAC4 /* Acordei_TransparenciaTests.m */,
+				9F3673F71AD96A53002FDAC4 /* Supporting Files */,
+			);
+			path = "Acordei-TransparenciaTests";
+			sourceTree = "<group>";
+		};
+		9F3673F71AD96A53002FDAC4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F3673F81AD96A53002FDAC4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F3673D91AD96A53002FDAC4 /* Acordei-Transparencia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F3673FD1AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-Transparencia" */;
+			buildPhases = (
+				9F3673D61AD96A53002FDAC4 /* Sources */,
+				9F3673D71AD96A53002FDAC4 /* Frameworks */,
+				9F3673D81AD96A53002FDAC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Acordei-Transparencia";
+			productName = "Acordei-Transparencia";
+			productReference = 9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9F3673F21AD96A53002FDAC4 /* Acordei-TransparenciaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F3674001AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-TransparenciaTests" */;
+			buildPhases = (
+				9F3673EF1AD96A53002FDAC4 /* Sources */,
+				9F3673F01AD96A53002FDAC4 /* Frameworks */,
+				9F3673F11AD96A53002FDAC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F3673F51AD96A53002FDAC4 /* PBXTargetDependency */,
+			);
+			name = "Acordei-TransparenciaTests";
+			productName = "Acordei-TransparenciaTests";
+			productReference = 9F3673F31AD96A53002FDAC4 /* Acordei-TransparenciaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F3673D21AD96A53002FDAC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = acordei;
+				TargetAttributes = {
+					9F3673D91AD96A53002FDAC4 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					9F3673F21AD96A53002FDAC4 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 9F3673D91AD96A53002FDAC4;
+					};
+				};
+			};
+			buildConfigurationList = 9F3673D51AD96A53002FDAC4 /* Build configuration list for PBXProject "Acordei-Transparencia" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F3673D11AD96A53002FDAC4;
+			productRefGroup = 9F3673DB1AD96A53002FDAC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F3673D91AD96A53002FDAC4 /* Acordei-Transparencia */,
+				9F3673F21AD96A53002FDAC4 /* Acordei-TransparenciaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F3673D81AD96A53002FDAC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F3673E91AD96A53002FDAC4 /* Main.storyboard in Resources */,
+				9F3673EE1AD96A53002FDAC4 /* LaunchScreen.xib in Resources */,
+				9F3673EB1AD96A53002FDAC4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F3673F11AD96A53002FDAC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F3673D61AD96A53002FDAC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
+				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
+				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F3673EF1AD96A53002FDAC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F3673FA1AD96A53002FDAC4 /* Acordei_TransparenciaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F3673F51AD96A53002FDAC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F3673D91AD96A53002FDAC4 /* Acordei-Transparencia */;
+			targetProxy = 9F3673F41AD96A53002FDAC4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9F3673E71AD96A53002FDAC4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F3673E81AD96A53002FDAC4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F3673ED1AD96A53002FDAC4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F3673FB1AD96A53002FDAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9F3673FC1AD96A53002FDAC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F3673FE1AD96A53002FDAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F3673FF1AD96A53002FDAC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9F3674011AD96A53002FDAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Acordei-TransparenciaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acordei-Transparencia.app/Acordei-Transparencia";
+			};
+			name = Debug;
+		};
+		9F3674021AD96A53002FDAC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Acordei-TransparenciaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acordei-Transparencia.app/Acordei-Transparencia";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F3673D51AD96A53002FDAC4 /* Build configuration list for PBXProject "Acordei-Transparencia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F3673FB1AD96A53002FDAC4 /* Debug */,
+				9F3673FC1AD96A53002FDAC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F3673FD1AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-Transparencia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F3673FE1AD96A53002FDAC4 /* Debug */,
+				9F3673FF1AD96A53002FDAC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9F3674001AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-TransparenciaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F3674011AD96A53002FDAC4 /* Debug */,
+				9F3674021AD96A53002FDAC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F3673D21AD96A53002FDAC4 /* Project object */;
+}
