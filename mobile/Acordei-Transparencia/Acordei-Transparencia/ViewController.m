@@ -19,11 +19,11 @@
     [super viewDidLoad];
 
     [[[ApiCall alloc] init]
-     callWithUrl:@"https://www.kimonolabs.com/api/28d5kkdo?apikey=10deb955005b151ee7f6d2d2c796cde6"
+        callWithUrl:@"https://www.kimonolabs.com/api/28d5kkdo?apikey=10deb955005b151ee7f6d2d2c796cde6"
         SuccessCallback:^(NSString *message){
-         NSLog(@"Veio do WS essa mensagem de successo: %@",message);
+            NSLog(@"Veio do WS essa mensagem de successo: %@",message);
         }ErrorCallback:^(NSString *erro){
-         NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
+            NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
         }];
 }
 
