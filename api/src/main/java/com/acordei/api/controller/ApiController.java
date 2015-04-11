@@ -1,16 +1,27 @@
 package com.acordei.api.controller;
 
+import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.domain.Sample;
+import com.acordei.api.service.PoliticoService;
 import com.acordei.api.service.SampleService;
 import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Api(value = "/api", description = "Api operations")
 public class ApiController {
-
 	@Autowired private SampleService service;
+    @Autowired private PoliticoService politicoService;
+
+
+    @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
+    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("NOME_POLITICO") String nomePolitico) {
+        return politicoService.findProjetosDeLei(nomePolitico);
+    }
+
 
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getEstatisticasNacionais() {
@@ -44,11 +55,6 @@ public class ApiController {
 
     @RequestMapping(value = "/api/politico/{ID}/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getPoliticoEstatisticas(@PathVariable("ID") String id) {
-        return service.sample();
-    }
-
-    @RequestMapping(value = "/api/politico/{ID}/projetos", method = RequestMethod.GET)
-    public @ResponseBody Sample getPoliticoProjetos(@PathVariable("ID") String id) {
         return service.sample();
     }
 
