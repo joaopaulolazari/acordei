@@ -1,0 +1,4 @@
+
+@interface CacheAPI : NSObject
+
+@end
