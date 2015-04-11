@@ -16,6 +16,13 @@ public class ApiController {
 	@Autowired private SampleService service;
     @Autowired private PoliticoService politicoService;
 
+
+    @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
+    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("NOME_POLITICO") String nomePolitico) {
+        return politicoService.findProjetosDeLei(nomePolitico);
+    }
+
+
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getEstatisticasNacionais() {
         return service.sample();
@@ -50,13 +57,6 @@ public class ApiController {
     public @ResponseBody Sample getPoliticoEstatisticas(@PathVariable("ID") String id) {
         return service.sample();
     }
-
-
-    @RequestMapping(value = "/api/politico/{ID_POLITICO}/projetos", method = RequestMethod.GET)
-    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@PathVariable("ID_POLITICO") String id) {
-        return politicoService.findProjetosDeLei();
-    }
-
 
     @RequestMapping(value = "/api/politico/{ID}/gastos", method = RequestMethod.GET)
     public @ResponseBody Sample getPoliticoGastos(@PathVariable("ID") String id) {
