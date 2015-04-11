@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
+		66C1323C1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
 		9F3673E01AD96A53002FDAC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673DF1AD96A53002FDAC4 /* main.m */; };
 		9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E21AD96A53002FDAC4 /* AppDelegate.m */; };
 		9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673E51AD96A53002FDAC4 /* ViewController.m */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66C132361AD96CCC00CF2142 /* ApiCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiCall.h; path = Rest/ApiCall.h; sourceTree = "<group>"; };
+		66C1323A1AD9767500CF2142 /* ApiCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApiCall.m; path = Rest/ApiCall.m; sourceTree = "<group>"; };
 		9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Acordei-Transparencia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3673DE1AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3673DF1AD96A53002FDAC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66C132321AD96B1F00CF2142 /* rest */ = {
+			isa = PBXGroup;
+			children = (
+				66C1323A1AD9767500CF2142 /* ApiCall.m */,
+				66C132361AD96CCC00CF2142 /* ApiCall.h */,
+			);
+			name = rest;
+			sourceTree = "<group>";
+		};
 		9F3673D11AD96A53002FDAC4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,7 @@
 		9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */ = {
 			isa = PBXGroup;
 			children = (
+				66C132321AD96B1F00CF2142 /* rest */,
 				9F3673E11AD96A53002FDAC4 /* AppDelegate.h */,
 				9F3673E21AD96A53002FDAC4 /* AppDelegate.m */,
 				9F3673E41AD96A53002FDAC4 /* ViewController.h */,
@@ -221,6 +235,7 @@
 			files = (
 				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
 				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
+				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C1323C1AD9767500CF2142 /* ApiCall.m in Sources */,
 				9F3673FA1AD96A53002FDAC4 /* Acordei_TransparenciaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +428,7 @@
 				9F3673FF1AD96A53002FDAC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F3674001AD96A53002FDAC4 /* Build configuration list for PBXNativeTarget "Acordei-TransparenciaTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +437,7 @@
 				9F3674021AD96A53002FDAC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
