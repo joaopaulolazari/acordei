@@ -6,6 +6,7 @@ import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,7 +16,7 @@ public class ApiController {
 	private SampleService service;
 
     @RequestMapping(value = "/api/sample", method = RequestMethod.GET)
-    public Sample sample() {
+    public @ResponseBody Sample sample() {
     	return service.sample();
     }
 }
