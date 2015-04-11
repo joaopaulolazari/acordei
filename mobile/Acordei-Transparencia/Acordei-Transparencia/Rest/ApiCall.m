@@ -1,11 +1,3 @@
-//
-//  www.example.m
-//  Acordei-Transparencia
-//
-//  Created by Deivison Sporteman on 4/11/15.
-//  Copyright (c) 2015 acordei. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "ApiCall.h"
 
