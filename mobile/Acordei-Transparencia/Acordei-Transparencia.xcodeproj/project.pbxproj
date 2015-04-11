@@ -34,7 +34,7 @@
 		66C132361AD96CCC00CF2142 /* ApiCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiCall.h; path = Rest/ApiCall.h; sourceTree = "<group>"; };
 		66C1323A1AD9767500CF2142 /* ApiCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApiCall.m; path = Rest/ApiCall.m; sourceTree = "<group>"; };
 		66C1323E1AD977CC00CF2142 /* CacheAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheAPI.m; path = Cache/CacheAPI.m; sourceTree = "<group>"; };
-		66C132431AD978BA00CF2142 /* CacheAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheAPI.h; sourceTree = "<group>"; };
+		66C132441AD9799F00CF2142 /* CacheAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CacheAPI.h; path = Cache/CacheAPI.h; sourceTree = "<group>"; };
 		9F3673DA1AD96A53002FDAC4 /* Acordei-Transparencia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Acordei-Transparencia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3673DE1AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3673DF1AD96A53002FDAC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 		66C1323D1AD9777E00CF2142 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				66C132431AD978BA00CF2142 /* CacheAPI.h */,
 				66C1323E1AD977CC00CF2142 /* CacheAPI.m */,
+				66C132441AD9799F00CF2142 /* CacheAPI.h */,
 			);
 			name = cache;
 			sourceTree = "<group>";
