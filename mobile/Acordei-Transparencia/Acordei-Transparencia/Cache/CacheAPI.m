@@ -19,9 +19,7 @@ static CacheAPI *sharedDatabase = nil;
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDir = [documentPaths objectAtIndex:0];
     NSString *databasePath = [documentDir stringByAppendingPathComponent:databaseName];
-    
     _db = [FMDatabase databaseWithPath:databasePath];
-    
     if (![_db open])
         NSLog(@"Database problem");
 }
@@ -30,12 +28,30 @@ static CacheAPI *sharedDatabase = nil;
     return _db;
 }
 
+-(void) putByKey:(NSString *)key json:(NSString *) json{
+    [_db executeUpdate:@"INSERT INTO dashboard(key,json_value) VALUES (?,?)", key,json];
+}
+
+-(NSString *) getByKey:(NSString * ) key {
+    FMResultSet *s = [_db executeQuery:@"SELECT json_value FROM dashboard where key=?" withArgumentsInArray:[[NSArray alloc] initWithObjects:key, nil ]];
+    if ([s next]) {
+        return [s stringForColumn:@"json_value"];
+    }
+    return NULL;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
-        // Work your initialising magic here as you normally would
+        [self initDB];
+        [self createTables];
     }
     return self;
+}
+
+-(void) createTables {
+    NSString *sql = @"create table IF NOT EXISTS dashboard (id integer primary key autoincrement, key text, json_value text,UNIQUE(key) ON CONFLICT REPLACE);";
+    [_db executeStatements:sql];
 }
 
 - (id)copyWithZone:(NSZone *)zone {

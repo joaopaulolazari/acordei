@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ApiCall.h"
+#import "CacheAPI.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,9 @@
         }ErrorCallback:^(NSString *erro){
             NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
         }];
+
+//    [[CacheAPI sharedDatabase] putByKey:@"deivison" json:@"{id:1}"];
+    NSLog(@"From database by deivison => %@",[[CacheAPI sharedDatabase] getByKey:@"deivison"]);
 }
 
 - (void)didReceiveMemoryWarning {

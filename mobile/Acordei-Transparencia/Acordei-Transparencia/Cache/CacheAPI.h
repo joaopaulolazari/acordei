@@ -6,5 +6,7 @@
     + (id)sharedDatabase;
     - (void)initDB;
     - (FMDatabase *)getDB;
+    -(void) putByKey:(NSString *)key json:(NSString *) json;
+    -(NSString *) getByKey:(NSString * ) key;
 
 @end

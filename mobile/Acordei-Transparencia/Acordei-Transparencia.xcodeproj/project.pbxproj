@@ -10,6 +10,7 @@
 		4F3E5A797364CFB5C148BF5B /* libPods-Acordei-TransparenciaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */; };
 		5C63CDDD4AB8ED6A42519543 /* libPods-Acordei-Transparencia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */; };
 		66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66220CF21AD9947F002B69A9 /* CacheAPI.m */; };
+		66220CF51AD99A6A002B69A9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66220CF41AD99A6A002B69A9 /* libsqlite3.dylib */; };
 		66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
 		66C1323C1AD9767500CF2142 /* ApiCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C1323A1AD9767500CF2142 /* ApiCall.m */; };
 		9F3673E01AD96A53002FDAC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3673DF1AD96A53002FDAC4 /* main.m */; };
@@ -36,6 +37,7 @@
 		5AAD2907D9BE86BEBA0DD254 /* Pods-Acordei-TransparenciaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-TransparenciaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-TransparenciaTests/Pods-Acordei-TransparenciaTests.release.xcconfig"; sourceTree = "<group>"; };
 		66220CF11AD9947F002B69A9 /* CacheAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheAPI.h; path = Cache/CacheAPI.h; sourceTree = "<group>"; };
 		66220CF21AD9947F002B69A9 /* CacheAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheAPI.m; path = Cache/CacheAPI.m; sourceTree = "<group>"; };
+		66220CF41AD99A6A002B69A9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66C132361AD96CCC00CF2142 /* ApiCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiCall.h; path = Rest/ApiCall.h; sourceTree = "<group>"; };
 		66C1323A1AD9767500CF2142 /* ApiCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApiCall.m; path = Rest/ApiCall.m; sourceTree = "<group>"; };
 		7520625321B7FC6E8BBD1BF2 /* Pods-Acordei-Transparencia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acordei-Transparencia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acordei-Transparencia/Pods-Acordei-Transparencia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66220CF51AD99A6A002B69A9 /* libsqlite3.dylib in Frameworks */,
 				5C63CDDD4AB8ED6A42519543 /* libPods-Acordei-Transparencia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +172,7 @@
 		C120216BE2285F89915F16BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66220CF41AD99A6A002B69A9 /* libsqlite3.dylib */,
 				CE459D73D33EF07EF497AC70 /* libPods-Acordei-Transparencia.a */,
 				BF56EB13C8F65981116C408B /* libPods-Acordei-TransparenciaTests.a */,
 			);
