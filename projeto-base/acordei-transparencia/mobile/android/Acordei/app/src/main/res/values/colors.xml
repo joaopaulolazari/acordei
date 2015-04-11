@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#FFCA06</color>
+    <color name="action_bar_background">#85CE30</color>
+    <color name="background_dark_yellow">#FBA617</color>
+
+    <color name="black_transparent">#D9000000</color>
+    <color name="tip_textcolor">#e7e74b</color>
+
+    <!-- sea -->
+    <color name="sea_darker">#256198</color>
+    <color name="sea_dark">#256198</color>
+    <color name="sea_primary">#3892E3</color>
+    <color name="sea_light">#3892E3</color>
+    <integer-array name="sea">
+        <item>@color/sea_darker</item>
+        <item>@color/sea_dark</item>
+        <item>@color/sea_primary</item>
+        <item>@color/sea_light</item>
+    </integer-array>
+
+    <!-- yellow -->
+    <color name="yellow_darker">#D58807</color>
+    <color name="yellow_dark">#D58807</color>
+    <color name="yellow_primary">#FBA617</color>
+    <color name="yellow_light">#FBA617</color>
+    <integer-array name="yellow">
+        <item>@color/yellow_darker</item>
+        <item>@color/yellow_dark</item>
+        <item>@color/yellow_primary</item>
+        <item>@color/yellow_light</item>
+    </integer-array>
+
+    <!-- green -->
+    <color name="green_darker">#4A7F0C</color>
+    <color name="green_dark">#4A7F0C</color>
+    <color name="green_primary">#85CE30</color>
+    <color name="green_light">#85CE30</color>
+    <integer-array name="green">
+        <item>@color/green_darker</item>
+        <item>@color/green_dark</item>
+        <item>@color/green_primary</item>
+        <item>@color/green_light</item>
+    </integer-array>
+
+    <color name="popup_blue_background">#4B8FDC</color>
+    <color name="button_blue">#3892E3</color>
+    <color name="button_blue_shadow">#256198</color>
+    <color name="button_yellow">#FBA617</color>
+    <color name="button_yellow_shadow">#D58807</color>
+    <color name="button_green">#85CE30</color>
+    <color name="button_green_shadow">#4A7F0C</color>
+    <color name="black">#000000</color>
+    <color name="orange_line">#FFCA06</color>
+    <color name="transparent_popup">#A6000000</color>
+
+
+    <color name="pink">#FF4E50</color>
+    <color name="orange">#FC913A</color>
+    <color name="light_yellow">#EDE574</color>
+    <color name="yellow">#F9D423</color>
+    <color name="green">#E1F5C4</color>
+
+    <color name="soft_pink">#77FF4E50</color>
+    <color name="soft_orange">#77FC913A</color>
+    <color name="soft_light_yellow">#77EDE574</color>
+    <color name="soft_yellow">#77F9D423</color>
+    <color name="soft_green">#77E1F5C4</color>
+    <color name="soft_gray">#70202020</color>
+    <color name="soft_black">#C0000000</color>
+</resources>

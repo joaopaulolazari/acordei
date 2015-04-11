@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>unquote</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="../components/platform/platform.js">
+  </script>
+
+  <link rel="import" href="../components/font-roboto/roboto.html">
+  <link rel="import"
+    href="../components/core-header-panel/core-header-panel.html">
+  <link rel="import"
+    href="../components/core-toolbar/core-toolbar.html">
+  <link rel="import"
+    href="../components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="post-list.html">
+
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+  }
+  core-header-panel {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; 
+  }
+  core-toolbar {
+    background: #03a9f4;
+    color: white;
+  }
+  #tabs {
+    width: 100%;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  @media (min-width: 481px) {
+    #tabs {
+      width: 100%;
+    }
+    .container {
+      width: 400px;
+    }
+  }
+  </style>
+
+</head>
+
+<body unresolved>
+  <core-scaffold>
+  <core-header-panel>
+
+    <core-toolbar navigation flex mode="seamed">
+      <core-menu>
+      <paper-tabs id="tabs" selected="about" self-end>
+        <paper-tab name="about">  Sobre  </paper-tab>
+        <paper-tab name="AC">  AC  </paper-tab>
+        <paper-tab name="AL">  AL  </paper-tab>
+        <paper-tab name="AP">  AP  </paper-tab>
+        <paper-tab name="AM">  AM  </paper-tab>
+        <paper-tab name="BA">  BA  </paper-tab>
+        <paper-tab name="CE">  CE  </paper-tab>
+        <paper-tab name="DF">  DF  </paper-tab>
+        <paper-tab name="ES">  ES  </paper-tab>
+        <paper-tab name="GO">  GO  </paper-tab>
+        <paper-tab name="MA">  MA  </paper-tab>
+        <paper-tab name="MT">  MT  </paper-tab>
+        <paper-tab name="MS">  MS  </paper-tab>
+        <paper-tab name="MG">  MG  </paper-tab>
+        <paper-tab name="PA">  PA  </paper-tab>
+        <paper-tab name="PB">  PB  </paper-tab>
+        <paper-tab name="PR">  PR  </paper-tab>
+        <paper-tab name="PE">  PE  </paper-tab>
+        <paper-tab name="PI">  PI  </paper-tab>
+        <paper-tab name="RJ">  RJ  </paper-tab>
+        <paper-tab name="RN">  RN  </paper-tab>
+        <paper-tab name="RS">  RS  </paper-tab>
+        <paper-tab name="RO">  RO  </paper-tab>
+        <paper-tab name="RR">  RR  </paper-tab>
+        <paper-tab name="SC">  SC  </paper-tab>
+        <paper-tab name="SP">  SP  </paper-tab>
+        <paper-tab name="SE">  SE  </paper-tab>
+        <paper-tab name="TO">  TO  </paper-tab>
+      </paper-tabs>
+        </core-menu>
+    </core-toolbar>
+
+    <!-- main page content will go here -->
+
+  </core-header-panel>
+  </core-scaffold>
+  <script>
+    /*var tabs = document.querySelector('paper-tabs');
+    tabs.addEventListener('core-select', function(e) {
+      
+    });*/
+    var tabs = document.querySelector('paper-tabs');
+    var list = document.querySelector('post-list');
+
+    tabs.addEventListener('core-select', function() {
+      alert('tabs.selected: '+tabs.selected);
+      list.show = tabs.selected;
+    });
+  </script>
+</body>
+
+</html>

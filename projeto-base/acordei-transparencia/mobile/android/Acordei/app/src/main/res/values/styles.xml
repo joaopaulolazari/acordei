@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- Base application theme.
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        Customize your theme here.
+    </style>-->
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:actionBarStyle">@style/AcordeiActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/AcordeiActionBar</item>
+        <item name="android:actionMenuTextColor">@color/green_dark</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/AcordeiActionBar</item>
+        <item name="actionBarTabTextStyle">@style/AcordeiActionBar</item>
+        <item name="actionMenuTextColor">@color/green_dark</item>
+
+        <item name="colorPrimaryDark">@color/green_light</item>
+        <item name="colorPrimary">@color/green_light</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat">
+
+        <item name="android:actionBarStyle">@style/AcordeiActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/AcordeiActionBar</item>
+        <item name="android:actionMenuTextColor">@color/green_dark</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/AcordeiActionBar</item>
+        <item name="actionBarTabTextStyle">@style/AcordeiActionBar</item>
+        <item name="actionMenuTextColor">@color/green_dark</item>
+
+        <item name="colorPrimaryDark">@color/green_light</item>
+        <item name="colorPrimary">@color/green_light</item>
+    </style>
+
+    <style name="AppTheme.Widget" />
+
+
+
+    <style name="AcordeiActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/action_bar_background</item>
+
+    <!-- Support library compatibility -->
+        <item name="background">@color/action_bar_background</item>
+    </style>
+</resources>

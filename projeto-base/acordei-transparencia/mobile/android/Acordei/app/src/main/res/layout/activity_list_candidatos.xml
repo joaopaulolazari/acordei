@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.gc.materialdesign.views.Card
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/vinte"
+        android:layout_marginRight="@dimen/vinte"
+        android:layout_height="@dimen/button_heigth_default">
+
+    </com.gc.materialdesign.views.Card>
+
+    <ListView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_blue"
+        android:choiceMode="singleChoice"
+        android:id="@+id/candidate_list" />
+
+</LinearLayout>

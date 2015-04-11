@@ -1,0 +1,31 @@
+<resources>
+    <dimen name="perfil_bandeira_heigth">124dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>
+
+    <dimen name="activity_small_horizontal_margin">4dp</dimen>
+    <dimen name="activity_small_vertical_margin">4dp</dimen>
+
+    <dimen name="label_default_size_26">13sp</dimen>
+    <dimen name="label_default_size_18">9sp</dimen>
+    <dimen name="label_default_size_15">7.5sp</dimen>
+    <dimen name="label_default_size_16">8sp</dimen>
+    <dimen name="default_margin_top">10dp</dimen>
+    <dimen name="default_margin_big_top">20dp</dimen>
+    <dimen name="button_heigth_default">43dp</dimen>
+
+    <!-- Grid Button  -->
+    <dimen name="button_small_default_heigth">48.5dp</dimen>
+    <dimen name="button_small_default_width">82dp</dimen>
+    <dimen name="label_default_size_17">8.5sp</dimen>
+    <dimen name="label_default_size_13">6.5sp</dimen>
+    <dimen name="height_68">34dp</dimen>
+    <dimen name="height_34">17dp</dimen>
+    <dimen name="label_default_size_20">10sp</dimen>
+    <dimen name="label_default_size_24">12sp</dimen>
+    <dimen name="combo_heigth">40dp</dimen>
+    <dimen name="candidate_orange_heigth">59.5dp</dimen>
+
+</resources>

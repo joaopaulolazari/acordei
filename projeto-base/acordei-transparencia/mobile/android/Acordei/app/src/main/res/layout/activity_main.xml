@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:m="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.gc.materialdesign.views.ButtonRectangle
+                m:rippleSpeed="30"
+                android:id="@+id/btn_deputados_estaduais"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="@dimen/candidate_orange_heigth"
+                android:background="@color/sea_light"
+                android:text="@string/deputados_estaduais" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/btn_deputados_federais"
+                m:rippleSpeed="30"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="@dimen/candidate_orange_heigth"
+                android:background="@color/sea_light"
+                android:text="@string/deputados_federais" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/btn_senadores"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                m:rippleSpeed="30"
+                android:layout_height="@dimen/candidate_orange_heigth"
+                android:background="@color/yellow_light"
+                android:text="@string/senadores" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/btn_governadores"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                m:rippleSpeed="30"
+                android:layout_height="@dimen/candidate_orange_heigth"
+                android:background="@color/yellow_light"
+                android:text="@string/governadores" />
+        </LinearLayout>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/btn_presidente"
+            xmlns:m="http://schemas.android.com/apk/res-auto"
+            m:rippleSpeed="50"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/candidate_orange_heigth"
+            android:background="@color/green_light"
+            android:text="@string/presidente" />
+    </LinearLayout>
+
+</RelativeLayout>
