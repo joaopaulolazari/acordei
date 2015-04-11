@@ -23,15 +23,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="acordei-transparencia" />
-        <module name="acordei-transparencia-api" />
-        <module name="timesheet" />
+        <module name="transparencia" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="acordei-transparencia" target="1.8" />
-      <module name="acordei-transparencia-api" target="1.5" />
-      <module name="timesheet" target="1.8" />
+      <module name="transparencia" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

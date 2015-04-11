@@ -14,6 +14,10 @@ public class Sample {
         this.sampleId = idAtividade;
     }
 
+    public String getSampleId() {
+        return sampleId;
+    }
+
     @Override
     public boolean equals(Object o) {
        return EqualsBuilder.reflectionEquals(o, this);
