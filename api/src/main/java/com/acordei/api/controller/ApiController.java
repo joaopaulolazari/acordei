@@ -57,10 +57,5 @@ public class ApiController {
         return service.sample();
     }
 
-    @RequestMapping(value = "/api/politico/{ID}/presencas", method = RequestMethod.GET)
-    public @ResponseBody Sample getPoliticoPresencas(@PathVariable("ID") String id) {
-        return service.sample();
-    }
-
 
 }
