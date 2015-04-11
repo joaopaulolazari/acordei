@@ -46,12 +46,17 @@
     
     cell.lblName.text = [name objectAtIndex:indexPath.row];
     cell.lblRole.text = [role objectAtIndex:indexPath.row];
+    cell.imgPerson.image = [UIImage imageNamed:@"tyrion.png"];
+    
+    [cell layoutSubviews];
     
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Profile"];
+    pvc.hidesBottomBarWhenPushed = YES;
+    pvc.title = [name objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:pvc animated:YES];
 }
 

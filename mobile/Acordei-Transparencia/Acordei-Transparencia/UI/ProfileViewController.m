@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "ProfileCustomCell.h"
+#import "ProfilePhotoUtil.h"
 
 @interface ProfileViewController ()
 
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:116];
+    [self.imgProfile setImage:[UIImage imageNamed:@"tyrion.png"]];
     iconImages = [self populateIconsInArray];
     categoryNames = [self populateCategoryNames];
 }
