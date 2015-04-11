@@ -10,5 +10,6 @@
 
 @interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
 
 @end

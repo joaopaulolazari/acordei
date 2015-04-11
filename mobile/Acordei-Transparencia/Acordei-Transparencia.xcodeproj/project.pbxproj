@@ -20,6 +20,9 @@
 		9F3673EB1AD96A53002FDAC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EA1AD96A53002FDAC4 /* Images.xcassets */; };
 		9F3673EE1AD96A53002FDAC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3673EC1AD96A53002FDAC4 /* LaunchScreen.xib */; };
 		9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */; };
+		9FB59BDD1AD9CA62005FF188 /* ProfilePhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BDC1AD9CA62005FF188 /* ProfilePhotoUtil.m */; };
+		9FB59BE01AD9DB04005FF188 /* ProjectsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */; };
+		9FB59BE31AD9DB54005FF188 /* ProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */; };
 		9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */; };
 		9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,12 @@
 		9F3673F81AD96A53002FDAC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FA6823F1AD9B11E002C9981 /* PoliticsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoliticsCustomCell.h; path = "Custom Cells/PoliticsCustomCell.h"; sourceTree = "<group>"; };
 		9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoliticsCustomCell.m; path = "Custom Cells/PoliticsCustomCell.m"; sourceTree = "<group>"; };
+		9FB59BDB1AD9CA62005FF188 /* ProfilePhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePhotoUtil.h; sourceTree = "<group>"; };
+		9FB59BDC1AD9CA62005FF188 /* ProfilePhotoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePhotoUtil.m; sourceTree = "<group>"; };
+		9FB59BDE1AD9DB04005FF188 /* ProjectsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsCell.h; path = "Custom Cells/ProjectsCell.h"; sourceTree = "<group>"; };
+		9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsCell.m; path = "Custom Cells/ProjectsCell.m"; sourceTree = "<group>"; };
+		9FB59BE11AD9DB54005FF188 /* ProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsViewController.h; path = UI/ProjectsViewController.h; sourceTree = "<group>"; };
+		9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsViewController.m; path = UI/ProjectsViewController.m; sourceTree = "<group>"; };
 		9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCustomCell.h; path = "Custom Cells/ProfileCustomCell.h"; sourceTree = "<group>"; };
 		9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCustomCell.m; path = "Custom Cells/ProfileCustomCell.m"; sourceTree = "<group>"; };
 		9FBB65791AD9C50C00319FAE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = UI/ProfileViewController.h; sourceTree = "<group>"; };
@@ -128,6 +137,7 @@
 		9F3673DC1AD96A53002FDAC4 /* Acordei-Transparencia */ = {
 			isa = PBXGroup;
 			children = (
+				9FBB657C1AD9C99800319FAE /* Utils */,
 				9FBB65781AD9C4F500319FAE /* UI */,
 				9FA6823E1AD9AF08002C9981 /* CustomCells */,
 				66C1323D1AD9777E00CF2142 /* cache */,
@@ -170,6 +180,8 @@
 		9FA6823E1AD9AF08002C9981 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				9FB59BDE1AD9DB04005FF188 /* ProjectsCell.h */,
+				9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */,
 				9FA6823F1AD9B11E002C9981 /* PoliticsCustomCell.h */,
 				9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */,
 				9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */,
@@ -185,8 +197,19 @@
 				9F3673E51AD96A53002FDAC4 /* ViewController.m */,
 				9FBB65791AD9C50C00319FAE /* ProfileViewController.h */,
 				9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */,
+				9FB59BE11AD9DB54005FF188 /* ProjectsViewController.h */,
+				9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		9FBB657C1AD9C99800319FAE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9FB59BDB1AD9CA62005FF188 /* ProfilePhotoUtil.h */,
+				9FB59BDC1AD9CA62005FF188 /* ProfilePhotoUtil.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		A80DD32593EFA8F85EF0DBBC /* Pods */ = {
@@ -379,10 +402,13 @@
 			files = (
 				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
 				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
+				9FB59BE31AD9DB54005FF188 /* ProjectsViewController.m in Sources */,
 				9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */,
 				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
+				9FB59BDD1AD9CA62005FF188 /* ProfilePhotoUtil.m in Sources */,
 				9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */,
 				9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */,
+				9FB59BE01AD9DB04005FF188 /* ProjectsCell.m in Sources */,
 				66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
 			);

@@ -8,6 +8,8 @@
 
 #import "ProfileViewController.h"
 #import "ProfileCustomCell.h"
+#import "ProfilePhotoUtil.h"
+#import "ProjectsViewController.h"
 
 @interface ProfileViewController ()
 
@@ -20,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:116];
+    [self.imgProfile setImage:[UIImage imageNamed:@"tyrion.png"]];
     iconImages = [self populateIconsInArray];
     categoryNames = [self populateCategoryNames];
 }
@@ -43,6 +47,14 @@
     cell.imgIcon.image = [UIImage imageNamed:[iconImages objectAtIndex:indexPath.row]];
     
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 0) {
+        ProjectsViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Projects"];
+        [self.navigationController pushViewController:pvc animated:YES];
+    }
 }
 
 
