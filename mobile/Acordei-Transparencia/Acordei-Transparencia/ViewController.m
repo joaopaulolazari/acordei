@@ -26,14 +26,13 @@
         }ErrorCallback:^(NSString *erro){
             NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
         }];
-
+    
 //    [[CacheAPI sharedDatabase] putByKey:@"deivison" json:@"{id:1}"];
-    NSLog(@"From database by deivison => %@",[[CacheAPI sharedDatabase] getByKey:@"deivison"]);
+//    NSLog(@"From database by deivison => %@",[[CacheAPI sharedDatabase] getByKey:@"deivison"]);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
