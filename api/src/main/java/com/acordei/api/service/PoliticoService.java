@@ -67,6 +67,10 @@ public class PoliticoService {
         return new PoliticoAssiduidadeParser(response).parse();
     }
 
+    public List<Politico> listSenadores(){
+        Document response = xmlRequest("http://legis.senado.leg.br/dadosabertos/senador/lista/atual");
+        return new PoliticoSenadorParser(response).parse();
+    }
     public List<Politico> listPoliticos() {
         Document response = xmlRequest("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
         return new PoliticoParser(response).parse();
