@@ -66,7 +66,7 @@ public class PoliticoService {
         Document detalhesPolitico = xmlRequest(uri);
         Politico politico = new PoliticoDetailParser(detalhesPolitico).parse().stream().findFirst().get();
 
-        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + politico.getNomeParlamentar())).parse();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/76qljatw?apikey=sAY16RwEJbTl5P0GV5oHYCdLXuTmYkCA&kimpath1=" + politico.getNomeParlamentar())).parse();
         politico.setBiografia(politicoBiografia.getBiografia());
         politico.setSituacao(politicoBiografia.getSituacao());
         return politico;
