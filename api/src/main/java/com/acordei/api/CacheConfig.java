@@ -27,11 +27,11 @@ public class CacheConfig implements CachingConfigurer {
     }
 
     private CacheConfiguration createCache(String cacheName, int maxEntriesLocalHeap) {
-        CacheConfiguration cacheAssiduidadeConfiguration = new CacheConfiguration();
-        cacheAssiduidadeConfiguration.setName(cacheName);
-        cacheAssiduidadeConfiguration.setMemoryStoreEvictionPolicy("LRU");
-        cacheAssiduidadeConfiguration.setMaxEntriesLocalHeap(maxEntriesLocalHeap);
-        return cacheAssiduidadeConfiguration;
+        CacheConfiguration newCacheArea = new CacheConfiguration();
+        newCacheArea.setName(cacheName);
+        newCacheArea.setMemoryStoreEvictionPolicy("LRU");
+        newCacheArea.setMaxEntriesLocalHeap(maxEntriesLocalHeap);
+        return newCacheArea;
     }
 
     @Bean
