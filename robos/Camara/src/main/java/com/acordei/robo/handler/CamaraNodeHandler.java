@@ -38,9 +38,7 @@ public class CamaraNodeHandler implements NodeHandler {
 
     private void createPolitiqueWithExpense(StructuredNode node, String key) throws XPathExpressionException {
         Document document = createBaseDocumentWithKey(key);
-        //document.put("nome",node.queryString("txNomeParlamentar"));
         document.put("id", node.queryString("ideCadastro"));
-        //document.put("uf", node.queryString("sgUF"));
         List<Document> expenseList = new ArrayList<>();
         insertNewExpense(expenseList);
         document.put("gastos", expenseList);
