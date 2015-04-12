@@ -4,7 +4,7 @@
 
 @implementation ApiCall : NSObject
 
-- (void) callWithUrl:(NSString *) url SuccessCallback:(void (^)(NSString *responseData)) successBlock ErrorCallback:(void (^)(NSString *responseData)) erroBlock {
+- (void) callWithUrl:(NSString *) url SuccessCallback:(void (^)(NSData *responseData)) successBlock ErrorCallback:(void (^)(NSData *responseData)) erroBlock {
     
     self.completeWithSuccess = successBlock;
     self.completeWithError = erroBlock;
@@ -17,9 +17,9 @@
                                        queue:queue
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
                                if (error) {
-                                   self.completeWithError(error.localizedDescription);
+                                   self.completeWithError(nil);
                                }
-                               self.completeWithSuccess([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                               self.completeWithSuccess(data);
                            }];
 }
 

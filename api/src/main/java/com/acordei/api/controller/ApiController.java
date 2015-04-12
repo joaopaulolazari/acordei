@@ -1,7 +1,6 @@
 package com.acordei.api.controller;
 
 import com.acordei.api.domain.Politico;
-import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.service.PoliticoService;
 import com.wordnik.swagger.annotations.Api;
