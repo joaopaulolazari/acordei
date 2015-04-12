@@ -5,7 +5,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Politico {
+
     private String matricula;
+    private String assiduidadeID;
     private String nome;
     private String nomeUrna;
     private String nomeParlamentar;
@@ -18,13 +20,14 @@ public class Politico {
     public Politico() {
     }
 
-    public Politico(String matricula, String nome, String nomeParlamentar, String email, String foto, String uf) {
+    public Politico(String matricula, String nome, String nomeParlamentar, String email, String foto, String uf,String assiduidadeId) {
         this.matricula = matricula;
         this.nome = nome;
         this.nomeParlamentar = nomeParlamentar;
         this.email = email;
         this.foto = foto;
         this.uf = uf;
+        this.assiduidadeID = assiduidadeId;
     }
 
     public Politico(String matricula, String nome, String nomeParlamentar, String email, String foto, String uf, String biografia, String situacao) {
@@ -123,5 +126,13 @@ public class Politico {
 
     public void setNomeUrna(String nomeUrna) {
         this.nomeUrna = nomeUrna;
+    }
+
+    public String getAssiduidadeID() {
+        return assiduidadeID;
+    }
+
+    public void setAssiduidadeID(String assiduidadeID) {
+        this.assiduidadeID = assiduidadeID;
     }
 }

@@ -30,6 +30,11 @@ public class CacheConfig implements CachingConfigurer {
         cacheDashboardConfiguration.setMemoryStoreEvictionPolicy("LRU");
         cacheDashboardConfiguration.setMaxEntriesLocalHeap(50000);
 
+        CacheConfiguration cacheGastosConfiguration = new CacheConfiguration();
+        cacheGastosConfiguration.setName("GASTOS_RESPONSE_CACHE");
+        cacheGastosConfiguration.setMemoryStoreEvictionPolicy("LRU");
+        cacheGastosConfiguration.setMaxEntriesLocalHeap(50000);
+
         net.sf.ehcache.config.Configuration config = new net.sf.ehcache.config.Configuration();
         config.addCache(cacheConfiguration);
         config.addCache(cacheAssiduidadeConfiguration);
