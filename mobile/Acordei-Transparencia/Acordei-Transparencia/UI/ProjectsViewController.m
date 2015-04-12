@@ -42,6 +42,12 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)getNumbers:(NSArray *)array{
+    self.lblNumberApproved.text = [array valueForKey:@"propostasAprovadas"];
+    self.lblNumberArchived.text = [array valueForKey:@"propostasArquivadas"];
+    self.lblNumberRejected.text = [array valueForKey:@"propostasRejeitadas"];
+}
+
 -(NSArray *)populateProjects:(NSData *)data{
     NSError *error;
     return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -54,25 +60,19 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProjectsCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Arquivada"]) {
-        arquivada += 1;
+    if ([[[[projects objectAtIndex:indexPath.row]valueForKey:@"projetos"]valueForKey:@"situacao"]isEqualToString:@"Arquivada"]) {
         cell.imgStatus.image = [UIImage imageNamed:@"icon-archived.png"];
-        self.lblNumberArchived.text = [NSString stringWithFormat:@"%ld", (long)arquivada];
     }
     
     else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Aprovada"]) {
-        aprovada +=1;
         cell.imgStatus.image = [UIImage imageNamed:@"green-check.png"];
-        self.lblNumberApproved.text = [NSString stringWithFormat:@"%ld", (long)aprovada];
     }
     
     else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Rejeitada"]) {
-        aprovada +=1;
         cell.imgStatus.image = [UIImage imageNamed:@"icon-reproved.png"];
-        self.lblNumberRejected.text = [NSString stringWithFormat:@"%ld", (long)reprovada];
     }
     
-    cell.lblProject.text = [[projects objectAtIndex:indexPath.row]valueForKey:@"descricao"];
+    cell.lblProject.text = [[[projects objectAtIndex:indexPath.row]valueForKey:@"projetos"]valueForKey:@"descricao"];
     
     return cell;
 }
