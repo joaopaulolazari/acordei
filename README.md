@@ -16,13 +16,12 @@ Teste aqui a API: http://acordei.cloudapp.net/
 ### Tech
 * [Android] - Native, hell yeh!!
 * [Objective C] - Let's go iOS!
-* [Scala] - Functional way!
+* [Java8] - Functional way!
 
 ### Todo's
 
  - iOS application
  - APIs
- - Android Application
 
 License
 ----
