@@ -3,6 +3,8 @@
 
 target 'Acordei-Transparencia' do
 pod 'FMDB'
+pod 'AFNetworking'
+pod 'MBProgressHUD'
 end
 
 target 'Acordei-TransparenciaTests' do

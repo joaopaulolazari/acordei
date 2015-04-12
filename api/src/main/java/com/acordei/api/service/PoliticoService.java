@@ -7,13 +7,20 @@ import com.acordei.api.parser.PoliticoAssiduidadeParser;
 import com.acordei.api.parser.PoliticoBiografiaParser;
 import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
+<<<<<<< HEAD
+=======
+import com.google.common.collect.Lists;
+>>>>>>> 89deb062b36e1dfa4b43c76da20d0fa5a6a14105
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
-
+import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,13 +49,19 @@ public class PoliticoService {
      * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula){
-        String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+matricula;
-        Document response = xmlRequest(uri);
-        PoliticoAssiduidade assiduidade = new PoliticoAssiduidadeParser(response).parse();
-        Politico politico = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1="+assiduidade.getNomeParlamentar())).parse();
-        politico.setAssiduidade(assiduidade);
+        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados";
+        Document detalhesPolitico = xmlRequest(uri);
+        Politico politico = new PoliticoParser(detalhesPolitico).parse().stream().findFirst().get();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1="+politico.getNomeParlamentar())).parse();
+        politico.setBiografia(politicoBiografia.getBiografia());
+        politico.setSituacao(politicoBiografia.getSituacao());
         return politico;
     }
+
+    public PoliticoAssiduidade getPoliticoAssiduidade(String matricula) {
+        return null;
+    }
+
 
     public List<Politico> listPoliticos() {
         Document response = xmlRequest("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
@@ -61,9 +74,8 @@ public class PoliticoService {
     }
 
 
-    private Map jsonRequest(String restUrl){
 
-        System.out.println("URL :" + restUrl);
+    private Map jsonRequest(String restUrl){
         Map callBack = new HashMap<>();
         try {
             RestClient client = RestClient.builder().build();
@@ -94,5 +106,6 @@ public class PoliticoService {
         }
         return result;
     }
+
 
 }

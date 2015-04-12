@@ -14,7 +14,8 @@
 #import "DashboardViewController.h"
 #import "BioViewController.h"
 #import "AssiduityViewController.h"
-
+#import "UIImageView+AFNetworking.h"
+#import "ProfilePhotoUtil.h"
 
 @interface ProfileViewController ()
 
@@ -27,10 +28,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:116];
-    [self.imgProfile setImage:[UIImage imageNamed:@"tyrion.png"]];
+    [self populateInfo];
     iconImages = [self populateIconsInArray];
     categoryNames = [self populateCategoryNames];
+}
+
+-(void)populateInfo {
+    self.lblName.text = [self.fromListArray valueForKey:@"nome"];
+    NSURL *url = [NSURL URLWithString:[self.fromListArray valueForKey:@"foto"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:109];
+    [self.imgProfile setImageWithURLRequest:request
+                          placeholderImage:nil
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       self.imgProfile.image = image;
+                                   } failure:nil];
 }
 
 - (NSArray *)populateIconsInArray{
