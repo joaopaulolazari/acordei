@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  ExpensesViewController.h
 //  Acordei-Transparencia
 //
 //  Created by Giovane Possebon on 11/4/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ExpensesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *lblTotal;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
 
 @end

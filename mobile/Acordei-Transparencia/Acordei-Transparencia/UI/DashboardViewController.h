@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  DashboardViewController.h
 //  Acordei-Transparencia
 //
 //  Created by Giovane Possebon on 11/4/15.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DashboardViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
 
 @end

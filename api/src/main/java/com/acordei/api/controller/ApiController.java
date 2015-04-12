@@ -1,7 +1,7 @@
 package com.acordei.api.controller;
 
+import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
-import com.acordei.api.domain.Sample;
 import com.acordei.api.service.PoliticoService;
 import com.acordei.api.service.SampleService;
 import com.wordnik.swagger.annotations.Api;
@@ -16,6 +16,18 @@ public class ApiController {
 	@Autowired private SampleService service;
     @Autowired private PoliticoService politicoService;
 
+
+    @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
+    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("NOME_POLITICO") String nomePolitico) {
+        return politicoService.findProjetosDeLei(nomePolitico);
+    }
+
+    @RequestMapping(value = "/api/politico/{MATRICULA}", method = RequestMethod.GET)
+    public @ResponseBody Politico getPolitico(@PathVariable("MATRICULA") String matricula) {
+        return politicoService.getPolitico(matricula);
+    }
+
+    /*
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getEstatisticasNacionais() {
         return service.sample();
@@ -51,17 +63,10 @@ public class ApiController {
         return service.sample();
     }
 
-
-    @RequestMapping(value = "/api/politico/{ID_POLITICO}/projetos", method = RequestMethod.GET)
-    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@PathVariable("ID_POLITICO") String id) {
-        return politicoService.findProjetosDeLei();
-    }
-
-
     @RequestMapping(value = "/api/politico/{ID}/gastos", method = RequestMethod.GET)
     public @ResponseBody Sample getPoliticoGastos(@PathVariable("ID") String id) {
         return service.sample();
-    }
+    }*/
 
 
 }
