@@ -20,10 +20,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *nome = [self.fromArray valueForKey:@"nome"];
-    [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/gastos/%@", nome]
+    NSString *matricula = [self.fromArray valueForKey:@"matricula"];
+    [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/gastos/%@", matricula]
                         SuccessCallback:^(NSData *message){
                             expenses = [self populateProfileArray:message];
+                            NSLog(@"%@", expenses);
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 [self.collectionView reloadData];
                             });

@@ -11,6 +11,7 @@
 #import "ApiCall.h"
 #import "UIImageView+AFNetworking.h"
 #import "ChartCell.h"
+#import "MBProgressHUD.h"
 
 @interface DashboardViewController ()
 {
@@ -28,12 +29,14 @@
 }
 
 -(void)pushFromApi{
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [[[ApiCall alloc] init] callWithUrl:@"http://acordei.cloudapp.net:80/api/dashboard"
                             SuccessCallback:^(NSData *message){
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [self populateValues:message];
                                     [self.collectionView reloadData];
+                                            [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
                                 });
                             }ErrorCallback:^(NSData *erro){
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);

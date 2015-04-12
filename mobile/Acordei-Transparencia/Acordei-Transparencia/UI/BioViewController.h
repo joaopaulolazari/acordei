@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *txtBio;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) NSArray *fromArray;
+@property (strong, nonatomic) NSString *imgLink;
 
 @end

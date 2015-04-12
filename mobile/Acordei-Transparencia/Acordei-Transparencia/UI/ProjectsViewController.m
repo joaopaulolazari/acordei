@@ -9,6 +9,7 @@
 #import "ProjectsViewController.h"
 #import "ProjectsCell.h"
 #import "ApiCall.h"
+#import "MBProgressHUD.h"
 
 @interface ProjectsViewController ()
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     NSString *nomeParlamentar = [self.fromListArray valueForKey:@"nomeParlamentar"];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/projetos?nomePolitico=%@", nomeParlamentar]
@@ -33,6 +35,7 @@
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     NSLog(@"%@", projects);
                                     [self getNumbers:projects];
+                                    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
                                     [self.collectionView reloadData];
                                 });
                             }ErrorCallback:^(NSData *erro){
