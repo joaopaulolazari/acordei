@@ -35,8 +35,7 @@ public class PoliticoService {
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2015&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=rotta&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=2
      */
     public PoliticoPropostas findProjetosDeLei(String nomeAutor) {
-        String uri = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=$nomeAutor&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=";
-        Document response = xmlRequest(uri.replace("$nomeAutor", nomeAutor));
+        Document response = xmlRequest(config.getUriProjetosDeLei().replace("$nomeAutor", nomeAutor));
         PoliticoPropostas propostas = new PoliticoPropostasParser(response).parse();
         calcularMetricas(propostas);
         return propostas;
