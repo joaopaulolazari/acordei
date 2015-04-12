@@ -9,6 +9,21 @@ Obs:
 Um dos grandes problemas técnicos é a falta de repositórios centralizados, este projeto alem de prover um incrível aplicativo também gera uma série de APIs que podem ser consumidas por outros aplicativos ou sistemas.
 
 Teste aqui a API: http://acordei.cloudapp.net/
+iOS em breve na loja, mas você pode conferir os print screen do aplicativo:
+
+![Dashboard](http://www.acordei.com.br/IMG_0411.jpg)
+
+![Lista politicos](http://www.acordei.com.br/IMG_0412.jpg)
+
+![Pagina principal](http://www.acordei.com.br/IMG_0413.jpg)
+
+![Biografia](http://www.acordei.com.br/IMG_0414.jpg)
+
+![Projetos](http://www.acordei.com.br/IMG_0417.jpg)
+
+![Gastos](http://www.acordei.com.br/IMG_0415.jpg)
+
+![Presenças](http://www.acordei.com.br/IMG_0416.jpg)
 
 ### Version
 0.0.1
