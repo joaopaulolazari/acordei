@@ -159,7 +159,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9fW-Rf-i80">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.58431372550000005" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aSK-RH-QKE">
                                     <size key="itemSize" width="343" height="264"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -207,7 +207,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F4A-4f-13c">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="130"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.3411764706" green="0.58431372550000005" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="22" y="96" width="298" height="131"/>
@@ -293,6 +293,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="ZXk-tE-KGS"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="9fW-Rf-i80" id="lIb-qh-D19"/>
@@ -390,7 +391,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="277" width="375" height="390"/>
+                                    <rect key="frame" x="0.0" y="277" width="375" height="370"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="2xC-du-Kxx" id="Pd3-6F-yyh"/>
@@ -785,6 +786,132 @@
             </objects>
             <point key="canvasLocation" x="2889.75" y="-341.5"/>
         </scene>
+        <!--Assiduity View Controller-->
+        <scene sceneID="zNd-Jx-Msz">
+            <objects>
+                <viewController storyboardIdentifier="Assiduity" id="kTd-Ya-fWb" customClass="AssiduityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7sD-51-e3g"/>
+                        <viewControllerLayoutGuide type="bottom" id="eHs-55-Ik2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I4Y-lw-SwV">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zny-ie-5oa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qsD-S9-JSi">
+                                    <size key="itemSize" width="359" height="62"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="eDJ-0U-K6h" customClass="AssiduityCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-total" translatesAutoresizingMaskIntoConstraints="NO" id="qlB-Tt-3of">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cea-oe-PpY">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="28" y="20" width="104" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Falta com justificativa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd6-k2-ihP">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="138" y="20" width="205" height="21"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="qlB-Tt-3of"/>
+                                                <exclude reference="cea-oe-PpY"/>
+                                                <exclude reference="Wd6-k2-ihP"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="qlB-Tt-3of"/>
+                                                <include reference="cea-oe-PpY"/>
+                                                <include reference="Wd6-k2-ihP"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="lblDay" destination="cea-oe-PpY" id="2Eg-Nx-5ro"/>
+                                            <outlet property="lblDescription" destination="Wd6-k2-ihP" id="1IS-Xm-VFu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="142" width="375" height="525"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="kTd-Ya-fWb" id="lvh-XY-YNY"/>
+                                    <outlet property="delegate" destination="kTd-Ya-fWb" id="xuQ-0p-K80"/>
+                                </connections>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-total" translatesAutoresizingMaskIntoConstraints="NO" id="6GP-xY-Je5">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="72" width="215" height="62"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 faltas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cu-hI-Jd0">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="90" y="88" width="195" height="25"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zny-ie-5oa"/>
+                                <exclude reference="6GP-xY-Je5"/>
+                                <exclude reference="0Cu-hI-Jd0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="zny-ie-5oa"/>
+                                <include reference="6GP-xY-Je5"/>
+                                <include reference="0Cu-hI-Jd0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="zny-ie-5oa" id="Ony-HW-Yuo"/>
+                        <outlet property="lblMissDays" destination="0Cu-hI-Jd0" id="k6x-KA-0ra"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBc-Eb-cFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2889.75" y="1174.5"/>
+        </scene>
         <!--Expenses View Controller-->
         <scene sceneID="GFo-As-its">
             <objects>
@@ -931,7 +1058,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urh-tc-1AG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3683.25" y="839.5"/>
+            <point key="canvasLocation" x="4034.25" y="789.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AJv-ha-W2x">
@@ -944,8 +1071,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QmA-r3-Wma" kind="relationship" relationship="viewControllers" id="YXG-CD-l79"/>
                         <segue destination="Eon-DH-tjD" kind="relationship" relationship="viewControllers" id="pXc-Ss-ZEN"/>
+                        <segue destination="QmA-r3-Wma" kind="relationship" relationship="viewControllers" id="YXG-CD-l79"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRw-9Y-Njj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -956,7 +1083,7 @@
         <scene sceneID="PAs-wA-meK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QmA-r3-Wma" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Políticos" image="arrow-row" id="f3L-hu-jwX"/>
+                    <tabBarItem key="tabBarItem" title="Políticos" image="bar-politicians" id="f3L-hu-jwX"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Il7-zG-33g">
@@ -980,7 +1107,7 @@
         <scene sceneID="eYh-nP-sNf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eon-DH-tjD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="arrow-row" id="ahX-NT-QS1"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="bar-dashboard" id="ahX-NT-QS1"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sbW-gS-RSC">
@@ -1006,6 +1133,8 @@
         <image name="background-bio" width="356" height="436"/>
         <image name="background-profile-photo" width="375" height="165"/>
         <image name="background-total" width="359" height="63"/>
+        <image name="bar-dashboard" width="22" height="23"/>
+        <image name="bar-politicians" width="19" height="24"/>
         <image name="card-background" width="322" height="237"/>
         <image name="facebook-icon" width="13" height="24"/>
         <image name="green-dot" width="44" height="44"/>
