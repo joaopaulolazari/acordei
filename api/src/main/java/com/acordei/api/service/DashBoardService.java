@@ -14,6 +14,6 @@ public class DashBoardService {
     DashBoardDao dashBoardDao;
 
     public List<DashBoard> findDashBoardDatas() {
-        return dashBoardDao.findDashBoardDatas();
+        return dashBoardDao.findDashBoardData();
     }
 }
