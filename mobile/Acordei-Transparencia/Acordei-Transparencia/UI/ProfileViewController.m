@@ -13,6 +13,7 @@
 #import "ExpensesViewController.h"
 #import "DashboardViewController.h"
 #import "BioViewController.h"
+#import "AssiduityViewController.h"
 
 
 @interface ProfileViewController ()
@@ -98,11 +99,13 @@
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     if (indexPath.row == 0) {
         ProjectsViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Projects"];
+        pvc.title = @"Projetos";
         [self.navigationController pushViewController:pvc animated:YES];
     }
     
     else if (indexPath.row == 1){
         DashboardViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Dashboard"];
+        dvc.title = @"Dashboard";
         [self.navigationController pushViewController:dvc animated:YES];
     }
     
@@ -114,7 +117,14 @@
     
     else if (indexPath.row == 3) {
         ExpensesViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"Expenses"];
+        evc.title = @"Gastos";
         [self.navigationController pushViewController:evc animated:YES];
+    }
+    
+    else if (indexPath.row == 4){
+        AssiduityViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"Assiduity"];
+        avc.title = @"Assiduidade";
+        [self.navigationController pushViewController:avc animated:YES];
     }
 }
 

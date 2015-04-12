@@ -28,6 +28,8 @@
 		9FB59BEC1AD9E957005FF188 /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BEB1AD9E957005FF188 /* DashboardCell.m */; };
 		9FB59BEF1AD9E97E005FF188 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */; };
 		9FB59BF21AD9F558005FF188 /* BioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF11AD9F558005FF188 /* BioViewController.m */; };
+		9FB59BF51AD9FDFC005FF188 /* AssiduityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF41AD9FDFC005FF188 /* AssiduityViewController.m */; };
+		9FB59BF81AD9FE3A005FF188 /* AssiduityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */; };
 		9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */; };
 		9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,10 @@
 		9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashboardViewController.m; path = UI/DashboardViewController.m; sourceTree = "<group>"; };
 		9FB59BF01AD9F558005FF188 /* BioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BioViewController.h; path = UI/BioViewController.h; sourceTree = "<group>"; };
 		9FB59BF11AD9F558005FF188 /* BioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BioViewController.m; path = UI/BioViewController.m; sourceTree = "<group>"; };
+		9FB59BF31AD9FDFC005FF188 /* AssiduityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssiduityViewController.h; path = UI/AssiduityViewController.h; sourceTree = "<group>"; };
+		9FB59BF41AD9FDFC005FF188 /* AssiduityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssiduityViewController.m; path = UI/AssiduityViewController.m; sourceTree = "<group>"; };
+		9FB59BF61AD9FE3A005FF188 /* AssiduityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssiduityCell.h; path = "Custom Cells/AssiduityCell.h"; sourceTree = "<group>"; };
+		9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssiduityCell.m; path = "Custom Cells/AssiduityCell.m"; sourceTree = "<group>"; };
 		9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCustomCell.h; path = "Custom Cells/ProfileCustomCell.h"; sourceTree = "<group>"; };
 		9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCustomCell.m; path = "Custom Cells/ProfileCustomCell.m"; sourceTree = "<group>"; };
 		9FBB65791AD9C50C00319FAE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = UI/ProfileViewController.h; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 				9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */,
 				9FB59BE71AD9E2DB005FF188 /* ExpensesCell.h */,
 				9FB59BE81AD9E2DB005FF188 /* ExpensesCell.m */,
+				9FB59BF61AD9FE3A005FF188 /* AssiduityCell.h */,
+				9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -224,6 +232,8 @@
 				9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */,
 				9FB59BF01AD9F558005FF188 /* BioViewController.h */,
 				9FB59BF11AD9F558005FF188 /* BioViewController.m */,
+				9FB59BF31AD9FDFC005FF188 /* AssiduityViewController.h */,
+				9FB59BF41AD9FDFC005FF188 /* AssiduityViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -437,6 +447,8 @@
 				9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */,
 				9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */,
 				9FB59BEF1AD9E97E005FF188 /* DashboardViewController.m in Sources */,
+				9FB59BF51AD9FDFC005FF188 /* AssiduityViewController.m in Sources */,
+				9FB59BF81AD9FE3A005FF188 /* AssiduityCell.m in Sources */,
 				9FB59BE01AD9DB04005FF188 /* ProjectsCell.m in Sources */,
 				66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
