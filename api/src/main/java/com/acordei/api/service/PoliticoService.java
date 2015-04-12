@@ -5,10 +5,7 @@ import com.acordei.api.domain.Gasto;
 import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
-import com.acordei.api.parser.PoliticoAssiduidadeParser;
-import com.acordei.api.parser.PoliticoBiografiaParser;
-import com.acordei.api.parser.PoliticoParser;
-import com.acordei.api.parser.PoliticoProjetoParser;
+import com.acordei.api.parser.*;
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +18,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,9 +51,10 @@ public class PoliticoService {
      * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula) {
-        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?ideCadastro="+matricula+"&numLegislatura=";
+        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?numLegislatura=&ideCadastro="+matricula;
         Document detalhesPolitico = xmlRequest(uri);
-        Politico politico = new PoliticoParser(detalhesPolitico).parse().stream().findFirst().get();
+        Politico politico = new PoliticoDetailParser(detalhesPolitico).parse().stream().findFirst().get();
+
         Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + politico.getNomeParlamentar())).parse();
         politico.setBiografia(politicoBiografia.getBiografia());
         politico.setSituacao(politicoBiografia.getSituacao());
@@ -102,8 +104,11 @@ public class PoliticoService {
     private Document xmlRequest(String wsUrl) {
         Document result = null;
         try {
+            URL url = new URL(wsUrl);
+            URLConnection connection = url.openConnection();
             DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            result = dBuilder.parse(wsUrl);
+            result = dBuilder.parse(connection.getInputStream());
+
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar fazer o parsing da resposta.");
         }
