@@ -25,21 +25,24 @@
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [[[ApiCall alloc] init] callWithUrl:@"http://acordei.cloudapp.net:80/api/dashboard"
                             SuccessCallback:^(NSData *message){
-                                values = [self populateValues:message];
                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                    [self populateValues:message];
                                     [self.collectionView reloadData];
                                 });
                             }ErrorCallback:^(NSData *erro){
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
                             }];
+        [self.collectionView reloadData];
     });
+    [self.collectionView reloadData];
     
     // Do any additional setup after loading the view.
 }
 
--(NSArray *)populateValues:(NSData *)data {
+-(void)populateValues:(NSData *)data {
     NSError *error;
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    values = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    [self.collectionView reloadData];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
