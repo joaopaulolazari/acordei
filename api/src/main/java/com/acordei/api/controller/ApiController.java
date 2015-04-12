@@ -30,6 +30,8 @@ public class ApiController {
 
     @Autowired private PoliticoService politicoService;
     @Autowired private DashBoardService dashBoardService;
+    int totalInseridos = 0;
+    int totalUpdatiados = 0;
 
 
     @Cacheable("RESPONSE_CACHE")
@@ -47,9 +49,12 @@ public class ApiController {
     public @ResponseBody List<Politico> getAll() {
         List<Politico> politicos = pegaTodoMundo();
 
+
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    System.out.println("Start thread ...");
+
                     try {
                         Connection conn = SQLiteJDBC.getConn();
                         Statement stmt = conn.createStatement();
@@ -87,9 +92,11 @@ public class ApiController {
                                     updateGasto(nomeUrna, cargo, p, findByNome, DATABASE, mongoCursorByNome);
                                 }else  if ( mongoCursorByNomeUrna.hasNext()){
                                     updateGasto(nomeUrna, cargo, p, findByNomeParlamentar, DATABASE, mongoCursorByNome);
+
                                 }else{
-                                    System.out.println("Estava na base mas não tinha gasto :: "+p.getNome());
                                     insertGasto(nomeUrna, cargo, p, DATABASE);
+                                    totalInseridos+=1;
+                                    System.out.println("did insert: "+totalInseridos);
                                 }
                             }else{
                                 System.out.println("Estava no SQLITE mas não na base :: "+name);
@@ -97,7 +104,7 @@ public class ApiController {
                         }
                         rs.close();
                         stmt.close();
-
+                        System.out.println("Done motherfuck!!!");
                     }catch(Exception e){
                         e.printStackTrace();
                     }
@@ -127,6 +134,8 @@ public class ApiController {
         Document updateObj = new Document();
         updateObj.put("$set", old);
         MongoSingletonClient.getDb().getCollection(DATABASE).updateOne(findById, updateObj);
+        totalUpdatiados +=1;
+        System.out.println("did update: " + totalUpdatiados);
     }
 
     private void insertGasto(String nomeUrna, String cargo, Politico p, String DATABASE) {
