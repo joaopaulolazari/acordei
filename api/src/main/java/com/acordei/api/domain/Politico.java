@@ -7,6 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Politico {
     private String matricula;
     private String nome;
+    private String nomeUrna;
     private String nomeParlamentar;
     private String email;
     private String foto;
@@ -116,4 +117,11 @@ public class Politico {
         return ToStringBuilder.reflectionToString(this);
     }
 
+    public String getNomeUrna() {
+        return nomeUrna;
+    }
+
+    public void setNomeUrna(String nomeUrna) {
+        this.nomeUrna = nomeUrna;
+    }
 }
