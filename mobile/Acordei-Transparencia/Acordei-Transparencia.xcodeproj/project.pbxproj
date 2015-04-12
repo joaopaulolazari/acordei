@@ -31,6 +31,7 @@
 		9FB59BF51AD9FDFC005FF188 /* AssiduityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF41AD9FDFC005FF188 /* AssiduityViewController.m */; };
 		9FB59BF81AD9FE3A005FF188 /* AssiduityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */; };
 		9FB59C2D1ADA3AF8005FF188 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59C2C1ADA3AF8005FF188 /* ChartCell.m */; };
+		9FB59C301ADA6278005FF188 /* LegendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59C2F1ADA6278005FF188 /* LegendCell.m */; };
 		9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */; };
 		9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,8 @@
 		9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssiduityCell.m; path = "Custom Cells/AssiduityCell.m"; sourceTree = "<group>"; };
 		9FB59C2B1ADA3AF8005FF188 /* ChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartCell.h; path = "Custom Cells/ChartCell.h"; sourceTree = "<group>"; };
 		9FB59C2C1ADA3AF8005FF188 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = "Custom Cells/ChartCell.m"; sourceTree = "<group>"; };
+		9FB59C2E1ADA6278005FF188 /* LegendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LegendCell.h; path = "Custom Cells/LegendCell.h"; sourceTree = "<group>"; };
+		9FB59C2F1ADA6278005FF188 /* LegendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LegendCell.m; path = "Custom Cells/LegendCell.m"; sourceTree = "<group>"; };
 		9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCustomCell.h; path = "Custom Cells/ProfileCustomCell.h"; sourceTree = "<group>"; };
 		9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCustomCell.m; path = "Custom Cells/ProfileCustomCell.m"; sourceTree = "<group>"; };
 		9FBB65791AD9C50C00319FAE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = UI/ProfileViewController.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				9FB59BF71AD9FE3A005FF188 /* AssiduityCell.m */,
 				9FB59C2B1ADA3AF8005FF188 /* ChartCell.h */,
 				9FB59C2C1ADA3AF8005FF188 /* ChartCell.m */,
+				9FB59C2E1ADA6278005FF188 /* LegendCell.h */,
+				9FB59C2F1ADA6278005FF188 /* LegendCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				9FB59BE31AD9DB54005FF188 /* ProjectsViewController.m in Sources */,
 				9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */,
 				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
+				9FB59C301ADA6278005FF188 /* LegendCell.m in Sources */,
 				9FB59C2D1ADA3AF8005FF188 /* ChartCell.m in Sources */,
 				9FB59BE61AD9E29D005FF188 /* ExpensesViewController.m in Sources */,
 				9FB59BF21AD9F558005FF188 /* BioViewController.m in Sources */,

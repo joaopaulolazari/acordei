@@ -53,10 +53,11 @@
 }
 
 -(void)populateInfo {
+    NSLog(@"%@", profile);
     self.lblName.text = [profile valueForKey:@"nome"];
     self.lblEmail.text = [profile valueForKey:@"email"];
     self.lblSituation.text = [profile valueForKey:@"situacao"];
-    NSURL *url = [NSURL URLWithString:[profile valueForKey:@"foto"]];
+    NSURL *url = [NSURL URLWithString:[self.fromListArray valueForKey:@"foto"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:109];
     [self.imgProfile setImageWithURLRequest:request

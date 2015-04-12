@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XYPieChart.h"
 
-@interface ChartCell : UICollectionViewCell <XYPieChartDataSource, XYPieChartDelegate>
+@interface ChartCell : UICollectionViewCell <XYPieChartDataSource, XYPieChartDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) IBOutlet XYPieChart *pieChart;
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
@@ -17,6 +17,6 @@
 @property(nonatomic, strong) NSMutableArray *slices;
 @property(nonatomic, strong) NSArray        *sliceColors;
 @property(nonatomic) NSInteger numberOfSlices;
-
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

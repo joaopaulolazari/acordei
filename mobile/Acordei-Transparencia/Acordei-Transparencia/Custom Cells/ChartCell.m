@@ -7,6 +7,7 @@
 //
 
 #import "ChartCell.h"
+#import "LegendCell.h"
 
 @implementation ChartCell
 
@@ -21,11 +22,40 @@
                        [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1],nil];
     
     // Initialization code
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
     [self.pieChart setDataSource:self];
     [self.pieChart setDelegate:self];
+    [self.pieChart setLabelColor:[UIColor blueColor]];
+    [self.pieChart setPieCenter:CGPointMake(80, 60)];
+    [self.pieChart setPieRadius:60];
     
-    //Note: the actual pie slices are set inside the cells
-    [self.pieChart reloadData];
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.imgPolitician.layer.borderWidth = 2;
+    self.imgPolitician.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.imgPolitician.layer.cornerRadius = 8;
+    self.imgPolitician.layer.masksToBounds = YES;
+    [self.imgPolitician setClipsToBounds:YES];
+    [self.imgPolitician setContentMode:UIViewContentModeScaleAspectFill];
+    self.imgPolitician.layer.cornerRadius = roundf(self.imgPolitician.frame.size.width / 2.0);
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.numberOfSlices;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LegendCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell4"];
+    
+    cell.lblTitle.text = [[self.slices valueForKey:@"eixoYLabels"] objectAtIndex:indexPath.row];
+    cell.color.backgroundColor = [self.sliceColors objectAtIndex:(indexPath.row % self.sliceColors.count)];
+    
+    return cell;
     
 }
 
@@ -38,6 +68,7 @@
 }
 
 -(UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index {
+    
     return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
 }
 
