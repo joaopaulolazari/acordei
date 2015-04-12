@@ -22,6 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self pushFromApi];
+    
+    // Do any additional setup after loading the view.
+}
+
+-(void)pushFromApi{
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [[[ApiCall alloc] init] callWithUrl:@"http://acordei.cloudapp.net:80/api/dashboard"
                             SuccessCallback:^(NSData *message){
@@ -35,14 +41,11 @@
         [self.collectionView reloadData];
     });
     [self.collectionView reloadData];
-    
-    // Do any additional setup after loading the view.
 }
 
 -(void)populateValues:(NSData *)data {
     NSError *error;
     values = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    [self.collectionView reloadData];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -97,6 +100,9 @@
         return cell2;
     }
     
+}
+- (IBAction)didTouchRefresh:(id)sender {
+    [self pushFromApi];
 }
 
 @end

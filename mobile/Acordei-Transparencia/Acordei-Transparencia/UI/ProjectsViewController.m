@@ -30,9 +30,9 @@
         [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/projetos?nomePolitico=%@", nomeParlamentar]
                             SuccessCallback:^(NSData *message){
                                 projects = [self populateProjects:message];
-                                
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     NSLog(@"%@", projects);
+                                    [self getNumbers:projects];
                                     [self.collectionView reloadData];
                                 });
                             }ErrorCallback:^(NSData *erro){
@@ -43,9 +43,10 @@
 }
 
 -(void)getNumbers:(NSArray *)array{
-    self.lblNumberApproved.text = [array valueForKey:@"propostasAprovadas"];
-    self.lblNumberArchived.text = [array valueForKey:@"propostasArquivadas"];
-    self.lblNumberRejected.text = [array valueForKey:@"propostasRejeitadas"];
+
+    self.lblNumberApproved.text = [NSString stringWithFormat:@"%@",[array valueForKey:@"propostasAprovadas"]];
+    self.lblNumberArchived.text = [NSString stringWithFormat:@"%@",[array valueForKey:@"propostasArquivadas"]];
+    self.lblNumberRejected.text = [NSString stringWithFormat:@"%@",[array valueForKey:@"propostasRejeitadas"]];
 }
 
 -(NSArray *)populateProjects:(NSData *)data{
@@ -54,25 +55,26 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return projects.count;
+    NSArray *list = [projects valueForKey:@"projetos"];
+    return list.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProjectsCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    if ([[[[projects objectAtIndex:indexPath.row]valueForKey:@"projetos"]valueForKey:@"situacao"]isEqualToString:@"Arquivada"]) {
+    if ([[[[projects valueForKey:@"projetos"]objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Arquivada"]) {
         cell.imgStatus.image = [UIImage imageNamed:@"icon-archived.png"];
     }
     
-    else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Aprovada"]) {
+    else if ([[[[projects valueForKey:@"projetos"]objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Aprovada"]) {
         cell.imgStatus.image = [UIImage imageNamed:@"green-check.png"];
     }
     
-    else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Rejeitada"]) {
+    else if ([[[[projects valueForKey:@"projetos"]objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Rejeitada"]) {
         cell.imgStatus.image = [UIImage imageNamed:@"icon-reproved.png"];
     }
     
-    cell.lblProject.text = [[[projects objectAtIndex:indexPath.row]valueForKey:@"projetos"]valueForKey:@"descricao"];
+    cell.lblProject.text = [[[projects valueForKey:@"projetos"]objectAtIndex:indexPath.row]valueForKey:@"descricao"];
     
     return cell;
 }

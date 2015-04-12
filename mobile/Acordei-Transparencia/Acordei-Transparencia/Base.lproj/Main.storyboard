@@ -401,7 +401,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="ZXk-tE-KGS"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="ZXk-tE-KGS">
+                        <barButtonItem key="rightBarButtonItem" image="refresh" id="ofD-LY-eFg">
+                            <connections>
+                                <action selector="didTouchRefresh:" destination="6pT-fw-b31" id="Apc-dl-kwN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -801,7 +807,7 @@
                                                         <rect key="frame" x="16" y="8" width="311" height="91"/>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jZS-5i-Pob">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jZS-5i-Pob">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="325" y="77" width="19" height="19"/>
@@ -1237,6 +1243,7 @@
         <image name="icon-email" width="28" height="28"/>
         <image name="profile-row-background" width="318" height="56"/>
         <image name="project-row" width="367" height="113"/>
+        <image name="refresh" width="23" height="23"/>
         <image name="row-background" width="326" height="89"/>
         <image name="white-arrow" width="13" height="17"/>
     </resources>
