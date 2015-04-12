@@ -14,23 +14,24 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.stream.Collectors;
 
 @Service
 public class PoliticoService {
     private Logger logger = Logger.getLogger(PoliticoService.class);
 
-    @Autowired GastosDao gastosDao;
+    @Autowired
+    GastosDao gastosDao;
+    @Autowired
+    ServiceConfiguration config;
+
     /**
      * Origem dos dados:
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&parteNomeAutor=&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=
@@ -39,8 +40,7 @@ public class PoliticoService {
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2015&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=rotta&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=2
      */
     public PoliticoPropostas findProjetosDeLei(String nomeAutor) {
-        String uri = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=$nomeAutor&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=";
-        Document response = xmlRequest(uri.replace("$nomeAutor", nomeAutor));
+        Document response = xmlRequest(config.getUriProjetosDeLei().replace("$nomeAutor", nomeAutor));
         PoliticoPropostas propostas = new PoliticoPropostasParser(response).parse();
         calcularMetricas(propostas);
         return propostas;
@@ -49,7 +49,7 @@ public class PoliticoService {
     /**
      * Ids situacao
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarSituacoesProposicao
-      */
+     */
     private void calcularMetricas(PoliticoPropostas propostas) {
         List<String> statusArquivado = Lists.newArrayList("923");
         List<String> statusRejeitado = Lists.newArrayList("937", "1292");
@@ -68,8 +68,7 @@ public class PoliticoService {
      * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula) {
-        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?numLegislatura=&ideCadastro="+matricula;
-        Document detalhesPolitico = xmlRequest(uri);
+        Document detalhesPolitico = xmlRequest(config.getUriDetalhesPolitico(matricula));
         Politico politico = new PoliticoDetailParser(detalhesPolitico).parse().stream().findFirst().get();
 
         Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/76qljatw?apikey=sAY16RwEJbTl5P0GV5oHYCdLXuTmYkCA&kimpath1=" + politico.getNomeParlamentar())).parse();
@@ -78,16 +77,17 @@ public class PoliticoService {
         return politico;
     }
 
-    public PoliticoAssiduidade getPoliticoAssiduidade(String assiduidadeID){
-        String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+assiduidadeID;
+    public PoliticoAssiduidade getPoliticoAssiduidade(String assiduidadeID) {
+        String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar=" + assiduidadeID;
         Document response = xmlRequest(uri);
         return new PoliticoAssiduidadeParser(response).parse();
     }
 
-    public List<Politico> listSenadores(){
+    public List<Politico> listSenadores() {
         Document response = xmlRequest("http://legis.senado.leg.br/dadosabertos/senador/lista/atual");
         return new PoliticoSenadorParser(response).parse();
     }
+
     public List<Politico> listPoliticos() {
         Document response = xmlRequest("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
         return new PoliticoParser(response).parse();
@@ -97,15 +97,16 @@ public class PoliticoService {
         List<Politico> politicos = listPoliticos();
         return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
     }
-    public List<Gasto> getGastosPorMatricula(String matricula){
-        return gastosDao.findGastosPorMatricula(matricula);
+
+    public List<Gasto> getGastosPorMatricula(String matricula) {
+        List<Gasto> gastos = gastosDao.findGastosPorMatricula(matricula);
+        return gastos.stream().filter(gasto -> !gasto.getTipo().equalsIgnoreCase("telefonia")).collect(Collectors.toList());
     }
 
     private Map jsonRequest(String restUrl) {
         Map callBack = new HashMap<>();
         try {
             RestClient client = RestClient.builder().build();
-
             Map entity = client.get(restUrl, null, Map.class);
             if (entity == null) return callBack;
 
@@ -129,14 +130,12 @@ public class PoliticoService {
             URLConnection connection = url.openConnection();
 
             byte xmlbytes[] = connection.getInputStream().toString().getBytes("ISO-8859-1");
-            Transformer transformer =  TransformerFactory.newInstance().newTransformer();
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty("encoding", "ISO-8859-1");
 
             DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dfactory.newDocumentBuilder();
-            result = builder.parse( new ByteArrayInputStream( xmlbytes));
-
-
+            result = builder.parse(new ByteArrayInputStream(xmlbytes));
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar fazer o parsing da resposta.");
         }

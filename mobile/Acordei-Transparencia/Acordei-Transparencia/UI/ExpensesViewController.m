@@ -46,8 +46,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ExpensesCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.lblExpense.text = [[expenses valueForKey:@"tipo"]objectAtIndex:indexPath.row];
-    cell.lblValue.text = [[expenses valueForKey:@"valor"]objectAtIndex:indexPath.row];
+    cell.lblValue.text = [[expenses objectAtIndex:indexPath.row]valueForKey:@"valor"];
     
     return cell;
 }

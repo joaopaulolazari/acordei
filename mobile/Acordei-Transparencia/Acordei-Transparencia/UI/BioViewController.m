@@ -28,9 +28,9 @@
     // Do any additional setup after loading the view.
 }
 
-
 -(void)populateText{
-    self.txtBio.text = [biografia valueForKey:@"biografia"];
+    if ([[biografia valueForKey:@"biografia"]isEqualToString:@"null"]) self.txtBio.text = @"Biografia não registrada";
+    else self.txtBio.text = [biografia valueForKey:@"biografia"];
     self.lblName.text = [biografia valueForKey:@"nome"];
     
     NSURL *url = [NSURL URLWithString:self.imgLink];
