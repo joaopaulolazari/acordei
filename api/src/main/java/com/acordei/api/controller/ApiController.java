@@ -22,10 +22,21 @@ public class ApiController {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 
+    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
+    public @ResponseBody List<Politico> getPoliticos() {
+        return politicoService.listPoliticos();
+    }
+
+    @RequestMapping(value = "/api/politicos/UF/{UF_ID}", method = RequestMethod.GET)
+    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("UF_ID") String ufId) {
+        return politicoService.getPoliticosByEstado(ufId);
+    }
+
     @RequestMapping(value = "/api/politico/{MATRICULA}", method = RequestMethod.GET)
     public @ResponseBody Politico getPolitico(@PathVariable("MATRICULA") String matricula) {
         return politicoService.getPolitico(matricula);
     }
+
 
     /*
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
