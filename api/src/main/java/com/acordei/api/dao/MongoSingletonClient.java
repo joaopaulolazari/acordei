@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MongoSingletonClient {
+
     private static final String HOST = "acordei.cloudapp.net";
     private static final String DB_NAME = "transparencia";
     private static MongoDatabase db;
