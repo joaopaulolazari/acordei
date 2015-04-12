@@ -16,7 +16,7 @@ public class SenadoNodeHandler  {
 
     private String expenseType;
     private Double expenseValue;
-    private static final String DATABASE = "politicos";
+    private static final String DATABASE = "politicosconsolidado";
     int maxTry = 30;
 
     private Double formatStringToDouble(String value){

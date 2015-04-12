@@ -53,14 +53,16 @@
 }
 
 -(void)populateInfo {
+    NSLog(@"%@", profile);
     self.lblName.text = [profile valueForKey:@"nome"];
     self.lblEmail.text = [profile valueForKey:@"email"];
     self.lblSituation.text = [profile valueForKey:@"situacao"];
-    NSURL *url = [NSURL URLWithString:[profile valueForKey:@"foto"]];
+    NSURL *url = [NSURL URLWithString:[self.fromListArray valueForKey:@"foto"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholder = [UIImage imageNamed:@"placeholder.png"];
     self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:109];
     [self.imgProfile setImageWithURLRequest:request
-                          placeholderImage:nil
+                          placeholderImage:placeholder
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        self.imgProfile.image = image;
                                    } failure:nil];
@@ -146,12 +148,14 @@
     else if (indexPath.row == 2){
         BioViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Bio"];
         bvc.title = @"Biografia";
+        bvc.fromArray = profile;
         [self.navigationController pushViewController:bvc animated:YES];
     }
     
     else if (indexPath.row == 3) {
         ExpensesViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"Expenses"];
         evc.title = @"Gastos";
+        evc.fromArray = profile;
         [self.navigationController pushViewController:evc animated:YES];
     }
     

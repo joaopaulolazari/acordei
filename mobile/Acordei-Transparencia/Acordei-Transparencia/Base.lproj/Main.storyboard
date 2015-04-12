@@ -185,25 +185,16 @@
                                                         <rect key="frame" x="0.0" y="8" width="81" height="81"/>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SM4-CH-NXU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SM4-CH-NXU">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="94" y="41" width="196" height="21"/>
+                                                        <rect key="frame" x="94" y="41" width="221" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2B-80-YSB">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="73" y="74" width="196" height="21"/>
-                                                    </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F4A-4f-13c">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="F4A-4f-13c">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="130"/>
                                                     <color key="textColor" red="0.3411764706" green="0.58431372550000005" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,18 +203,15 @@
                                                         <rect key="frame" x="22" y="96" width="298" height="131"/>
                                                     </variation>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-8n-PLc">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" image="facebook-icon">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="l2B-80-YSB">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="297" y="226" width="13" height="24"/>
+                                                        <rect key="frame" x="81" y="67" width="234" height="45"/>
                                                     </variation>
-                                                    <connections>
-                                                        <action selector="didTouchShareFacebook:" destination="6pT-fw-b31" eventType="touchUpInside" id="nwM-jy-tYQ"/>
-                                                    </connections>
-                                                </button>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -232,9 +220,8 @@
                                                 <exclude reference="jve-6e-sOC"/>
                                                 <exclude reference="yoi-We-aYe"/>
                                                 <exclude reference="SM4-CH-NXU"/>
-                                                <exclude reference="l2B-80-YSB"/>
                                                 <exclude reference="F4A-4f-13c"/>
-                                                <exclude reference="cUa-8n-PLc"/>
+                                                <exclude reference="l2B-80-YSB"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -242,9 +229,8 @@
                                                 <include reference="jve-6e-sOC"/>
                                                 <include reference="yoi-We-aYe"/>
                                                 <include reference="SM4-CH-NXU"/>
-                                                <include reference="l2B-80-YSB"/>
                                                 <include reference="F4A-4f-13c"/>
-                                                <include reference="cUa-8n-PLc"/>
+                                                <include reference="l2B-80-YSB"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -273,43 +259,80 @@
                                                         <rect key="frame" x="0.0" y="8" width="81" height="81"/>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-Vo-Zqt">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-Vo-Zqt">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="94" y="41" width="196" height="21"/>
+                                                        <rect key="frame" x="94" y="41" width="216" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNy-Nb-X8h">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="LNy-Nb-X8h">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="73" y="74" width="196" height="21"/>
+                                                        <rect key="frame" x="73" y="65" width="237" height="30"/>
                                                     </variation>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly7-Ik-v7E">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" image="facebook-icon">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="297" y="226" width="13" height="24"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="didTouchShareFacebook:" destination="6pT-fw-b31" eventType="touchUpInside" id="9JX-IA-3N0"/>
-                                                    </connections>
-                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCd-Py-o2f" customClass="XYPieChart">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="21" y="103" width="172" height="147"/>
+                                                        <rect key="frame" x="21" y="114" width="146" height="125"/>
                                                     </variation>
                                                 </view>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="36" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0cL-dC-RDR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <prototypes>
+                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" rowHeight="36" id="xhO-1J-uRK" customClass="LegendCell">
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xhO-1J-uRK" id="2At-X0-6Nb">
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2U-YU-GB6">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                                                            <rect key="frame" x="8" y="8" width="18" height="18"/>
+                                                                        </variation>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ9-v0-6Jq">
+                                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                                        <color key="textColor" red="0.26638848459999998" green="0.4870100396" blue="0.81423647600000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                                                            <rect key="frame" x="34" y="6" width="98" height="21"/>
+                                                                        </variation>
+                                                                    </label>
+                                                                </subviews>
+                                                                <variation key="default">
+                                                                    <mask key="subviews">
+                                                                        <exclude reference="o2U-YU-GB6"/>
+                                                                        <exclude reference="UQ9-v0-6Jq"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="widthClass=compact">
+                                                                    <mask key="subviews">
+                                                                        <include reference="o2U-YU-GB6"/>
+                                                                        <include reference="UQ9-v0-6Jq"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="color" destination="o2U-YU-GB6" id="Tss-Hi-VVf"/>
+                                                                <outlet property="lblTitle" destination="UQ9-v0-6Jq" id="4Ug-N2-SzN"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="184" y="114" width="137" height="142"/>
+                                                    </variation>
+                                                </tableView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -319,8 +342,8 @@
                                                 <exclude reference="Twh-sB-Ic3"/>
                                                 <exclude reference="nXb-Vo-Zqt"/>
                                                 <exclude reference="LNy-Nb-X8h"/>
-                                                <exclude reference="ly7-Ik-v7E"/>
                                                 <exclude reference="QCd-Py-o2f"/>
+                                                <exclude reference="0cL-dC-RDR"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -329,8 +352,8 @@
                                                 <include reference="Twh-sB-Ic3"/>
                                                 <include reference="nXb-Vo-Zqt"/>
                                                 <include reference="LNy-Nb-X8h"/>
-                                                <include reference="ly7-Ik-v7E"/>
                                                 <include reference="QCd-Py-o2f"/>
+                                                <include reference="0cL-dC-RDR"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -338,6 +361,7 @@
                                             <outlet property="lblName" destination="nXb-Vo-Zqt" id="Xx5-TL-VrS"/>
                                             <outlet property="lblTitle" destination="LNy-Nb-X8h" id="2Fr-p4-ilK"/>
                                             <outlet property="pieChart" destination="QCd-Py-o2f" id="Ral-1b-fab"/>
+                                            <outlet property="tableView" destination="0cL-dC-RDR" id="EmN-EB-O8q"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -386,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlP-km-5im" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255.25" y="1174.5"/>
+            <point key="canvasLocation" x="2253.75" y="1174.5"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="wp4-lq-BeX">
@@ -768,9 +792,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="107"/>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PgJ-FK-7DY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PgJ-FK-7DY">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
@@ -1209,7 +1233,6 @@
         <image name="bar-dashboard" width="22" height="23"/>
         <image name="bar-politicians" width="19" height="24"/>
         <image name="card-background" width="322" height="237"/>
-        <image name="facebook-icon" width="13" height="24"/>
         <image name="green-dot" width="44" height="44"/>
         <image name="icon-email" width="28" height="28"/>
         <image name="profile-row-background" width="318" height="56"/>
