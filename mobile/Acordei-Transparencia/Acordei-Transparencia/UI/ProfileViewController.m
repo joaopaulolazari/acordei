@@ -16,6 +16,7 @@
 #import "AssiduityViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "ProfilePhotoUtil.h"
+#import "ApiCall.h"
 
 @interface ProfileViewController ()
 
@@ -24,18 +25,38 @@
 @implementation ProfileViewController {
     NSArray *iconImages;
     NSArray *categoryNames;
+    NSArray *profile;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self populateInfo];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        NSString *matricula = [self.fromListArray valueForKey:@"matricula"];
+        [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/%@", matricula]
+                            SuccessCallback:^(NSData *message){
+                                profile = [self populateProfileArray:message];
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    [self populateInfo];
+                                });
+                            }ErrorCallback:^(NSData *erro){
+                                NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
+                            }];
+    });
     iconImages = [self populateIconsInArray];
     categoryNames = [self populateCategoryNames];
 }
 
+-(NSArray *)populateProfileArray:(NSData *)data {
+    NSError *error;
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+}
+
 -(void)populateInfo {
-    self.lblName.text = [self.fromListArray valueForKey:@"nome"];
-    NSURL *url = [NSURL URLWithString:[self.fromListArray valueForKey:@"foto"]];
+    self.lblName.text = [profile valueForKey:@"nome"];
+    self.lblEmail.text = [profile valueForKey:@"email"];
+    self.lblSituation.text = [profile valueForKey:@"situacao"];
+    NSURL *url = [NSURL URLWithString:[profile valueForKey:@"foto"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     self.imgProfile = [[ProfilePhotoUtil new]photoStyle:self.imgProfile andSize:109];
     [self.imgProfile setImageWithURLRequest:request
@@ -112,6 +133,7 @@
     if (indexPath.row == 0) {
         ProjectsViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Projects"];
         pvc.title = @"Projetos";
+        pvc.fromListArray = profile;
         [self.navigationController pushViewController:pvc animated:YES];
     }
     

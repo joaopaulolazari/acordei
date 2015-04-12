@@ -8,6 +8,7 @@
 
 #import "ProjectsViewController.h"
 #import "ProjectsCell.h"
+#import "ApiCall.h"
 
 @interface ProjectsViewController ()
 
@@ -16,22 +17,34 @@
 @implementation ProjectsViewController
 {
     NSArray *projects;
-    NSArray *status;
+    NSInteger arquivada;
+    NSInteger aprovada;
+    NSInteger reprovada;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    projects = [self populateProjects];
-    status = [self populateStatus];
+    NSString *nomeParlamentar = [self.fromListArray valueForKey:@"nomeParlamentar"];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/projetos?nomePolitico=%@", nomeParlamentar]
+                            SuccessCallback:^(NSData *message){
+                                projects = [self populateProjects:message];
+                                
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    NSLog(@"%@", projects);
+                                    [self.collectionView reloadData];
+                                });
+                            }ErrorCallback:^(NSData *erro){
+                                NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
+                            }];
+    });
     // Do any additional setup after loading the view.
 }
 
--(NSArray *)populateProjects{
-    return @[@"Projeto muito louco, bla bla, para testar o campo de texto", @"Esse projeto também é um teste, e ele foi arquivado porque era muito palha"];
-}
-
--(NSArray *)populateStatus{
-    return @[@"green-check.png", @"icon-archived.png"];
+-(NSArray *)populateProjects:(NSData *)data{
+    NSError *error;
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -41,8 +54,25 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProjectsCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.lblProject.text = [projects objectAtIndex:indexPath.row];
-    cell.imgStatus.image = [UIImage imageNamed:[status objectAtIndex:indexPath.row]];
+    if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Arquivada"]) {
+        arquivada += 1;
+        cell.imgStatus.image = [UIImage imageNamed:@"icon-archived.png"];
+        self.lblNumberArchived.text = [NSString stringWithFormat:@"%ld", (long)arquivada];
+    }
+    
+    else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Aprovada"]) {
+        aprovada +=1;
+        cell.imgStatus.image = [UIImage imageNamed:@"green-check.png"];
+        self.lblNumberApproved.text = [NSString stringWithFormat:@"%ld", (long)aprovada];
+    }
+    
+    else if ([[[projects objectAtIndex:indexPath.row]valueForKey:@"situacao"]isEqualToString:@"Rejeitada"]) {
+        aprovada +=1;
+        cell.imgStatus.image = [UIImage imageNamed:@"icon-reproved.png"];
+        self.lblNumberRejected.text = [NSString stringWithFormat:@"%ld", (long)reprovada];
+    }
+    
+    cell.lblProject.text = [[projects objectAtIndex:indexPath.row]valueForKey:@"descricao"];
     
     return cell;
 }

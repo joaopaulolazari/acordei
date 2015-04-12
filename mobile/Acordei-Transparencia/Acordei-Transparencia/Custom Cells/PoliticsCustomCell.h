@@ -10,7 +10,7 @@
 
 @interface PoliticsCustomCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
-@property (strong, nonatomic) IBOutlet UILabel *lblRole;
+@property (strong, nonatomic) IBOutlet UILabel *lblState;
 @property (strong, nonatomic) IBOutlet UIImageView *imgPerson;
 
 @end
