@@ -25,6 +25,8 @@ public class PoliticoService {
     private Logger logger = Logger.getLogger(PoliticoService.class);
 
     @Autowired GastosDao gastosDao;
+    @Autowired ServiceConfiguration config;
+
     /**
      * Origem dos dados:
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&parteNomeAutor=&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=
