@@ -12,5 +12,6 @@ public class EstatisticaDao {
 
     public void test(){
         FindIterable<Document> politicos = client.getDb().getCollection("politicos").find();
+
     }
 }
