@@ -23,6 +23,11 @@
 		9FB59BDD1AD9CA62005FF188 /* ProfilePhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BDC1AD9CA62005FF188 /* ProfilePhotoUtil.m */; };
 		9FB59BE01AD9DB04005FF188 /* ProjectsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */; };
 		9FB59BE31AD9DB54005FF188 /* ProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */; };
+		9FB59BE61AD9E29D005FF188 /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BE51AD9E29D005FF188 /* ExpensesViewController.m */; };
+		9FB59BE91AD9E2DB005FF188 /* ExpensesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BE81AD9E2DB005FF188 /* ExpensesCell.m */; };
+		9FB59BEC1AD9E957005FF188 /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BEB1AD9E957005FF188 /* DashboardCell.m */; };
+		9FB59BEF1AD9E97E005FF188 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */; };
+		9FB59BF21AD9F558005FF188 /* BioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB59BF11AD9F558005FF188 /* BioViewController.m */; };
 		9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */; };
 		9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +72,16 @@
 		9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsCell.m; path = "Custom Cells/ProjectsCell.m"; sourceTree = "<group>"; };
 		9FB59BE11AD9DB54005FF188 /* ProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsViewController.h; path = UI/ProjectsViewController.h; sourceTree = "<group>"; };
 		9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsViewController.m; path = UI/ProjectsViewController.m; sourceTree = "<group>"; };
+		9FB59BE41AD9E29D005FF188 /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesViewController.h; path = UI/ExpensesViewController.h; sourceTree = "<group>"; };
+		9FB59BE51AD9E29D005FF188 /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesViewController.m; path = UI/ExpensesViewController.m; sourceTree = "<group>"; };
+		9FB59BE71AD9E2DB005FF188 /* ExpensesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpensesCell.h; path = "Custom Cells/ExpensesCell.h"; sourceTree = "<group>"; };
+		9FB59BE81AD9E2DB005FF188 /* ExpensesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpensesCell.m; path = "Custom Cells/ExpensesCell.m"; sourceTree = "<group>"; };
+		9FB59BEA1AD9E957005FF188 /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashboardCell.h; path = "Custom Cells/DashboardCell.h"; sourceTree = "<group>"; };
+		9FB59BEB1AD9E957005FF188 /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashboardCell.m; path = "Custom Cells/DashboardCell.m"; sourceTree = "<group>"; };
+		9FB59BED1AD9E97E005FF188 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashboardViewController.h; path = UI/DashboardViewController.h; sourceTree = "<group>"; };
+		9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashboardViewController.m; path = UI/DashboardViewController.m; sourceTree = "<group>"; };
+		9FB59BF01AD9F558005FF188 /* BioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BioViewController.h; path = UI/BioViewController.h; sourceTree = "<group>"; };
+		9FB59BF11AD9F558005FF188 /* BioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BioViewController.m; path = UI/BioViewController.m; sourceTree = "<group>"; };
 		9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCustomCell.h; path = "Custom Cells/ProfileCustomCell.h"; sourceTree = "<group>"; };
 		9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCustomCell.m; path = "Custom Cells/ProfileCustomCell.m"; sourceTree = "<group>"; };
 		9FBB65791AD9C50C00319FAE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = UI/ProfileViewController.h; sourceTree = "<group>"; };
@@ -180,12 +195,16 @@
 		9FA6823E1AD9AF08002C9981 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				9FB59BEA1AD9E957005FF188 /* DashboardCell.h */,
+				9FB59BEB1AD9E957005FF188 /* DashboardCell.m */,
 				9FB59BDE1AD9DB04005FF188 /* ProjectsCell.h */,
 				9FB59BDF1AD9DB04005FF188 /* ProjectsCell.m */,
 				9FA6823F1AD9B11E002C9981 /* PoliticsCustomCell.h */,
 				9FA682401AD9B11E002C9981 /* PoliticsCustomCell.m */,
 				9FBB65751AD9C01000319FAE /* ProfileCustomCell.h */,
 				9FBB65761AD9C01000319FAE /* ProfileCustomCell.m */,
+				9FB59BE71AD9E2DB005FF188 /* ExpensesCell.h */,
+				9FB59BE81AD9E2DB005FF188 /* ExpensesCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -199,6 +218,12 @@
 				9FBB657A1AD9C50C00319FAE /* ProfileViewController.m */,
 				9FB59BE11AD9DB54005FF188 /* ProjectsViewController.h */,
 				9FB59BE21AD9DB54005FF188 /* ProjectsViewController.m */,
+				9FB59BE41AD9E29D005FF188 /* ExpensesViewController.h */,
+				9FB59BE51AD9E29D005FF188 /* ExpensesViewController.m */,
+				9FB59BED1AD9E97E005FF188 /* DashboardViewController.h */,
+				9FB59BEE1AD9E97E005FF188 /* DashboardViewController.m */,
+				9FB59BF01AD9F558005FF188 /* BioViewController.h */,
+				9FB59BF11AD9F558005FF188 /* BioViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -402,15 +427,20 @@
 			files = (
 				9F3673E61AD96A53002FDAC4 /* ViewController.m in Sources */,
 				9F3673E31AD96A53002FDAC4 /* AppDelegate.m in Sources */,
+				9FB59BEC1AD9E957005FF188 /* DashboardCell.m in Sources */,
 				9FB59BE31AD9DB54005FF188 /* ProjectsViewController.m in Sources */,
 				9FBB657B1AD9C50C00319FAE /* ProfileViewController.m in Sources */,
 				66C1323B1AD9767500CF2142 /* ApiCall.m in Sources */,
+				9FB59BE61AD9E29D005FF188 /* ExpensesViewController.m in Sources */,
+				9FB59BF21AD9F558005FF188 /* BioViewController.m in Sources */,
 				9FB59BDD1AD9CA62005FF188 /* ProfilePhotoUtil.m in Sources */,
 				9FA682411AD9B11E002C9981 /* PoliticsCustomCell.m in Sources */,
 				9FBB65771AD9C01000319FAE /* ProfileCustomCell.m in Sources */,
+				9FB59BEF1AD9E97E005FF188 /* DashboardViewController.m in Sources */,
 				9FB59BE01AD9DB04005FF188 /* ProjectsCell.m in Sources */,
 				66220CF31AD9947F002B69A9 /* CacheAPI.m in Sources */,
 				9F3673E01AD96A53002FDAC4 /* main.m in Sources */,
+				9FB59BE91AD9E2DB005FF188 /* ExpensesCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
