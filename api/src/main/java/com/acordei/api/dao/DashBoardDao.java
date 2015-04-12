@@ -31,8 +31,8 @@ public class DashBoardDao {
                 document.getString("fotoPoliticoRelacionado"),
                 document.getString("idPoliticoRelacionado"),
                 document.getInteger("totalfatias"),
-                document.get("eixoylabels", ArrayList.class),
-                document.get("eixoyvalores", ArrayList.class)
+                null,
+                null
             ));
         }
         cursor.close();
