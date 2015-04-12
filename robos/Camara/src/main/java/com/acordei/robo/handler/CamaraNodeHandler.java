@@ -11,6 +11,7 @@ import org.bson.Document;
 import javax.xml.xpath.XPathExpressionException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
 
 
 public class CamaraNodeHandler implements NodeHandler {
@@ -80,6 +81,7 @@ public class CamaraNodeHandler implements NodeHandler {
         gastos.add(expense);
     }
 
+    //TODO: Usar reduce
     private boolean updateExpenseByType(List<Document> gastos) {
         boolean find = false;
         for (Document gasto : gastos) {
