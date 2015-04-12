@@ -12,12 +12,18 @@ import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 @Service
@@ -121,8 +127,15 @@ public class PoliticoService {
         try {
             URL url = new URL(wsUrl);
             URLConnection connection = url.openConnection();
-            DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            result = dBuilder.parse(connection.getInputStream());
+
+            byte xmlbytes[] = connection.getInputStream().toString().getBytes("ISO-8859-1");
+            Transformer transformer =  TransformerFactory.newInstance().newTransformer();
+            transformer.setOutputProperty("encoding", "ISO-8859-1");
+
+            DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = dfactory.newDocumentBuilder();
+            result = builder.parse( new ByteArrayInputStream( xmlbytes));
+
 
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar fazer o parsing da resposta.");
