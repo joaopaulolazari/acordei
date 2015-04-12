@@ -29,6 +29,8 @@
         [[[ApiCall alloc] init] callWithUrl:@"http://acordei.cloudapp.net:80/api/politicos/"
                             SuccessCallback:^(NSData *message){
                                 json = [self populatePoliticiansArray:message];
+                                json = [self sortedArray:json];
+                                NSLog(@"%@", json);
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [self.collectionView reloadData];
                                 });
@@ -36,6 +38,11 @@
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
                             }];
     });
+}
+
+-(NSArray *)sortedArray:(NSArray *)array {
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"nome" ascending:YES];
+    return [array sortedArrayUsingDescriptors:@[sort]];
 }
 
 -(NSArray *)populatePoliticiansArray:(NSData *)data {
@@ -55,7 +62,7 @@
     PoliticsCustomCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.lblName.text = [[json objectAtIndex:indexPath.row]valueForKey:@"nome"];
-    cell.lblRole.text = [[json objectAtIndex:indexPath.row]valueForKey:@"UF"];
+    cell.lblState.text = [[json objectAtIndex:indexPath.row]valueForKey:@"uf"];
     NSString *imageName = [[json objectAtIndex:indexPath.row]valueForKey:@"foto"];
     NSURL *url = [NSURL URLWithString:imageName];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

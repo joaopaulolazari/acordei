@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblEmail;
 @property (strong, nonatomic) IBOutlet UILabel *lblRole;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
-@property (strong, nonatomic) IBOutlet UILabel *lblWage;
+@property (strong, nonatomic) IBOutlet UILabel *lblSituation;
 @property (strong, nonatomic) NSArray *fromListArray;
 @property (strong, nonatomic) UIImage *imgLoaded;
 

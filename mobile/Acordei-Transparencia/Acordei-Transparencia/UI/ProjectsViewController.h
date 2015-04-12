@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblNumberRejected;
 @property (strong, nonatomic) IBOutlet UILabel *lblNumberArchived;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *fromListArray;
 
 @end
