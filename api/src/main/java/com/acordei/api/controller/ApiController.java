@@ -7,8 +7,6 @@ import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.Normalizer;
 import java.util.List;
 
 @RestController
