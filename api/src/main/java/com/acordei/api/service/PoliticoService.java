@@ -7,10 +7,6 @@ import com.acordei.api.parser.PoliticoAssiduidadeParser;
 import com.acordei.api.parser.PoliticoBiografiaParser;
 import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
-<<<<<<< HEAD
-=======
-import com.google.common.collect.Lists;
->>>>>>> 89deb062b36e1dfa4b43c76da20d0fa5a6a14105
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
