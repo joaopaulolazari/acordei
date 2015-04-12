@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @Api(value = "/api", description = "Api operations")
 public class ApiController {
-	@Autowired private SampleService service;
+
     @Autowired private PoliticoService politicoService;
 
 

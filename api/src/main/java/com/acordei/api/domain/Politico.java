@@ -9,6 +9,8 @@ public class Politico {
     private String nome;
     private String foto;
     private String uf;
+    private String biografia;
+    private String situacao;
     private PoliticoAssiduidade assiduidade;
 
     public Politico(String matricula, String nome, String foto, String uf) {
@@ -20,6 +22,9 @@ public class Politico {
 
     public Politico(PoliticoAssiduidade assiduidade) {
         this.assiduidade = assiduidade;
+    }
+
+    public Politico() {
     }
 
     public String getMatricula() {
@@ -60,6 +65,18 @@ public class Politico {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public String getBiografia() {
+        return biografia;
+    }
+
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 
     @Override
