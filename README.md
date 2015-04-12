@@ -6,9 +6,9 @@ Obs:
   - As notificações podem ser adicionadas ou removidas 
   - Todas as informações são de dominio público
  
-
 Um dos grandes problemas técnicos é a falta de repositórios centralizados, este projeto alem de prover um incrível aplicativo também gera uma série de APIs que podem ser consumidas por outros aplicativos ou sistemas.
 
+Teste aqui a API: http://acordei.cloudapp.net/
 
 ### Version
 0.0.1
