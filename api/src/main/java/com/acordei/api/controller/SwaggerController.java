@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class SwaggerController {
+    
     @RequestMapping(value="/", method= RequestMethod.GET, headers = "Accept=text/html")
     public String docs(){
         return "index.html";
