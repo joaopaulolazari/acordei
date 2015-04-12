@@ -15,31 +15,23 @@ public class CacheConfig implements CachingConfigurer {
 
     @Bean(destroyMethod="shutdown")
     public net.sf.ehcache.CacheManager ehCacheManager() {
-        CacheConfiguration cacheConfiguration = new CacheConfiguration();
-        cacheConfiguration.setName("RESPONSE_CACHE");
-        cacheConfiguration.setMemoryStoreEvictionPolicy("LRU");
-        cacheConfiguration.setMaxEntriesLocalHeap(10000);
-
-        CacheConfiguration cacheAssiduidadeConfiguration = new CacheConfiguration();
-        cacheAssiduidadeConfiguration.setName("ASSIDUIDADE_RESPONSE_CACHE");
-        cacheAssiduidadeConfiguration.setMemoryStoreEvictionPolicy("LRU");
-        cacheAssiduidadeConfiguration.setMaxEntriesLocalHeap(10000);
-
-        CacheConfiguration cacheDashboardConfiguration = new CacheConfiguration();
-        cacheDashboardConfiguration.setName("GASTOS_RESPONSE_CACHE");
-        cacheDashboardConfiguration.setMemoryStoreEvictionPolicy("LRU");
-        cacheDashboardConfiguration.setMaxEntriesLocalHeap(50000);
-
-        CacheConfiguration cacheGastosConfiguration = new CacheConfiguration();
-        cacheGastosConfiguration.setName("GASTOS_RESPONSE_CACHE");
-        cacheGastosConfiguration.setMemoryStoreEvictionPolicy("LRU");
-        cacheGastosConfiguration.setMaxEntriesLocalHeap(50000);
+        CacheConfiguration responseCache = createCache("RESPONSE_CACHE", 10000);
+        CacheConfiguration assiduidade = createCache("ASSIDUIDADE_RESPONSE_CACHE", 10000);
+        CacheConfiguration gastos = createCache("GASTOS_RESPONSE_CACHE", 50000);
 
         net.sf.ehcache.config.Configuration config = new net.sf.ehcache.config.Configuration();
-        config.addCache(cacheConfiguration);
-        config.addCache(cacheAssiduidadeConfiguration);
-        config.addCache(cacheDashboardConfiguration);
+        config.addCache(responseCache);
+        config.addCache(assiduidade);
+        config.addCache(gastos);
         return net.sf.ehcache.CacheManager.newInstance(config);
+    }
+
+    private CacheConfiguration createCache(String cacheName, int maxEntriesLocalHeap) {
+        CacheConfiguration cacheAssiduidadeConfiguration = new CacheConfiguration();
+        cacheAssiduidadeConfiguration.setName(cacheName);
+        cacheAssiduidadeConfiguration.setMemoryStoreEvictionPolicy("LRU");
+        cacheAssiduidadeConfiguration.setMaxEntriesLocalHeap(maxEntriesLocalHeap);
+        return cacheAssiduidadeConfiguration;
     }
 
     @Bean
