@@ -4,6 +4,7 @@ import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.parser.PoliticoAssiduidadeParser;
+import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
 import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PoliticoService {
@@ -37,6 +39,7 @@ public class PoliticoService {
     /**
      * Origem dos dados:
      * http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar=1
+     * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula){
         String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+matricula;
@@ -44,6 +47,17 @@ public class PoliticoService {
         PoliticoAssiduidade assiduidade = new PoliticoAssiduidadeParser(response).parse();
         return new Politico(assiduidade);
     }
+
+    public List<Politico> listPoliticos() {
+        Document response = request("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
+        return new PoliticoParser(response).parse();
+    }
+
+    public List<Politico> getPoliticosByEstado(String ufId) {
+        List<Politico> politicos = listPoliticos();
+        return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
+    }
+
 
     private Document request(String wsUrl){
         Document result = null;
@@ -55,4 +69,5 @@ public class PoliticoService {
         }
         return result;
     }
+
 }
