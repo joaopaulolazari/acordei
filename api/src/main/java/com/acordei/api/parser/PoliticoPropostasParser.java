@@ -1,6 +1,7 @@
 package com.acordei.api.parser;
 
-import com.acordei.api.domain.PoliticoProjetosDeLei;
+import com.acordei.api.domain.PoliticoProjetoDeLei;
+import com.acordei.api.domain.PoliticoPropostas;
 import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
@@ -11,33 +12,36 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import java.util.List;
 
-public class PoliticoProjetoParser {
-    private Logger logger = Logger.getLogger(PoliticoProjetoParser.class);
+public class PoliticoPropostasParser {
+    private Logger logger = Logger.getLogger(PoliticoPropostasParser.class);
     private Document response;
 
-    public PoliticoProjetoParser(Document response) {
+    public PoliticoPropostasParser(Document response) {
         this.response = response;
     }
 
-    public List<PoliticoProjetosDeLei> parse(){
-        List<PoliticoProjetosDeLei> result = Lists.newArrayList();
+    public PoliticoPropostas parse(){
+        List<PoliticoProjetoDeLei> propostas = Lists.newArrayList();
         try {
             XPath xPath =  XPathFactory.newInstance().newXPath();
             NodeList nomes = (NodeList) xPath.compile("//proposicao/tipoProposicao/nome").evaluate(response, XPathConstants.NODESET);
             NodeList descricoes = (NodeList) xPath.compile("//txtEmenta").evaluate(response, XPathConstants.NODESET);
-            NodeList situacoes = (NodeList) xPath.compile("//situacao/descricao").evaluate(response, XPathConstants.NODESET);
+            NodeList descricaoSituacoes = (NodeList) xPath.compile("//situacao/descricao").evaluate(response, XPathConstants.NODESET);
+            NodeList idSituacoes = (NodeList) xPath.compile("//situacao/id").evaluate(response, XPathConstants.NODESET);
 
             for (int i = 0; i < descricoes.getLength(); i++) {
                 String descricao = descricoes.item(i).getFirstChild().getNodeValue();
                 String nome = nomes.item(i).getFirstChild().getNodeValue();
-                String situacao = situacoes.item(i).getFirstChild().getNodeValue();
-                result.add(new PoliticoProjetosDeLei(nome, descricao, situacao));
+                String descricaoSituacao = descricaoSituacoes.item(i).getFirstChild().getNodeValue();
+                String idSituacao = idSituacoes.item(i).getFirstChild().getNodeValue();
+
+                propostas.add(new PoliticoProjetoDeLei(nome, descricao, idSituacao, descricaoSituacao));
             }
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");
         }
 
-        return result;
+        return new PoliticoPropostas(propostas);
     }
 
 }

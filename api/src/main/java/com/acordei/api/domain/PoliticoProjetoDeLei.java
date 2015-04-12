@@ -4,17 +4,19 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class PoliticoProjetosDeLei {
+public class PoliticoProjetoDeLei {
     private String tipoProposicao;
     private String descricao;
+    private String idSituacao;
     private String situacao;
 
-    public PoliticoProjetosDeLei() {
+    public PoliticoProjetoDeLei() {
     }
 
-    public PoliticoProjetosDeLei(String tipoProposicao, String descricao, String situacao) {
+    public PoliticoProjetoDeLei(String tipoProposicao, String descricao, String idSituacao, String situacao) {
         this.tipoProposicao = tipoProposicao;
         this.descricao = descricao;
+        this.idSituacao = idSituacao;
         this.situacao = situacao;
     }
 
@@ -32,6 +34,14 @@ public class PoliticoProjetosDeLei {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getIdSituacao() {
+        return idSituacao;
+    }
+
+    public void setIdSituacao(String idSituacao) {
+        this.idSituacao = idSituacao;
     }
 
     public String getSituacao() {
