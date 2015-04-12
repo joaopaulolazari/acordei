@@ -27,6 +27,7 @@ public class PoliticoParser {
         try {
             XPath xPath =  XPathFactory.newInstance().newXPath();
             NodeList matriculas = (NodeList) xPath.compile("//deputado/ideCadastro").evaluate(response, XPathConstants.NODESET);
+            NodeList assiduidadeIDs = (NodeList) xPath.compile("//deputado/matricula").evaluate(response, XPathConstants.NODESET);
             NodeList nomes = (NodeList) xPath.compile("//deputado/nome").evaluate(response, XPathConstants.NODESET);
             NodeList fotos = (NodeList) xPath.compile("//deputado/urlFoto").evaluate(response, XPathConstants.NODESET);
             NodeList ufs = (NodeList) xPath.compile("//deputado/uf").evaluate(response, XPathConstants.NODESET);
@@ -35,12 +36,13 @@ public class PoliticoParser {
 
             for (int i = 0; i < matriculas.getLength(); i++) {
                 String matricula = matriculas.item(i).getFirstChild().getNodeValue();
+                String assiduidadeId = assiduidadeIDs.item(i).getFirstChild().getNodeValue();
                 String nome = nomes.item(i).getFirstChild().getNodeValue();
                 String nomeParlamentar = formatNomeParlamentar(nomesParlamentar.item(i).getFirstChild().getNodeValue());
                 String foto = fotos.item(i).getFirstChild().getNodeValue();
                 String uf = ufs.item(i).getFirstChild().getNodeValue();
                 String email = emails.item(i).getFirstChild().getNodeValue();
-                result.add(new Politico(matricula, nome, nomeParlamentar, email, foto, uf));
+                result.add(new Politico(matricula, nome, nomeParlamentar, email, foto, uf,assiduidadeId));
             }
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");
