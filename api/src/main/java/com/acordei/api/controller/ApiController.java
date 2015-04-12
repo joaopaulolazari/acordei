@@ -1,7 +1,7 @@
 package com.acordei.api.controller;
 
+import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
-import com.acordei.api.domain.Sample;
 import com.acordei.api.service.PoliticoService;
 import com.acordei.api.service.SampleService;
 import com.wordnik.swagger.annotations.Api;
@@ -22,7 +22,12 @@ public class ApiController {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 
+    @RequestMapping(value = "/api/politico/{MATRICULA}", method = RequestMethod.GET)
+    public @ResponseBody Politico getPolitico(@PathVariable("MATRICULA") String matricula) {
+        return politicoService.getPolitico(matricula);
+    }
 
+    /*
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getEstatisticasNacionais() {
         return service.sample();
@@ -61,7 +66,7 @@ public class ApiController {
     @RequestMapping(value = "/api/politico/{ID}/gastos", method = RequestMethod.GET)
     public @ResponseBody Sample getPoliticoGastos(@PathVariable("ID") String id) {
         return service.sample();
-    }
+    }*/
 
 
 }

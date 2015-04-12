@@ -5,9 +5,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class PoliticoProjetosDeLei {
-    private String tipoProposicao; // tipoProposicao -> nome
-    private String descricao; // txtEmenta
-    private String situacao; // situacao -> descricao
+    private String tipoProposicao;
+    private String descricao;
+    private String situacao;
 
     public PoliticoProjetosDeLei() {
     }
