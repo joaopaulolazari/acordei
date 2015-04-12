@@ -27,7 +27,6 @@ public class RoboRunner {
 
     public static MongoDatabase getDb(){
         if ( db != null ) return db;
-
         MongoClient cliente = new MongoClient("localhost",new MongoClientOptions.Builder().build());
         db = cliente.getDatabase("transparencia");
         return db;
@@ -38,7 +37,6 @@ public class RoboRunner {
         csvFileFormat.withQuote(Character.valueOf('\"'));
         InputStreamReader fileReader = new InputStreamReader( new FileInputStream("/home/azureuser/2015.csv"), Charset.forName("ISO-8859-1"));
 
-        //FileReader fileReader = new FileReader("/Users/deivison/Downloads/2015.csv");
         CSVParser csvFileParser = new CSVParser(fileReader, csvFileFormat);
         List<CSVRecord> csvRecords = csvFileParser.getRecords();
         for (int i = 1; i < csvRecords.size(); i++) {

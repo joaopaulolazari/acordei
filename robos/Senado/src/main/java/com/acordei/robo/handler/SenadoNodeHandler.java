@@ -12,29 +12,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SenadoNodeHandler  {
+public class SenadoNodeHandler {
 
     private String expenseType;
     private Double expenseValue;
     private static final String DATABASE = "politicosconsolidado";
     int maxTry = 30;
 
-    private Double formatStringToDouble(String value){
+    private Double formatStringToDouble(String value) {
         String expenseValue = clearString(value);
-        if ( expenseValue.isEmpty() ) return  0D;
+        if (expenseValue.isEmpty()) return 0D;
 
         return new Double(expenseValue);
     }
-    public Double findAndFormatDoubleColumn(CSVRecord record,int index,int line){
-        if ( index >= record.size() ) return 0D;
+
+    public Double findAndFormatDoubleColumn(CSVRecord record, int index, int line) {
+        if (index >= record.size()) return 0D;
 
         String expenseValue = clearString(record.get(index));
-        try{
+        try {
             return new Double(expenseValue);
-        }catch(java.lang.NumberFormatException e){
-            if ( index+1 > maxTry ) {
+        } catch (java.lang.NumberFormatException e) {
+            if (index + 1 > maxTry) {
                 return 0D;
-            }else {
+            } else {
                 return findAndFormatDoubleColumn(record, index + 1, line);
             }
         }
@@ -46,21 +47,21 @@ public class SenadoNodeHandler  {
         return expenseValue;
     }
 
-    public void process(CSVRecord record,int line) {
+    public void process(CSVRecord record, int line) {
         try {
-            if ( record.size() < 9 ) return;
+            if (record.size() < 9) return;
 
             String key = generateKeyTemp("br", record.get(2));
             expenseType = record.get(3);
-            expenseValue = findAndFormatDoubleColumn(record,9,line);
+            expenseValue = findAndFormatDoubleColumn(record, 9, line);
             insertOrUpdate(record, key, createBaseDocumentWithKey(key));
         } catch (Exception e) {
-            System.out.print("Erro to get values to line "+line+" record size: "+record.size());
+            System.out.print("Erro to get values to line " + line + " record size: " + record.size());
         }
     }
 
     private void insertOrUpdate(CSVRecord node, String key, Document searchQuery) throws XPathExpressionException {
-        if ( !updateDocumentIfNeed(searchQuery) ) createPolitiqueWithExpense(node, key);
+        if (!updateDocumentIfNeed(searchQuery)) createPolitiqueWithExpense(node, key);
     }
 
     private void createPolitiqueWithExpense(CSVRecord node, String key) throws XPathExpressionException {
@@ -75,11 +76,11 @@ public class SenadoNodeHandler  {
         RoboRunner.QTD_HANDLER += 1;
     }
 
-    private boolean updateDocumentIfNeed(Document searchQuery){
+    private boolean updateDocumentIfNeed(Document searchQuery) {
         FindIterable cursor = RoboRunner.getDb().getCollection(DATABASE).find(searchQuery);
         MongoCursor c = cursor.iterator();
 
-        if ( !c.hasNext() )  return false;
+        if (!c.hasNext()) return false;
 
         Document old = (Document) c.next();
         List<Document> gastos = (List<Document>) old.get("gastos");
@@ -93,7 +94,7 @@ public class SenadoNodeHandler  {
     }
 
     private void insertOrUpdateExpense(List<Document> gastos) {
-        if ( !updateExpenseByType(gastos)) insertNewExpense(gastos);
+        if (!updateExpenseByType(gastos)) insertNewExpense(gastos);
     }
 
     private void updateDocument(Document searchQuery, Document old) {
@@ -104,15 +105,16 @@ public class SenadoNodeHandler  {
 
     private void insertNewExpense(List<Document> gastos) {
         Document expense = new Document();
-        expense.put("tipo",expenseType);
-        expense.put("valor",expenseValue);
+        expense.put("tipo", expenseType);
+        expense.put("valor", expenseValue);
         gastos.add(expense);
     }
 
+
     private boolean updateExpenseByType(List<Document> gastos) {
         boolean find = false;
-        for(Document gasto : gastos){
-            if ( gasto.get("tipo").toString().equals(expenseType) ){
+        for (Document gasto : gastos) {
+            if (gasto.get("tipo").toString().equals(expenseType)) {
                 gasto.put("valor", formatStringToDouble("" + gasto.get("valor")) + expenseValue);
                 find = true;
                 break;
@@ -127,7 +129,11 @@ public class SenadoNodeHandler  {
         return searchQuery;
     }
 
-    String generateKey(String uf,String name){
+    String generateKeyTemp(String uf, String name) {
+        return generateKey(uf, name);
+    }
+
+    String generateKey(String uf, String name) {
         return new String(Base64.encodeBase64((uf + "_" + name).getBytes()));
     }
 

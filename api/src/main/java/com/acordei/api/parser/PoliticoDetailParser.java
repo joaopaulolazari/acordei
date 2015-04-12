@@ -35,7 +35,7 @@ public class PoliticoDetailParser {
                 String nomeParlamentar = formatNomeParlamentar(nomesParlamentar.item(i).getFirstChild().getNodeValue());
                 String uf = ufs.item(i).getFirstChild().getNodeValue();
                 String email = emails.item(i).getFirstChild().getNodeValue();
-                result.add(new Politico(null, nome, nomeParlamentar, email, null, uf));
+                result.add(new Politico(null, nome, nomeParlamentar, email, null, uf,null));
             }
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");
