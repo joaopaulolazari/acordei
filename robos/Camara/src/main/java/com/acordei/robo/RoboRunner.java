@@ -29,7 +29,7 @@ public class RoboRunner {
         if ( db != null ) return db;
 
         int timeout = Integer.MAX_VALUE;
-        MongoClient cliente = new MongoClient("localhost",new MongoClientOptions.Builder()
+        MongoClient cliente = new MongoClient("acordei.cloudapp.net",new MongoClientOptions.Builder()
                 .connectTimeout(timeout)
                 .heartbeatConnectTimeout(timeout)
                 .heartbeatSocketTimeout(timeout)
