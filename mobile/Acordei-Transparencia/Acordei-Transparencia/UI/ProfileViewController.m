@@ -11,6 +11,9 @@
 #import "ProfilePhotoUtil.h"
 #import "ProjectsViewController.h"
 #import "ExpensesViewController.h"
+#import "DashboardViewController.h"
+#import "BioViewController.h"
+
 
 @interface ProfileViewController ()
 
@@ -50,6 +53,47 @@
     return cell;
 }
 
+- (IBAction)touchEmail:(id)sender {
+    NSString *emailTitle = @"";
+
+    NSString *messageBody = @"via Acordei";
+
+    NSArray *toRecipents = [NSArray arrayWithObject:self.lblEmail.text];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     if (indexPath.row == 0) {
@@ -57,6 +101,16 @@
         [self.navigationController pushViewController:pvc animated:YES];
     }
     
+    else if (indexPath.row == 1){
+        DashboardViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Dashboard"];
+        [self.navigationController pushViewController:dvc animated:YES];
+    }
+    
+    else if (indexPath.row == 2){
+        BioViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Bio"];
+        bvc.title = @"Biografia";
+        [self.navigationController pushViewController:bvc animated:YES];
+    }
     
     else if (indexPath.row == 3) {
         ExpensesViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"Expenses"];

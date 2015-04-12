@@ -28,12 +28,13 @@ public class RoboRunner {
     public static MongoDatabase getDb(){
         if ( db != null ) return db;
 
+        int timeout = Integer.MAX_VALUE;
         MongoClient cliente = new MongoClient("acordei.cloudapp.net",new MongoClientOptions.Builder()
-                .connectTimeout(999999999)
-                .heartbeatConnectTimeout(999999999)
-                .heartbeatSocketTimeout(999999999)
-                .serverSelectionTimeout(999999999)
-                .socketTimeout(999999999).build());
+                .connectTimeout(timeout)
+                .heartbeatConnectTimeout(timeout)
+                .heartbeatSocketTimeout(timeout)
+                .serverSelectionTimeout(timeout)
+                .socketTimeout(timeout).build());
 
         db = cliente.getDatabase("transparencia");
         return db;

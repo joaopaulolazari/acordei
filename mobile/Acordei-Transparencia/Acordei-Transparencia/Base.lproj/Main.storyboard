@@ -149,7 +149,7 @@
         <!--Dashboard-->
         <scene sceneID="tSA-HJ-BK1">
             <objects>
-                <viewController id="6pT-fw-b31" customClass="DashboardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Dashboard" id="6pT-fw-b31" customClass="DashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HSd-jG-kf2"/>
                         <viewControllerLayoutGuide type="bottom" id="RCc-wT-aAc"/>
@@ -256,9 +256,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="6pT-fw-b31" id="ycg-JJ-lP4"/>
                                     <outlet property="delegate" destination="6pT-fw-b31" id="1nR-OT-3bh"/>
@@ -266,14 +263,32 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9fW-Rf-i80" secondAttribute="trailing" constant="-16" id="0lW-xm-tqi"/>
+                            <constraint firstItem="9fW-Rf-i80" firstAttribute="top" secondItem="VEP-7D-Z8d" secondAttribute="topMargin" id="5Ka-It-HEV"/>
+                            <constraint firstItem="9fW-Rf-i80" firstAttribute="leading" secondItem="VEP-7D-Z8d" secondAttribute="leadingMargin" constant="-16" id="e55-nT-EUr"/>
+                            <constraint firstItem="9fW-Rf-i80" firstAttribute="bottom" secondItem="VEP-7D-Z8d" secondAttribute="bottomMargin" id="iC7-7I-tHe"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="9fW-Rf-i80"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0lW-xm-tqi"/>
+                                <exclude reference="5Ka-It-HEV"/>
+                                <exclude reference="e55-nT-EUr"/>
+                                <exclude reference="iC7-7I-tHe"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="9fW-Rf-i80"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0lW-xm-tqi"/>
+                                <include reference="5Ka-It-HEV"/>
+                                <include reference="e55-nT-EUr"/>
+                                <include reference="iC7-7I-tHe"/>
                             </mask>
                         </variation>
                     </view>
@@ -424,14 +439,18 @@
                                     <rect key="frame" x="24" y="219" width="28" height="28"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tyrionlannister@westeros.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8L-uo-2jD">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tyrionlannister@westeros.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8L-uo-2jD">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="66" y="222" width="299" height="21"/>
+                                    <rect key="frame" x="66" y="222" width="299" height="25"/>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S2A-h2-w1N" appends="YES" id="nwE-Qp-rKe"/>
+                                </connections>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-44-jaE">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -473,11 +492,101 @@
                     <connections>
                         <outlet property="collectionView" destination="9ME-tV-D7U" id="LIp-FZ-Psc"/>
                         <outlet property="imgProfile" destination="9AX-44-jaE" id="GQY-dS-qsD"/>
+                        <outlet property="lblEmail" destination="z8L-uo-2jD" id="QZv-1f-a1m"/>
+                        <outlet property="lblName" destination="yqp-EU-7j7" id="I4y-NF-fYf"/>
+                        <outlet property="lblRole" destination="5KU-Mt-NGi" id="ivK-GT-0UQ"/>
+                        <outlet property="lblWage" destination="xkG-QM-4e0" id="eBX-yH-Cuj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzc-pG-XZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="S2A-h2-w1N">
+                    <connections>
+                        <action selector="touchEmail:" destination="2xC-du-Kxx" id="NNH-XF-E3S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2889.75" y="385.5"/>
+        </scene>
+        <!--Bio View Controller-->
+        <scene sceneID="IEW-vO-BoR">
+            <objects>
+                <viewController storyboardIdentifier="Bio" id="y7P-tF-u1a" customClass="BioViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QJW-R2-QPm"/>
+                        <viewControllerLayoutGuide type="bottom" id="zCq-7X-zkE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R2o-eR-TJd">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-bio" translatesAutoresizingMaskIntoConstraints="NO" id="S20-T4-5gY">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="219" width="348" height="428"/>
+                                </variation>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-rw-uMP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.58431372550000005" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="82"/>
+                                </variation>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Vm-bg-anx">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="123" y="83" width="128" height="128"/>
+                                </variation>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7C1-ys-8eh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="276" width="322" height="359"/>
+                                </variation>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoN-Wq-ESo">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" red="0.3411764706" green="0.58431372550000005" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="76" y="245" width="223" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21960784310000001" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="S20-T4-5gY"/>
+                                <exclude reference="eOK-rw-uMP"/>
+                                <exclude reference="6Vm-bg-anx"/>
+                                <exclude reference="7C1-ys-8eh"/>
+                                <exclude reference="YoN-Wq-ESo"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="S20-T4-5gY"/>
+                                <include reference="eOK-rw-uMP"/>
+                                <include reference="6Vm-bg-anx"/>
+                                <include reference="7C1-ys-8eh"/>
+                                <include reference="YoN-Wq-ESo"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imgProfile" destination="6Vm-bg-anx" id="dqD-4Y-Tgm"/>
+                        <outlet property="lblName" destination="YoN-Wq-ESo" id="8RW-rj-xHT"/>
+                        <outlet property="txtBio" destination="7C1-ys-8eh" id="Vtl-GH-6bk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RsW-h9-dat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3621.75" y="-89.5"/>
         </scene>
         <!--Projetos-->
         <scene sceneID="1nP-SQ-NfK">
@@ -822,7 +931,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urh-tc-1AG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4655.25" y="775.5"/>
+            <point key="canvasLocation" x="3683.25" y="839.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AJv-ha-W2x">
@@ -894,6 +1003,7 @@
     </scenes>
     <resources>
         <image name="arrow-row" width="15" height="17"/>
+        <image name="background-bio" width="356" height="436"/>
         <image name="background-profile-photo" width="375" height="165"/>
         <image name="background-total" width="359" height="63"/>
         <image name="card-background" width="322" height="237"/>

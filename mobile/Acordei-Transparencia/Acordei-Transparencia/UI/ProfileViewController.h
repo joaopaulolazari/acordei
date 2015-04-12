@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
+@property (strong, nonatomic) IBOutlet UILabel *lblEmail;
+@property (strong, nonatomic) IBOutlet UILabel *lblRole;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblWage;
 
 @end
