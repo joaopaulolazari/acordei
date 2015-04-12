@@ -18,6 +18,7 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Service
@@ -93,7 +94,8 @@ public class PoliticoService {
     }
 
     public List<Gasto> getGastosPorMatricula(String matricula){
-        return gastosDao.findGastosPorMatricula(matricula);
+        List<Gasto> gastos = gastosDao.findGastosPorMatricula(matricula);
+        return gastos.stream().filter(gasto -> !gasto.getTipo().equalsIgnoreCase("telefonia")).collect(Collectors.toList());
     }
 
     private Map jsonRequest(String restUrl) {
