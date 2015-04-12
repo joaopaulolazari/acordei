@@ -1,13 +1,11 @@
 # Transparência - Acordei
 
-Este projeto tem como intenção resolver o problema de memória dos brasileiros, com ele os usuários vão ser notificados de todos os gastos, projetos e faltas que os nossos governantes tem durante seu mandato.
+Este projeto tem como intenção resolver o problema de memória dos brasileiros, com ele os usuários vão ser notificados de todos os gastos, projetos e faltas que os nossos governantes tem durante seu mandato. 
 
 Obs:
   - A versão IOS utiliza o CacooaPods ( https://cocoapods.org/) como gerenciador de dependencias no iOS. Então, caso ainda não tenha , instale o CacooaPods em seu OSX , va na pasta do projeto e digite : pod install ( isso vai baixar as dependencias ) , depois disso é só abrir o workspace e brincar a vontade! 
-  
-  - As notificações podem ser adicionadas ou removidas 
-  
-  - Todas as informações são de dominio público
+  - 
+  - Todas as informações são de dominio público e seguem a lei da transparência de 2012.
  
 Um dos grandes problemas técnicos é a falta de repositórios centralizados, este projeto alem de prover um incrível aplicativo também gera uma série de APIs que podem ser consumidas por outros aplicativos ou sistemas.
 
