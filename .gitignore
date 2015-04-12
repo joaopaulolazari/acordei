@@ -3,6 +3,9 @@
 .project
 .settings/
 
+*.xml
+
+.idea/*
 # Intellij
 .idea/
 *.iml
