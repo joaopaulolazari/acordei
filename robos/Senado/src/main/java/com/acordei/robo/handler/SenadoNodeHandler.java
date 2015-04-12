@@ -127,6 +127,9 @@ public class SenadoNodeHandler  {
         return searchQuery;
     }
 
+    String generateKeyTemp(String uf,String name){
+        return generateKey(uf,name);
+    }
     String generateKey(String uf,String name){
         return new String(Base64.encodeBase64((uf + "_" + name).getBytes()));
     }
