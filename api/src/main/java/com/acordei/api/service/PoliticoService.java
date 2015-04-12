@@ -91,6 +91,7 @@ public class PoliticoService {
         List<Politico> politicos = listPoliticos();
         return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
     }
+
     public List<Gasto> getGastosPorMatricula(String matricula){
         return gastosDao.findGastosPorMatricula(matricula);
     }
@@ -99,7 +100,6 @@ public class PoliticoService {
         Map callBack = new HashMap<>();
         try {
             RestClient client = RestClient.builder().build();
-
             Map entity = client.get(restUrl, null, Map.class);
             if (entity == null) return callBack;
 
@@ -123,7 +123,6 @@ public class PoliticoService {
             URLConnection connection = url.openConnection();
             DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             result = dBuilder.parse(connection.getInputStream());
-
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar fazer o parsing da resposta.");
         }
