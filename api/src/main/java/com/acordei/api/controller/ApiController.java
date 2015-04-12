@@ -1,6 +1,8 @@
 package com.acordei.api.controller;
 
+import com.acordei.api.domain.DashBoard;
 import com.acordei.api.domain.Politico;
+import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.service.PoliticoService;
 import com.wordnik.swagger.annotations.Api;
@@ -34,6 +36,13 @@ public class ApiController {
         return politicoService.getPoliticoAssiduidade(matricula);
     }
 
+
+    @Cacheable("RESPONSE_CACHE")
+    @RequestMapping(value = "/api/dashboard", method = RequestMethod.GET)
+    public @ResponseBody DashBoard getDashboard() {
+        //return politicoService.getPolitico(matricula);
+        return null;
+    }
 
 //    @Cacheable("RESPONSE_CACHE")
 //    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
