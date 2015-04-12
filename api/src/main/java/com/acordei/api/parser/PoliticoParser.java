@@ -26,7 +26,7 @@ public class PoliticoParser {
         List<Politico> result = Lists.newArrayList();
         try {
             XPath xPath =  XPathFactory.newInstance().newXPath();
-            NodeList matriculas = (NodeList) xPath.compile("//deputado/matricula").evaluate(response, XPathConstants.NODESET);
+            NodeList matriculas = (NodeList) xPath.compile("//deputado/ideCadastro").evaluate(response, XPathConstants.NODESET);
             NodeList nomes = (NodeList) xPath.compile("//deputado/nome").evaluate(response, XPathConstants.NODESET);
             NodeList fotos = (NodeList) xPath.compile("//deputado/urlFoto").evaluate(response, XPathConstants.NODESET);
             NodeList ufs = (NodeList) xPath.compile("//deputado/uf").evaluate(response, XPathConstants.NODESET);

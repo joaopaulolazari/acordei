@@ -1,9 +1,6 @@
 package com.acordei.api.controller;
 
-import com.acordei.api.domain.DashBoard;
-import com.acordei.api.domain.Politico;
-import com.acordei.api.domain.PoliticoAssiduidade;
-import com.acordei.api.domain.PoliticoProjetosDeLei;
+import com.acordei.api.domain.*;
 import com.acordei.api.service.DashBoardService;
 import com.acordei.api.service.PoliticoService;
 import com.wordnik.swagger.annotations.Api;
@@ -44,10 +41,14 @@ public class ApiController {
         return politicoService.getPoliticoAssiduidade(matricula);
     }
 
-    @Cacheable("DASHBOAR_RESPONSE_CACHE")
     @RequestMapping(value = "/api/dashboard", method = RequestMethod.GET)
     public @ResponseBody  List<DashBoard> getDashboard() {
         return dashBoardService.findDashBoardDatas();
+    }
+
+    @RequestMapping(value = "/api/politico/gastos/{nomePolitico}", method = RequestMethod.GET)
+    public @ResponseBody List<Gasto> getGastosPorPolitico(@PathVariable("nomePolitico") String nomePolitico){
+        return politicoService.getGastosPorPolitico(nomePolitico);
     }
 
 
