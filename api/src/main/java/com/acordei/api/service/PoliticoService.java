@@ -1,5 +1,7 @@
 package com.acordei.api.service;
 
+import com.acordei.api.dao.GastosDao;
+import com.acordei.api.domain.Gasto;
 import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
@@ -9,6 +11,7 @@ import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -27,6 +30,7 @@ import java.util.stream.Collectors;
 public class PoliticoService {
     private Logger logger = Logger.getLogger(PoliticoService.class);
 
+    @Autowired GastosDao gastosDao;
     /**
      * Origem dos dados:
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&parteNomeAutor=&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=
@@ -70,7 +74,9 @@ public class PoliticoService {
         List<Politico> politicos = listPoliticos();
         return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
     }
-
+    public List<Gasto> getGastosPorPolitico(String nomePolitico){
+        return gastosDao.findGastosPorPolitico(nomePolitico);
+    }
 
     private Map jsonRequest(String restUrl) {
         Map callBack = new HashMap<>();

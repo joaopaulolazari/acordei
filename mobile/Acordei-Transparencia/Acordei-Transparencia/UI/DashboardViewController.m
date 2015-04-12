@@ -64,7 +64,6 @@
     }
     else {
         ChartCell *cell2 = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell2" forIndexPath:indexPath];
-        
         cell2.slices = [values objectAtIndex:indexPath.row];
         cell2.numberOfSlices = [[[values objectAtIndex:indexPath.row]valueForKey:@"totalFatias"]integerValue];
         [cell2.pieChart reloadData];
