@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [[[ApiCall alloc] init] callWithUrl:@"http://acordei.cloudapp.net:80/api/politicos/"
                             SuccessCallback:^(NSData *message){
@@ -33,6 +34,7 @@
                                 NSLog(@"%@", json);
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [self.collectionView reloadData];
+                                    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
                                 });
                             }ErrorCallback:^(NSData *erro){
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
