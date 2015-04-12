@@ -27,17 +27,14 @@
                             SuccessCallback:^(NSData *message){
                                 values = [self populateValues:message];
                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                    NSLog(@"%@", values);
                                     [self.collectionView reloadData];
                                 });
                             }ErrorCallback:^(NSData *erro){
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
                             }];
     });
+    
     // Do any additional setup after loading the view.
-}
-
-- (IBAction)didTouchShareFacebook:(id)sender {
 }
 
 -(NSArray *)populateValues:(NSData *)data {
@@ -59,10 +56,11 @@
         cell.lblValue.text = [[values objectAtIndex:indexPath.row]valueForKey:@"conteudo"];
         NSString *imageName = [[values objectAtIndex:indexPath.row]valueForKey:@"fotoPoliticoRelacionado"];
         NSURL *url = [NSURL URLWithString:imageName];
+        UIImage *placeholder = [UIImage imageNamed:@"placeholder.png"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         __weak DashboardCell *weakCell = cell;
         [cell.imgProfile setImageWithURLRequest:request
-                              placeholderImage:nil
+                              placeholderImage:placeholder
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.imgProfile.image = image;
                                            [weakCell setNeedsLayout];
@@ -81,9 +79,10 @@
         NSString *imageName = [[values objectAtIndex:indexPath.row]valueForKey:@"fotoPoliticoRelacionado"];
         NSURL *url = [NSURL URLWithString:imageName];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholder = [UIImage imageNamed:@"placeholder.png"];
         __weak ChartCell *weakCell = cell2;
         [cell2.imgPolitician setImageWithURLRequest:request
-                               placeholderImage:nil
+                               placeholderImage:placeholder
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             weakCell.imgPolitician.image = image;
                                             [weakCell setNeedsLayout];

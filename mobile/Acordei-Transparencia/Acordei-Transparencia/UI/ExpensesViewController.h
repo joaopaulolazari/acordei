@@ -11,5 +11,6 @@
 @interface ExpensesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *lblTotal;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *fromArray;
 
 @end

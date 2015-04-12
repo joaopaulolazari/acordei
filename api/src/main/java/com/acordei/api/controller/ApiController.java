@@ -19,7 +19,7 @@ public class ApiController {
 
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
-    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("nomePolitico") String nomePolitico) {
+    public @ResponseBody PoliticoPropostas getPoliticoProjetos(@RequestParam("nomePolitico") String nomePolitico) {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 

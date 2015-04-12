@@ -1,24 +1,17 @@
 package com.acordei.api.service;
 
 import com.acordei.api.dao.GastosDao;
-import com.acordei.api.domain.Gasto;
-import com.acordei.api.domain.Politico;
-import com.acordei.api.domain.PoliticoAssiduidade;
-import com.acordei.api.domain.PoliticoProjetosDeLei;
+import com.acordei.api.domain.*;
 import com.acordei.api.parser.*;
+import com.google.common.collect.Lists;
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
-import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -39,10 +32,28 @@ public class PoliticoService {
      * # Filtro de Propostas pelo nome do candidato:
      * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2015&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=rotta&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=2
      */
-    public List<PoliticoProjetosDeLei> findProjetosDeLei(String nomeAutor) {
+    public PoliticoPropostas findProjetosDeLei(String nomeAutor) {
         String uri = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=$nomeAutor&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=";
         Document response = xmlRequest(uri.replace("$nomeAutor", nomeAutor));
-        return new PoliticoProjetoParser(response).parse();
+        PoliticoPropostas propostas = new PoliticoPropostasParser(response).parse();
+        calcularMetricas(propostas);
+        return propostas;
+    }
+
+    /**
+     * Ids situacao
+     * http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarSituacoesProposicao
+      */
+    private void calcularMetricas(PoliticoPropostas propostas) {
+        List<String> statusArquivado = Lists.newArrayList("923");
+        List<String> statusRejeitado = Lists.newArrayList("937", "1292");
+        List<String> statusAprovado = Lists.newArrayList("1140");
+        long aprovadas = propostas.getProjetos().stream().filter(p -> statusAprovado.contains(p.getIdSituacao())).count();
+        long rejeitadas = propostas.getProjetos().stream().filter(p -> statusRejeitado.contains(p.getIdSituacao())).count();
+        long arquivadas = propostas.getProjetos().stream().filter(p -> statusArquivado.contains(p.getIdSituacao())).count();
+        propostas.setPropostasAprovadas(aprovadas);
+        propostas.setPropostasArquivadas(arquivadas);
+        propostas.setPropostasRejeitadas(rejeitadas);
     }
 
     /**

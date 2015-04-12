@@ -66,9 +66,10 @@
     NSString *imageName = [[json objectAtIndex:indexPath.row]valueForKey:@"foto"];
     NSURL *url = [NSURL URLWithString:imageName];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholder = [UIImage imageNamed:@"placeholder.png"];
     __weak PoliticsCustomCell *weakCell = cell;
     [cell.imgPerson setImageWithURLRequest:request
-                          placeholderImage:nil
+                          placeholderImage:placeholder
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        weakCell.imgPerson.image = image;
                                        [weakCell setNeedsLayout];

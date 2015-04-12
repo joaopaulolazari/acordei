@@ -12,6 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
 @property (strong, nonatomic) IBOutlet UITextView *txtBio;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
-@pro
+@property (strong, nonatomic) NSArray *fromArray;
 
 @end
