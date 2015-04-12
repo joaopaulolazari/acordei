@@ -21,9 +21,9 @@ public class GastosDao {
     @Autowired
     private MongoSingletonClient client;
 
-    public List<Gasto> findGastosPorPolitico(String nome) {
+    public List<Gasto> findGastosPorMatricula(String matricula) {
         List<Gasto> datas = Lists.newArrayList();
-        FindIterable<Document> data = client.getDb().getCollection("politicos").find(new Document("nome", nome));
+        FindIterable<Document> data = client.getDb().getCollection("politicosconsolidado_tmp").find(new Document("matricula", matricula));
         MongoCursor<Document> cursor = data.iterator();
         while (cursor.hasNext()) {
             Document document = cursor.next();

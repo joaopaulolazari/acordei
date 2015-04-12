@@ -91,8 +91,8 @@ public class PoliticoService {
         List<Politico> politicos = listPoliticos();
         return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
     }
-    public List<Gasto> getGastosPorPolitico(String nomePolitico){
-        return gastosDao.findGastosPorPolitico(nomePolitico);
+    public List<Gasto> getGastosPorMatricula(String matricula){
+        return gastosDao.findGastosPorMatricula(matricula);
     }
 
     private Map jsonRequest(String restUrl) {
