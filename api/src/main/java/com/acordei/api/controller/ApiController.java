@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @Api(value = "/api", description = "Api operations")
 public class ApiController {
+
     @Autowired private PoliticoService politicoService;
 
     @Cacheable("RESPONSE_CACHE")

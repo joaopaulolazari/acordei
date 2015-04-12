@@ -113,6 +113,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="75" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="719" />
@@ -488,7 +489,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="719" extended-state="0" />
+    <frame x="75" y="23" width="1280" height="719" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -627,9 +628,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
           <folding>
-            <element signature="e#4086#4087#0" expanded="true" />
-            <element signature="e#4127#4128#0" expanded="true" />
-            <element signature="e#5458#5459#0" expanded="true" />
+            <element signature="e#4086#4087#0" expanded="false" />
+            <element signature="e#4127#4128#0" expanded="false" />
+            <element signature="e#5458#5459#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -663,8 +664,8 @@
         <state vertical-scroll-proportion="0.78729284">
           <caret line="126" column="66" selection-start-line="126" selection-start-column="48" selection-end-line="126" selection-end-column="66" />
           <folding>
-            <element signature="e#5056#5057#0" expanded="true" />
-            <element signature="e#5101#5102#0" expanded="true" />
+            <element signature="e#5056#5057#0" expanded="false" />
+            <element signature="e#5101#5102#0" expanded="false" />
           </folding>
         </state>
       </provider>

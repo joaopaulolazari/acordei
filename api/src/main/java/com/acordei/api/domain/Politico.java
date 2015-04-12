@@ -10,13 +10,18 @@ public class Politico {
     private String email;
     private String foto;
     private String uf;
+    private String biografia;
+    private String situacao;
 
-    public Politico(String matricula, String nome, String email, String foto, String uf) {
+    public Politico(String matricula, String nome, String foto, String uf) {
         this.matricula = matricula;
         this.nome = nome;
-        this.email = email;
         this.foto = foto;
         this.uf = uf;
+    }
+
+    public Politico(PoliticoAssiduidade assiduidade) {
+        this.assiduidade = assiduidade;
     }
 
     public String getMatricula() {
@@ -43,20 +48,20 @@ public class Politico {
         this.foto = foto;
     }
 
+    public PoliticoAssiduidade getAssiduidade() {
+        return assiduidade;
+    }
+
+    public void setAssiduidade(PoliticoAssiduidade assiduidade) {
+        this.assiduidade = assiduidade;
+    }
+
     public String getUf() {
         return uf;
     }
 
     public void setUf(String uf) {
         this.uf = uf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override
