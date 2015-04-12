@@ -13,10 +13,7 @@ import java.util.List;
 @RestController
 @Api(value = "/api", description = "Api operations")
 public class ApiController {
-<<<<<<< HEAD
 
-=======
->>>>>>> 9692823b1f0581b5f5007c52f6e70a738c9711e7
     @Autowired private PoliticoService politicoService;
 
     @Cacheable("RESPONSE_CACHE")
