@@ -38,7 +38,6 @@ public class ApiController {
         return politicoService.getPoliticoAssiduidade(matricula);
     }
 
-
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/dashboard", method = RequestMethod.GET)
     public @ResponseBody  List<DashBoard> getDashboard() {

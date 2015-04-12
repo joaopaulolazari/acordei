@@ -55,10 +55,11 @@ public class PoliticoService {
         return politico;
     }
 
-    public PoliticoAssiduidade getPoliticoAssiduidade(String matricula) {
-        return null;
+    public PoliticoAssiduidade getPoliticoAssiduidade(String matricula){
+        String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+matricula;
+        Document response = xmlRequest(uri);
+        return new PoliticoAssiduidadeParser(response).parse();
     }
-
 
     public List<Politico> listPoliticos() {
         Document response = xmlRequest("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
