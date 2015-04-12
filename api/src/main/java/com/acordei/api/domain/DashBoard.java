@@ -1,5 +1,7 @@
 package com.acordei.api.domain;
 
+import java.util.List;
+
 /**
  * Created by deivison on 4/12/15.
  */
@@ -10,8 +12,8 @@ public class DashBoard {
     private String conteudo;
 
     private int totalFatias;
-    private Float[] eixoYValores;
-    private String[] eixoYLabels;
+    private List<Float> eixoYValores;
+    private List<String> eixoYLabels;
 
     public String getTipo() {
         return tipo;
@@ -45,19 +47,19 @@ public class DashBoard {
         this.totalFatias = totalFatias;
     }
 
-    public Float[] getEixoYValores() {
+    public List<Float> getEixoYValores() {
         return eixoYValores;
     }
 
-    public void setEixoYValores(Float[] eixoYValores) {
+    public void setEixoYValores(List<Float> eixoYValores) {
         this.eixoYValores = eixoYValores;
     }
 
-    public String[] getEixoYLabels() {
+    public List<String> getEixoYLabels() {
         return eixoYLabels;
     }
 
-    public void setEixoYLabels(String[] eixoYLabels) {
+    public void setEixoYLabels(List<String> eixoYLabels) {
         this.eixoYLabels = eixoYLabels;
     }
 }

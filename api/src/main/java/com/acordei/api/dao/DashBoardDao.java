@@ -8,6 +8,7 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -25,8 +26,8 @@ public class DashBoardDao {
 
             DashBoard dashBoard = new DashBoard();
             dashBoard.setConteudo(document.getString("conteudo"));
-            dashBoard.setEixoYLabels(document.get("eixoylabels", String[].class));
-            dashBoard.setEixoYValores(document.get("eixoyvalores", Float[].class));
+            dashBoard.setEixoYLabels(document.get("eixoylabels", ArrayList.class));
+            dashBoard.setEixoYValores(document.get("eixoyvalores", ArrayList.class));
             dashBoard.setTitulo(document.getString("titulo"));
             dashBoard.setTipo(document.getString("tipo"));
             datas.add(dashBoard);

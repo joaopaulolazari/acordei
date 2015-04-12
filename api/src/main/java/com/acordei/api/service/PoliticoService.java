@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -44,11 +45,11 @@ public class PoliticoService {
      * http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar=1
      * Por hora retornando periodo de vigencia atual.
      */
-    public Politico getPolitico(String matricula){
+    public Politico getPolitico(String matricula) {
         String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados";
         Document detalhesPolitico = xmlRequest(uri);
         Politico politico = new PoliticoParser(detalhesPolitico).parse().stream().findFirst().get();
-        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1="+politico.getNomeParlamentar())).parse();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + politico.getNomeParlamentar())).parse();
         politico.setBiografia(politicoBiografia.getBiografia());
         politico.setSituacao(politicoBiografia.getSituacao());
         return politico;
@@ -70,20 +71,19 @@ public class PoliticoService {
     }
 
 
-
-    private Map jsonRequest(String restUrl){
+    private Map jsonRequest(String restUrl) {
         Map callBack = new HashMap<>();
         try {
             RestClient client = RestClient.builder().build();
 
             Map entity = client.get(restUrl, null, Map.class);
-            if ( entity == null ) return callBack;
+            if (entity == null) return callBack;
 
             Map results = (Map) entity.get("results");
-            if ( results == null || results.isEmpty() ) return callBack;
+            if (results == null || results.isEmpty()) return callBack;
 
             List<Map> dados = (List<Map>) results.get("dados");
-            if ( dados == null || dados.isEmpty() ) return callBack;
+            if (dados == null || dados.isEmpty()) return callBack;
 
             callBack = dados.get(0);
             return callBack;
@@ -92,7 +92,7 @@ public class PoliticoService {
         }
     }
 
-    private Document xmlRequest(String wsUrl){
+    private Document xmlRequest(String wsUrl) {
         Document result = null;
         try {
             DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
