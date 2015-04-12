@@ -11,9 +11,9 @@ Um dos grandes problemas técnicos é a falta de repositórios centralizados, es
 Teste aqui a API: http://acordei.cloudapp.net/
 iOS em breve na loja, mas você pode conferir os print screen do aplicativo:
 
-![Dashboard](http://www.acordei.com.br/IMG_0411.jpg)
-
-![Lista politicos](http://www.acordei.com.br/IMG_0412.jpg)
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![Dashboard](http://www.acordei.com.br/IMG_0411.jpg) | ![Lista politicos](http://www.acordei.com.br/IMG_0412.jpg)
 
 ![Pagina principal](http://www.acordei.com.br/IMG_0413.jpg)
 
