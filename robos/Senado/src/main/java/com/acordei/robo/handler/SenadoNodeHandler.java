@@ -3,9 +3,8 @@ package com.acordei.robo.handler;
 import com.acordei.robo.RoboRunner;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
-import com.scireum.open.xml.NodeHandler;
-import com.scireum.open.xml.StructuredNode;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.csv.CSVRecord;
 import org.bson.Document;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -13,41 +12,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CamaraNodeHandler implements NodeHandler {
+public class SenadoNodeHandler  {
 
     private String expenseType;
     private Double expenseValue;
+    private static final String DATABASE = "politicos_tmp";
+    int maxTry = 30;
 
-    public void process(StructuredNode node) {
+    private Double formatStringToDouble(String value){
+        String expenseValue = clearString(value);
+        if ( expenseValue.isEmpty() ) return  0D;
+
+        return new Double(expenseValue);
+    }
+    public Double findAndFormatDoubleColumn(CSVRecord record,int index,int line){
+
+
+        String expenseValue = clearString(record.get(index));
+        try{
+            return new Double(expenseValue);
+        }catch(java.lang.NumberFormatException e){
+            if ( index+1 > maxTry ) {
+                System.out.println("Não achei valor para linha: "+line+", tentei com : "+expenseValue);
+                return 0D;
+            }else {
+                return findAndFormatDoubleColumn(record, index + 1, line);
+            }
+        }
+    }
+
+    private String clearString(String expenseValue) {
+        expenseValue = expenseValue.trim();
+        expenseValue = expenseValue.replace(".", "").replace(",", ".").replaceAll("\"", "");
+        return expenseValue;
+    }
+
+    public void process(CSVRecord record,int line) {
         try {
-            String key = generateKeyTemp(node.queryString("sgUF"), node.queryString("txNomeParlamentar"));
-            expenseType = node.queryString("txtDescricao");
-            expenseValue = new Double(node.queryString("vlrLiquido"));
-            insertOrUpdate(node, key, createBaseDocumentWithKey(key));
+            String key = generateKeyTemp("br", record.get(2));
+            expenseType = record.get(3);
+            expenseValue = findAndFormatDoubleColumn(record,9,line);
+            insertOrUpdate(record, key, createBaseDocumentWithKey(key));
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
-        System.out.println("did insert ::"+RoboRunner.QTD_HANDLER);
-        System.out.println("did update ::"+RoboRunner.QTD_HANDLER_UPDATE);
     }
 
-    private void insertOrUpdate(StructuredNode node, String key, Document searchQuery) throws XPathExpressionException {
+    private void insertOrUpdate(CSVRecord node, String key, Document searchQuery) throws XPathExpressionException {
         if ( !updateDocumentIfNeed(searchQuery) ) createPolitiqueWithExpense(node, key);
     }
 
-    private void createPolitiqueWithExpense(StructuredNode node, String key) throws XPathExpressionException {
+    private void createPolitiqueWithExpense(CSVRecord node, String key) throws XPathExpressionException {
         Document document = createBaseDocumentWithKey(key);
-        document.put("nome",node.queryString("txNomeParlamentar"));
-        document.put("uf", node.queryString("sgUF"));
+        document.put("nome", node.get(2));
+        document.put("uf", "br");
         List<Document> expenseList = new ArrayList<>();
         insertNewExpense(expenseList);
         document.put("gastos", expenseList);
-        RoboRunner.getDb().getCollection("politicos").insertOne(document);
+        RoboRunner.getDb().getCollection(DATABASE).insertOne(document);
         RoboRunner.QTD_HANDLER += 1;
     }
 
     private boolean updateDocumentIfNeed(Document searchQuery){
-        FindIterable cursor = RoboRunner.getDb().getCollection("politicos").find(searchQuery);
+        FindIterable cursor = RoboRunner.getDb().getCollection(DATABASE).find(searchQuery);
         MongoCursor c = cursor.iterator();
 
         if ( !c.hasNext() )  return false;
@@ -70,7 +97,7 @@ public class CamaraNodeHandler implements NodeHandler {
     private void updateDocument(Document searchQuery, Document old) {
         Document updateObj = new Document();
         updateObj.put("$set", old);
-        RoboRunner.getDb().getCollection("politicos").updateOne(searchQuery, updateObj);
+        RoboRunner.getDb().getCollection(DATABASE).updateOne(searchQuery, updateObj);
     }
 
     private void insertNewExpense(List<Document> gastos) {
@@ -84,7 +111,7 @@ public class CamaraNodeHandler implements NodeHandler {
         boolean find = false;
         for(Document gasto : gastos){
             if ( gasto.get("tipo").toString().equals(expenseType) ){
-                gasto.put("valor", new Double(""+gasto.get("valor")) + expenseValue);
+                gasto.put("valor", formatStringToDouble("" + gasto.get("valor")) + expenseValue);
                 find = true;
                 break;
             }
@@ -105,4 +132,4 @@ public class CamaraNodeHandler implements NodeHandler {
         return new String(Base64.encodeBase64((uf + "_" + name).getBytes()));
     }
 
-    }
+}
