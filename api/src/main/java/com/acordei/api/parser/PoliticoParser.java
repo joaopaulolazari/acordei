@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+import java.text.Normalizer;
 import java.util.List;
 
 public class PoliticoParser {
@@ -30,14 +31,16 @@ public class PoliticoParser {
             NodeList fotos = (NodeList) xPath.compile("//deputado/urlFoto").evaluate(response, XPathConstants.NODESET);
             NodeList ufs = (NodeList) xPath.compile("//deputado/uf").evaluate(response, XPathConstants.NODESET);
             NodeList emails = (NodeList) xPath.compile("//deputado/email").evaluate(response, XPathConstants.NODESET);
+            NodeList nomesParlamentar = (NodeList) xPath.compile("//nomeParlamentar").evaluate(response, XPathConstants.NODESET);
 
             for (int i = 0; i < matriculas.getLength(); i++) {
                 String matricula = matriculas.item(i).getFirstChild().getNodeValue();
                 String nome = nomes.item(i).getFirstChild().getNodeValue();
+                String nomeParlamentar = formatNomeParlamentar(nomesParlamentar.item(i).getFirstChild().getNodeValue());
                 String foto = fotos.item(i).getFirstChild().getNodeValue();
                 String uf = ufs.item(i).getFirstChild().getNodeValue();
                 String email = emails.item(i).getFirstChild().getNodeValue();
-                result.add(new Politico(matricula, nome, email, foto, uf));
+                result.add(new Politico(matricula, nome, nomeParlamentar, email, foto, uf));
             }
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");
@@ -45,5 +48,14 @@ public class PoliticoParser {
 
         return result;
     }
+
+    private String formatNomeParlamentar(String nome){
+        String normalized = removeSpecialCharacters(nome).toLowerCase().replace(" ","-");
+        return  ( normalized.contains("-") ? normalized.substring(0,normalized.lastIndexOf("-")) : normalized);
+    }
+    private String removeSpecialCharacters(String text){
+        return Normalizer.normalize(text, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+    }
+
 
 }

@@ -8,8 +8,6 @@ import java.util.List;
 
 public class PoliticoAssiduidade {
 
-    private String nomeParlamentar;
-
     private List<PoliticoAssiduidadeEvento> eventos;
 
     public PoliticoAssiduidade() {
@@ -25,14 +23,6 @@ public class PoliticoAssiduidade {
 
     public void setEventos(List<PoliticoAssiduidadeEvento> eventos) {
         this.eventos = eventos;
-    }
-
-    public String getNomeParlamentar() {
-        return nomeParlamentar;
-    }
-
-    public void setNomeParlamentar(String nomeParlamentar) {
-        this.nomeParlamentar = nomeParlamentar;
     }
 
     @Override

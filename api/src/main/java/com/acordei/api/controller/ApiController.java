@@ -23,18 +23,6 @@ public class ApiController {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 
-//    @Cacheable("RESPONSE_CACHE")
-//    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
-//    public @ResponseBody List<Politico> getPoliticos() {
-//        return politicoService.listPoliticos();
-//    }
-//
-//    @Cacheable("RESPONSE_CACHE")
-//    @RequestMapping(value = "/api/politicos/UF/{idUf}", method = RequestMethod.GET)
-//    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("idUf") String ufId) {
-//        return politicoService.getPoliticosByEstado(ufId);
-//    }
-
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/{matricula}", method = RequestMethod.GET)
     public @ResponseBody Politico getPolitico(@PathVariable("matricula") String matricula) {
@@ -48,6 +36,17 @@ public class ApiController {
     }
 
 
+//    @Cacheable("RESPONSE_CACHE")
+//    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
+//    public @ResponseBody List<Politico> getPoliticos() {
+//        return politicoService.listPoliticos();
+//    }
+//
+//    @Cacheable("RESPONSE_CACHE")
+//    @RequestMapping(value = "/api/politicos/UF/{idUf}", method = RequestMethod.GET)
+//    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("idUf") String ufId) {
+//        return politicoService.getPoliticosByEstado(ufId);
+//    }
     /*
     @RequestMapping(value = "/api/estatisticas", method = RequestMethod.GET)
     public @ResponseBody Sample getEstatisticasNacionais() {
