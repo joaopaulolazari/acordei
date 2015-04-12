@@ -1,7 +1,5 @@
 package com.acordei.api.domain;
 
-import org.bson.Document;
-
 import java.util.List;
 
 /**
