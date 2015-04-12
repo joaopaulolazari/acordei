@@ -25,24 +25,22 @@ public class RoboRunner {
     public static int QTD_HANDLER = 0;
     static MongoDatabase db;
 
-    public static MongoDatabase getDb(){
-        if ( db != null ) return db;
-
-        MongoClient cliente = new MongoClient("localhost",new MongoClientOptions.Builder().build());
+    public static MongoDatabase getDb() {
+        if (db != null) return db;
+        MongoClient cliente = new MongoClient("localhost", new MongoClientOptions.Builder().build());
         db = cliente.getDatabase("transparencia");
         return db;
     }
 
     static void parseCsv() throws IOException, SAXException, ParserConfigurationException {
-        CSVFormat csvFileFormat = CSVFormat.newFormat( ";".charAt(0));
+        CSVFormat csvFileFormat = CSVFormat.newFormat(";".charAt(0));
         csvFileFormat.withQuote(Character.valueOf('\"'));
-        InputStreamReader fileReader = new InputStreamReader( new FileInputStream("/home/azureuser/2015.csv"), Charset.forName("ISO-8859-1"));
+        InputStreamReader fileReader = new InputStreamReader(new FileInputStream("/home/azureuser/2015.csv"), Charset.forName("ISO-8859-1"));
 
-        //FileReader fileReader = new FileReader("/Users/deivison/Downloads/2015.csv");
         CSVParser csvFileParser = new CSVParser(fileReader, csvFileFormat);
         List<CSVRecord> csvRecords = csvFileParser.getRecords();
         for (int i = 1; i < csvRecords.size(); i++) {
-           new SenadoNodeHandler().process(csvRecords.get(i),i);
+            new SenadoNodeHandler().process(csvRecords.get(i), i);
         }
         fileReader.close();
         csvFileParser.close();
