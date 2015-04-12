@@ -20,6 +20,18 @@ public class DashBoard {
     private List<Double> eixoYValores;
     private List<String> eixoYLabels;
 
+    public DashBoard(String tipo, String titulo, String conteudo, String nomePoliticoRelacionado, String fotoPoliticoRelacionado, String idPoliticoRelacionado, int totalFatias, List<Double> eixoYValores, List<String> eixoYLabels) {
+        this.tipo = tipo;
+        this.titulo = titulo;
+        this.conteudo = conteudo;
+        this.nomePoliticoRelacionado = nomePoliticoRelacionado;
+        this.fotoPoliticoRelacionado = fotoPoliticoRelacionado;
+        this.idPoliticoRelacionado = idPoliticoRelacionado;
+        this.totalFatias = totalFatias;
+        this.eixoYValores = eixoYValores;
+        this.eixoYLabels = eixoYLabels;
+    }
+
     public String getTipo() {
         return tipo;
     }
