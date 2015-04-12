@@ -33,9 +33,9 @@ public class ApiController {
     private PoliticoService politicoService;
     @Autowired
     private DashBoardService dashBoardService;
-    int totalInseridos = 0;
+    /*int totalInseridos = 0;
     int totalUpdatiados = 0;
-    int totalNaoInseridos = 0 ;
+    int totalNaoInseridos = 0 ;*/
 
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
@@ -52,7 +52,7 @@ public class ApiController {
         return politicoService.listPoliticos();
     }
 
-    @RequestMapping(value = "/api/all/politicos", method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/api/all/politicos", method = RequestMethod.GET)
     public
     @ResponseBody
     List<Politico> getAll() {
@@ -127,7 +127,7 @@ public class ApiController {
             e.printStackTrace();
         }
         return politicos;
-    }
+    }*/
 
     private String formatNomeParlamentar(String nome){
         String normalized = removeSpecialCharacters(nome).toLowerCase().replace(" ","-");
@@ -137,7 +137,7 @@ public class ApiController {
         return Normalizer.normalize(text, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 
-    private void updateGasto(String nomeUrna, String cargo, Politico p, Document findById, String DATABASE, MongoCursor mongoCursorById) {
+    /*private void updateGasto(String nomeUrna, String cargo, Politico p, Document findById, String DATABASE, MongoCursor mongoCursorById) {
         Document old = (Document) mongoCursorById.next();
         old.put("cargo", cargo);
         old.put("nome_urna", nomeUrna);
@@ -176,7 +176,7 @@ public class ApiController {
         old.put("situacao", politicoBiografia.getSituacao());
         old.put("uf", p.getUf());
         MongoSingletonClient.getDb().getCollection(DATABASE).insertOne(old);
-    }
+    }*/
 
     private Map jsonRequest(String restUrl) {
         Map callBack = new HashMap<>();
@@ -243,7 +243,7 @@ public class ApiController {
     }
 
 
-    public static class SQLiteJDBC {
+    /*public static class SQLiteJDBC {
         public static Connection getConn() {
             Connection c = null;
             try {
@@ -255,7 +255,7 @@ public class ApiController {
                 return null;
             }
         }
-    }
+    }*/
 
 
 }
