@@ -7,10 +7,8 @@ import com.acordei.api.parser.PoliticoAssiduidadeParser;
 import com.acordei.api.parser.PoliticoBiografiaParser;
 import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
-import com.mongodb.util.JSON;
 import http.rest.RestClient;
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
