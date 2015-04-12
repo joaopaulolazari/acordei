@@ -4,19 +4,21 @@ import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.parser.PoliticoAssiduidadeParser;
+import com.acordei.api.parser.PoliticoBiografiaParser;
 import com.acordei.api.parser.PoliticoParser;
 import com.acordei.api.parser.PoliticoProjetoParser;
-import com.google.common.collect.Lists;
+import com.mongodb.util.JSON;
+import http.rest.RestClient;
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,7 +34,7 @@ public class PoliticoService {
      */
     public List<PoliticoProjetosDeLei> findProjetosDeLei(String nomeAutor) {
         String uri = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=$nomeAutor&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=";
-        Document response = request(uri.replace("$nomeAutor", nomeAutor));
+        Document response = xmlRequest(uri.replace("$nomeAutor", nomeAutor));
         return new PoliticoProjetoParser(response).parse();
     }
 
@@ -43,13 +45,15 @@ public class PoliticoService {
      */
     public Politico getPolitico(String matricula){
         String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+matricula;
-        Document response = request(uri);
+        Document response = xmlRequest(uri);
         PoliticoAssiduidade assiduidade = new PoliticoAssiduidadeParser(response).parse();
-        return new Politico(assiduidade);
+        Politico politico = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1="+assiduidade.getNomeParlamentar())).parse();
+        politico.setAssiduidade(assiduidade);
+        return politico;
     }
 
     public List<Politico> listPoliticos() {
-        Document response = request("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
+        Document response = xmlRequest("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
         return new PoliticoParser(response).parse();
     }
 
@@ -59,7 +63,30 @@ public class PoliticoService {
     }
 
 
-    private Document request(String wsUrl){
+    private Map jsonRequest(String restUrl){
+
+        System.out.println("URL :" + restUrl);
+        Map callBack = new HashMap<>();
+        try {
+            RestClient client = RestClient.builder().build();
+
+            Map entity = client.get(restUrl, null, Map.class);
+            if ( entity == null ) return callBack;
+
+            Map results = (Map) entity.get("results");
+            if ( results == null || results.isEmpty() ) return callBack;
+
+            List<Map> dados = (List<Map>) results.get("dados");
+            if ( dados == null || dados.isEmpty() ) return callBack;
+
+            callBack = dados.get(0);
+            return callBack;
+        } catch (Exception e) {
+            return callBack;
+        }
+    }
+
+    private Document xmlRequest(String wsUrl){
         Document result = null;
         try {
             DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

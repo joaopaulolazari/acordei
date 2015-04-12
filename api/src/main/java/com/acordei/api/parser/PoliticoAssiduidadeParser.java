@@ -10,6 +10,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+import java.text.Normalizer;
 import java.util.List;
 
 public class PoliticoAssiduidadeParser {
@@ -21,12 +22,14 @@ public class PoliticoAssiduidadeParser {
     }
 
     public PoliticoAssiduidade parse(){
+        PoliticoAssiduidade politicoAssiduidade = new PoliticoAssiduidade();
         List<PoliticoAssiduidadeEvento> result = Lists.newArrayList();
         try {
             XPath xPath =  XPathFactory.newInstance().newXPath();
             NodeList dataEvento = (NodeList) xPath.compile("//dia/data").evaluate(response, XPathConstants.NODESET);
             NodeList frequenciaDia = (NodeList) xPath.compile("//dia/frequencianoDia").evaluate(response, XPathConstants.NODESET);
-
+            String nome = formatNomeParlamentar(xPath.compile("//nomeParlamentar").evaluate(response));
+            politicoAssiduidade.setNomeParlamentar(nome);
             for (int i = 0; i < frequenciaDia.getLength(); i++) {
                 String data = dataEvento.item(i).getFirstChild().getNodeValue();
                 String frequencia = frequenciaDia.item(i).getFirstChild().getNodeValue();
@@ -35,7 +38,15 @@ public class PoliticoAssiduidadeParser {
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");
         }
+        politicoAssiduidade.setEventos(result);
 
-        return new PoliticoAssiduidade(result);
+        return politicoAssiduidade;
+    }
+    String formatNomeParlamentar(String nome){
+        String normalized = removeSpecialCharacters(nome).toLowerCase().replace(" ","-");
+        return  ( normalized.contains("-") ? normalized.substring(0,normalized.lastIndexOf("-")) : normalized);
+    }
+    String removeSpecialCharacters(String text){
+        return Normalizer.normalize(text, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 }
