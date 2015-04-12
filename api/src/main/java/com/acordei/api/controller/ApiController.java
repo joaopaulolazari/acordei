@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class ApiController {
     private DashBoardService dashBoardService;
     int totalInseridos = 0;
     int totalUpdatiados = 0;
-
+    int totalNaoInseridos = 0 ;
 
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
@@ -107,7 +108,8 @@ public class ApiController {
                                 System.out.println("did insert: " + totalInseridos);
                             }
                         } else {
-                            System.out.println("Estava no SQLITE mas não na base :: " + name);
+                            totalNaoInseridos +=1;
+                            System.out.println("did not insert:: " + totalNaoInseridos);
                         }
                     }
                     rs.close();
@@ -124,9 +126,15 @@ public class ApiController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
         return politicos;
+    }
+
+    private String formatNomeParlamentar(String nome){
+        String normalized = removeSpecialCharacters(nome).toLowerCase().replace(" ","-");
+        return  ( normalized.contains("-") ? normalized.substring(0,normalized.lastIndexOf("-")) : normalized);
+    }
+    private String removeSpecialCharacters(String text){
+        return Normalizer.normalize(text, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 
     private void updateGasto(String nomeUrna, String cargo, Politico p, Document findById, String DATABASE, MongoCursor mongoCursorById) {
@@ -137,7 +145,7 @@ public class ApiController {
         old.put("nome", p.getNome());
         old.put("nome_parlamentar", p.getNomeParlamentar());
 
-        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + nomeUrna)).parse();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + formatNomeParlamentar(nomeUrna))).parse();
         old.put("biografia", politicoBiografia.getBiografia());
         old.put("email", p.getEmail());
         old.put("foto", p.getFoto());
