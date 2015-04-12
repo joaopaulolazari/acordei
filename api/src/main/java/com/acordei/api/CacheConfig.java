@@ -12,14 +12,22 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableCaching
 public class CacheConfig implements CachingConfigurer {
+
     @Bean(destroyMethod="shutdown")
     public net.sf.ehcache.CacheManager ehCacheManager() {
         CacheConfiguration cacheConfiguration = new CacheConfiguration();
         cacheConfiguration.setName("RESPONSE_CACHE");
         cacheConfiguration.setMemoryStoreEvictionPolicy("LRU");
         cacheConfiguration.setMaxEntriesLocalHeap(10000);
+
+        CacheConfiguration cacheAssiduidadeConfiguration = new CacheConfiguration();
+        cacheAssiduidadeConfiguration.setName("ASSIDUIDADE_RESPONSE_CACHE");
+        cacheAssiduidadeConfiguration.setMemoryStoreEvictionPolicy("LRU");
+        cacheAssiduidadeConfiguration.setMaxEntriesLocalHeap(10000);
+
         net.sf.ehcache.config.Configuration config = new net.sf.ehcache.config.Configuration();
         config.addCache(cacheConfiguration);
+        config.addCache(cacheAssiduidadeConfiguration);
         return net.sf.ehcache.CacheManager.newInstance(config);
     }
 

@@ -13,6 +13,7 @@ public class DashBoard {
     private String titulo;
     private String conteudo;
 
+    private int totalFatias;
     private List<Double> eixoYValores;
     private List<String> eixoYLabels;
 
@@ -38,6 +39,14 @@ public class DashBoard {
 
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
+    }
+
+    public int getTotalFatias() {
+        return totalFatias;
+    }
+
+    public void setTotalFatias(int totalFatias) {
+        this.totalFatias = totalFatias;
     }
 
     public List<Double> getEixoYValores() {

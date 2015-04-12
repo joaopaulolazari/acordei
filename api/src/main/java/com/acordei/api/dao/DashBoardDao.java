@@ -30,6 +30,7 @@ public class DashBoardDao {
             dashBoard.setEixoYValores(document.get("eixoyvalores", ArrayList.class));
             dashBoard.setTitulo(document.getString("titulo"));
             dashBoard.setTipo(document.getString("tipo"));
+            dashBoard.setTotalFatias(document.getInteger("totalfatias"));
             datas.add(dashBoard);
         }
         cursor.close();

@@ -38,9 +38,9 @@ public class ApiController {
         return politicoService.getPolitico(matricula);
     }
 
-    @Cacheable("RESPONSE_CACHE")
-    @RequestMapping(value = "/api/politico/{matricula}/assiduidade", method = RequestMethod.GET)
-    public @ResponseBody PoliticoAssiduidade getPoliticoAssiduidade(@PathVariable("matricula") String matricula) {
+    @Cacheable("ASSIDUIDADE_RESPONSE_CACHE")
+    @RequestMapping(value = "/api/politico/assiduidade/{matricula}", method = RequestMethod.GET)
+    public @ResponseBody PoliticoAssiduidade getAssiduidade(@PathVariable("matricula") String matricula) {
         return politicoService.getPoliticoAssiduidade(matricula);
     }
 
