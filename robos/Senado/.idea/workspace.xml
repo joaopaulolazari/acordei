@@ -48,12 +48,12 @@
       <file leaf-file-name="SenadoNodeHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/acordei/robo/handler/SenadoNodeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5418006">
-              <caret line="119" column="9" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.37299034">
+              <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4507#4508#0" expanded="true" />
-                <element signature="e#4550#4551#0" expanded="true" />
+                <element signature="e#4513#4514#0" expanded="true" />
+                <element signature="e#4556#4557#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -476,8 +476,8 @@
           <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4507#4508#0" expanded="true" />
-            <element signature="e#4550#4551#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4556#4557#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -611,12 +611,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/acordei/robo/handler/SenadoNodeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5418006">
-          <caret line="119" column="9" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.37299034">
+          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4507#4508#0" expanded="true" />
-            <element signature="e#4550#4551#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4556#4557#0" expanded="true" />
           </folding>
         </state>
       </provider>

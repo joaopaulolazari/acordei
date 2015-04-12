@@ -109,6 +109,8 @@ public class SenadoNodeHandler  {
         gastos.add(expense);
     }
 
+
+    
     private boolean updateExpenseByType(List<Document> gastos) {
         boolean find = false;
         for(Document gasto : gastos){
