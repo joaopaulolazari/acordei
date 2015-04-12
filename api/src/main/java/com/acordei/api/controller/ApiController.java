@@ -3,7 +3,6 @@ package com.acordei.api.controller;
 import com.acordei.api.domain.Politico;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.service.PoliticoService;
-import com.acordei.api.service.SampleService;
 import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,7 +17,7 @@ public class ApiController {
 
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/projetos", method = RequestMethod.GET)
-    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("NOME_POLITICO") String nomePolitico) {
+    public @ResponseBody List<PoliticoProjetosDeLei> getPoliticoProjetos(@RequestParam("nomePolitico") String nomePolitico) {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 
@@ -29,14 +28,14 @@ public class ApiController {
     }
 
     @Cacheable("RESPONSE_CACHE")
-    @RequestMapping(value = "/api/politicos/UF/{UF_ID}", method = RequestMethod.GET)
-    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("UF_ID") String ufId) {
+    @RequestMapping(value = "/api/politicos/UF/{idUf}", method = RequestMethod.GET)
+    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("idUf") String ufId) {
         return politicoService.getPoliticosByEstado(ufId);
     }
 
     @Cacheable("RESPONSE_CACHE")
-    @RequestMapping(value = "/api/politico/{MATRICULA}", method = RequestMethod.GET)
-    public @ResponseBody Politico getPolitico(@PathVariable("MATRICULA") String matricula) {
+    @RequestMapping(value = "/api/politico/{matricula}", method = RequestMethod.GET)
+    public @ResponseBody Politico getPolitico(@PathVariable("matricula") String matricula) {
         return politicoService.getPolitico(matricula);
     }
 
