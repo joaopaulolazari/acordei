@@ -5,6 +5,7 @@ target 'Acordei-Transparencia' do
 pod 'FMDB'
 pod 'AFNetworking'
 pod 'MBProgressHUD'
+pod 'XYPieChart'
 end
 
 target 'Acordei-TransparenciaTests' do
