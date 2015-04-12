@@ -12,6 +12,9 @@ public class DashBoard {
     private String tipo;
     private String titulo;
     private String conteudo;
+    private String nomePoliticoRelacionado;
+    private String fotoPoliticoRelacionado;
+    private String idPoliticoRelacionado;
 
     private int totalFatias;
     private List<Double> eixoYValores;
@@ -64,4 +67,30 @@ public class DashBoard {
     public void setEixoYLabels(List<String> eixoYLabels) {
         this.eixoYLabels = eixoYLabels;
     }
+
+    public String getNomePoliticoRelacionado() {
+        return nomePoliticoRelacionado;
+    }
+
+    public void setNomePoliticoRelacionado(String nomePoliticoRelacionado) {
+        this.nomePoliticoRelacionado = nomePoliticoRelacionado;
+    }
+
+    public String getFotoPoliticoRelacionado() {
+        return fotoPoliticoRelacionado;
+    }
+
+    public void setFotoPoliticoRelacionado(String fotoPoliticoRelacionado) {
+        this.fotoPoliticoRelacionado = fotoPoliticoRelacionado;
+    }
+
+    public String getIdPoliticoRelacionado() {
+        return idPoliticoRelacionado;
+    }
+
+    public void setIdPoliticoRelacionado(String idPoliticoRelacionado) {
+        this.idPoliticoRelacionado = idPoliticoRelacionado;
+    }
+
+
 }

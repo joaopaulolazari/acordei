@@ -31,6 +31,10 @@ public class DashBoardDao {
             dashBoard.setTitulo(document.getString("titulo"));
             dashBoard.setTipo(document.getString("tipo"));
             dashBoard.setTotalFatias(document.getInteger("totalfatias"));
+            dashBoard.setIdPoliticoRelacionado(document.getString("idPoliticoRelacionado"));
+            dashBoard.setFotoPoliticoRelacionado(document.getString("fotoPoliticoRelacionado"));
+            dashBoard.setNomePoliticoRelacionado(document.getString("nomePoliticoRelacionado"));
+
             datas.add(dashBoard);
         }
         cursor.close();
