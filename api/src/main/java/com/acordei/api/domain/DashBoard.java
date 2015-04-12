@@ -1,5 +1,7 @@
 package com.acordei.api.domain;
 
+import org.bson.Document;
+
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ public class DashBoard {
     private String conteudo;
 
     private int totalFatias;
-    private List<Float> eixoYValores;
+    private List<Double> eixoYValores;
     private List<String> eixoYLabels;
 
     public String getTipo() {
@@ -47,11 +49,11 @@ public class DashBoard {
         this.totalFatias = totalFatias;
     }
 
-    public List<Float> getEixoYValores() {
+    public List<Double> getEixoYValores() {
         return eixoYValores;
     }
 
-    public void setEixoYValores(List<Float> eixoYValores) {
+    public void setEixoYValores(List<Double> eixoYValores) {
         this.eixoYValores = eixoYValores;
     }
 
