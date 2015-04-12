@@ -16,7 +16,7 @@ public class SenadoNodeHandler  {
 
     private String expenseType;
     private Double expenseValue;
-    private static final String DATABASE = "politicos_tmp";
+    private static final String DATABASE = "politicos";
     int maxTry = 30;
 
     private Double formatStringToDouble(String value){
@@ -26,14 +26,13 @@ public class SenadoNodeHandler  {
         return new Double(expenseValue);
     }
     public Double findAndFormatDoubleColumn(CSVRecord record,int index,int line){
-
+        if ( index >= record.size() ) return 0D;
 
         String expenseValue = clearString(record.get(index));
         try{
             return new Double(expenseValue);
         }catch(java.lang.NumberFormatException e){
             if ( index+1 > maxTry ) {
-                System.out.println("Não achei valor para linha: "+line+", tentei com : "+expenseValue);
                 return 0D;
             }else {
                 return findAndFormatDoubleColumn(record, index + 1, line);
@@ -49,12 +48,14 @@ public class SenadoNodeHandler  {
 
     public void process(CSVRecord record,int line) {
         try {
+            if ( record.size() < 9 ) return;
+
             String key = generateKeyTemp("br", record.get(2));
             expenseType = record.get(3);
             expenseValue = findAndFormatDoubleColumn(record,9,line);
             insertOrUpdate(record, key, createBaseDocumentWithKey(key));
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.print("Erro to get values to line "+line+" record size: "+record.size());
         }
     }
 
@@ -66,6 +67,7 @@ public class SenadoNodeHandler  {
         Document document = createBaseDocumentWithKey(key);
         document.put("nome", node.get(2));
         document.put("uf", "br");
+        document.put("cargo", "senador");
         List<Document> expenseList = new ArrayList<>();
         insertNewExpense(expenseList);
         document.put("gastos", expenseList);

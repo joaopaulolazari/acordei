@@ -11,8 +11,11 @@ import org.apache.commons.csv.CSVRecord;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.List;
 
 
@@ -33,7 +36,8 @@ public class RoboRunner {
     static void parseCsv() throws IOException, SAXException, ParserConfigurationException {
         CSVFormat csvFileFormat = CSVFormat.newFormat( ";".charAt(0));
         csvFileFormat.withQuote(Character.valueOf('\"'));
-        FileReader fileReader = new FileReader("/home/azureuser/2015.csv");
+        InputStreamReader fileReader = new InputStreamReader( new FileInputStream("/home/azureuser/2015.csv"), Charset.forName("ISO-8859-1"));
+
         //FileReader fileReader = new FileReader("/Users/deivison/Downloads/2015.csv");
         CSVParser csvFileParser = new CSVParser(fileReader, csvFileFormat);
         List<CSVRecord> csvRecords = csvFileParser.getRecords();
