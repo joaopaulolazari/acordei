@@ -1,6 +1,5 @@
 package com.acordei.api.dao;
 
-import com.acordei.api.domain.DashBoard;
 import com.acordei.api.domain.Gasto;
 import com.google.common.collect.Lists;
 import com.mongodb.client.FindIterable;
@@ -9,7 +8,6 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

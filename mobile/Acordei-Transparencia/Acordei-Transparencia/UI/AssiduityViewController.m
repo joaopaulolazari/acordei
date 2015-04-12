@@ -8,6 +8,8 @@
 
 #import "AssiduityViewController.h"
 #import "AssiduityCell.h"
+#import "ApiCall.h"
+#import "MBProgressHUD.h"
 
 @interface AssiduityViewController ()
 
@@ -16,33 +18,41 @@
 @implementation AssiduityViewController
 {
     NSArray *days;
-    NSArray *description;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    days = [self populateDays];
-    description = [self populateDescription];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    NSString *matricula = [self.fromArray valueForKey:@"assiduidadeID"];
+    [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/assiduidade/%@", matricula]
+                        SuccessCallback:^(NSData *message){
+                            days = [self populateAssiduity:message];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self.collectionView reloadData];
+                                [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+                            });
+                        }ErrorCallback:^(NSData *erro){
+                            NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
+                        }];
     // Do any additional setup after loading the view.
 }
 
--(NSArray *)populateDescription{
-    return @[@"Presente", @"Presente", @"Ausente", @"Ausência Justificada"];
+-(NSArray *)populateAssiduity:(NSData *)data{
+    NSError *error;
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
 }
 
--(NSArray *)populateDays{
-    return @[@"01/01/2015", @"02/01/2015", @"03/01/2015", @"04/01/2015"];
-}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return days.count;
+    NSArray *array = [days valueForKey:@"eventos"];
+    return array.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     AssiduityCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.lblDay.text = [days objectAtIndex:indexPath.row];
-    cell.lblDescription.text = [description objectAtIndex:indexPath.row];
+    cell.lblDay.text = [[[days valueForKey:@"eventos"]objectAtIndex:indexPath.row]valueForKey:@"data"];
+    cell.lblDescription.text = [[[days valueForKey:@"eventos"] objectAtIndex:indexPath.row]valueForKey:@"frequenciaNoDia"];
     
     return cell;
 }

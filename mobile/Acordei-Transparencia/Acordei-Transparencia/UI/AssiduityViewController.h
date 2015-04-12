@@ -11,5 +11,6 @@
 @interface AssiduityViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *lblMissDays;
+@property (strong, nonatomic) NSArray *fromArray;
 
 @end

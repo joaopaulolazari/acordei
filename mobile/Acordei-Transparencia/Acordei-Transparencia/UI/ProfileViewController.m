@@ -17,6 +17,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ProfilePhotoUtil.h"
 #import "ApiCall.h"
+#import "MBProgressHUD.h"
 
 @interface ProfileViewController ()
 
@@ -30,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSString *matricula = [self.fromListArray valueForKey:@"matricula"];
         [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/%@", matricula]
@@ -38,6 +39,7 @@
                                 profile = [self populateProfileArray:message];
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [self populateInfo];
+                                    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
                                 });
                             }ErrorCallback:^(NSData *erro){
                                 NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
@@ -55,8 +57,13 @@
 -(void)populateInfo {
     NSLog(@"%@", profile);
     self.lblName.text = [profile valueForKey:@"nome"];
-    self.lblEmail.text = [profile valueForKey:@"email"];
-    self.lblSituation.text = [profile valueForKey:@"situacao"];
+    
+    if ([[profile valueForKey:@"email"]isEqualToString:@""]) self.lblEmail.text = @"Não informado";
+    else self.lblEmail.text = [profile valueForKey:@"email"];
+    
+    if ([[profile valueForKey:@"situacao"]isEqualToString:@"null"]) self.lblSituation.text = @"";
+    else self.lblSituation.text = [profile valueForKey:@"situacao"];
+    
     NSURL *url = [NSURL URLWithString:[self.fromListArray valueForKey:@"foto"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeholder = [UIImage imageNamed:@"placeholder.png"];
@@ -149,19 +156,21 @@
         BioViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Bio"];
         bvc.title = @"Biografia";
         bvc.fromArray = profile;
+        bvc.imgLink = [self.fromListArray valueForKey:@"foto"];
         [self.navigationController pushViewController:bvc animated:YES];
     }
     
     else if (indexPath.row == 3) {
         ExpensesViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"Expenses"];
         evc.title = @"Gastos";
-        evc.fromArray = profile;
+        evc.fromArray = self.fromListArray;
         [self.navigationController pushViewController:evc animated:YES];
     }
     
     else if (indexPath.row == 4){
         AssiduityViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"Assiduity"];
         avc.title = @"Assiduidade";
+        avc.fromArray = self.fromListArray;
         [self.navigationController pushViewController:avc animated:YES];
     }
 }

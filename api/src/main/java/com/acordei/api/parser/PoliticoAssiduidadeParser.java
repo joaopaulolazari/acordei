@@ -10,7 +10,6 @@ import org.w3c.dom.NodeList;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
-import java.text.Normalizer;
 import java.util.List;
 
 public class PoliticoAssiduidadeParser {

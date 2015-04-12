@@ -17,25 +17,23 @@ public class DashBoardDao {
     @Autowired
     private MongoSingletonClient client;
 
-    public List<DashBoard> findDashBoardDatas() {
+    public List<DashBoard> findDashBoardData() {
         List<DashBoard> datas = Lists.newArrayList();
         FindIterable<Document> data = client.getDb().getCollection("dashboard").find();
         MongoCursor<Document> cursor = data.iterator();
         while (cursor.hasNext()) {
             Document document = cursor.next();
-
-            DashBoard dashBoard = new DashBoard();
-            dashBoard.setConteudo(document.getString("conteudo"));
-            dashBoard.setEixoYLabels(document.get("eixoylabels", ArrayList.class));
-            dashBoard.setEixoYValores(document.get("eixoyvalores", ArrayList.class));
-            dashBoard.setTitulo(document.getString("titulo"));
-            dashBoard.setTipo(document.getString("tipo"));
-            dashBoard.setTotalFatias(document.getInteger("totalfatias"));
-            dashBoard.setIdPoliticoRelacionado(document.getString("idPoliticoRelacionado"));
-            dashBoard.setFotoPoliticoRelacionado(document.getString("fotoPoliticoRelacionado"));
-            dashBoard.setNomePoliticoRelacionado(document.getString("nomePoliticoRelacionado"));
-
-            datas.add(dashBoard);
+            datas.add(new DashBoard(
+                document.getString("tipo"),
+                document.getString("titulo"),
+                document.getString("conteudo"),
+                document.getString("nomePoliticoRelacionado"),
+                document.getString("fotoPoliticoRelacionado"),
+                document.getString("idPoliticoRelacionado"),
+                document.getInteger("totalfatias"),
+                document.get("eixoylabels", ArrayList.class),
+                document.get("eixoyvalores", ArrayList.class)
+            ));
         }
         cursor.close();
         return datas;
