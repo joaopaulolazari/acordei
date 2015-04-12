@@ -28,18 +28,18 @@ public class CamaraNodeHandler implements NodeHandler {
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
-        System.out.println("did insert ::"+RoboRunner.QTD_HANDLER);
-        System.out.println("did update ::"+RoboRunner.QTD_HANDLER_UPDATE);
+        System.out.println("did insert ::" + RoboRunner.QTD_HANDLER);
+        System.out.println("did update ::" + RoboRunner.QTD_HANDLER_UPDATE);
     }
 
     private void insertOrUpdate(StructuredNode node, String key, Document searchQuery) throws XPathExpressionException {
-        if ( !updateDocumentIfNeed(searchQuery) ) createPolitiqueWithExpense(node, key);
+        if (!updateDocumentIfNeed(searchQuery)) createPolitiqueWithExpense(node, key);
     }
 
     private void createPolitiqueWithExpense(StructuredNode node, String key) throws XPathExpressionException {
         Document document = createBaseDocumentWithKey(key);
         //document.put("nome",node.queryString("txNomeParlamentar"));
-        document.put("id",node.queryString("ideCadastro"));
+        document.put("id", node.queryString("ideCadastro"));
         //document.put("uf", node.queryString("sgUF"));
         List<Document> expenseList = new ArrayList<>();
         insertNewExpense(expenseList);
@@ -48,11 +48,11 @@ public class CamaraNodeHandler implements NodeHandler {
         RoboRunner.QTD_HANDLER += 1;
     }
 
-    private boolean updateDocumentIfNeed(Document searchQuery){
+    private boolean updateDocumentIfNeed(Document searchQuery) {
         FindIterable cursor = RoboRunner.getDb().getCollection(POLITICOS).find(searchQuery);
         MongoCursor c = cursor.iterator();
 
-        if ( !c.hasNext() )  return false;
+        if (!c.hasNext()) return false;
 
         Document old = (Document) c.next();
         List<Document> gastos = (List<Document>) old.get("gastos");
@@ -66,7 +66,7 @@ public class CamaraNodeHandler implements NodeHandler {
     }
 
     private void insertOrUpdateExpense(List<Document> gastos) {
-        if ( !updateExpenseByType(gastos)) insertNewExpense(gastos);
+        if (!updateExpenseByType(gastos)) insertNewExpense(gastos);
     }
 
     private void updateDocument(Document searchQuery, Document old) {
@@ -77,16 +77,16 @@ public class CamaraNodeHandler implements NodeHandler {
 
     private void insertNewExpense(List<Document> gastos) {
         Document expense = new Document();
-        expense.put("tipo",expenseType);
-        expense.put("valor",expenseValue);
+        expense.put("tipo", expenseType);
+        expense.put("valor", expenseValue);
         gastos.add(expense);
     }
 
     private boolean updateExpenseByType(List<Document> gastos) {
         boolean find = false;
-        for(Document gasto : gastos){
-            if ( gasto.get("tipo").toString().equals(expenseType) ){
-                gasto.put("valor", new Double(""+gasto.get("valor")) + expenseValue);
+        for (Document gasto : gastos) {
+            if (gasto.get("tipo").toString().equals(expenseType)) {
+                gasto.put("valor", new Double("" + gasto.get("valor")) + expenseValue);
                 find = true;
                 break;
             }
@@ -100,11 +100,12 @@ public class CamaraNodeHandler implements NodeHandler {
         return searchQuery;
     }
 
-    String generateKeyTemp(String uf,String name){
-        return generateKey(uf,name);
+    String generateKeyTemp(String uf, String name) {
+        return generateKey(uf, name);
     }
-    String generateKey(String uf,String name){
+
+    String generateKey(String uf, String name) {
         return new String(Base64.encodeBase64((uf + "_" + name).getBytes()));
     }
 
-    }
+}
