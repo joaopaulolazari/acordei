@@ -34,8 +34,7 @@
 }
 
 -(CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index {
-    NSArray *eixoY = [[self.slices objectAtIndex:index]valueForKey:@"eixoYValores"];
-    return [[[[self.slices objectAtIndex:index]valueForKey:@"eixoYValores"]objectAtIndex:index]floatValue];
+    return [[[self.slices valueForKey:@"eixoYValores"] objectAtIndex:index] floatValue] ;
 }
 
 -(UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index {

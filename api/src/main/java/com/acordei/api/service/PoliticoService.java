@@ -50,7 +50,7 @@ public class PoliticoService {
      * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula) {
-        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados";
+        String uri = "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?ideCadastro="+matricula+"&numLegislatura=";
         Document detalhesPolitico = xmlRequest(uri);
         Politico politico = new PoliticoParser(detalhesPolitico).parse().stream().findFirst().get();
         Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + politico.getNomeParlamentar())).parse();
