@@ -10,6 +10,7 @@
 #import "ProfileCustomCell.h"
 #import "ProfilePhotoUtil.h"
 #import "ProjectsViewController.h"
+#import "ExpensesViewController.h"
 
 @interface ProfileViewController ()
 
@@ -54,6 +55,12 @@
     if (indexPath.row == 0) {
         ProjectsViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Projects"];
         [self.navigationController pushViewController:pvc animated:YES];
+    }
+    
+    
+    else if (indexPath.row == 3) {
+        ExpensesViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"Expenses"];
+        [self.navigationController pushViewController:evc animated:YES];
     }
 }
 
