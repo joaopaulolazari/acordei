@@ -50,6 +50,7 @@ public class ApiController {
         List<Politico> politicos = pegaTodoMundo();
 
 
+        try {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -109,7 +110,10 @@ public class ApiController {
                         e.printStackTrace();
                     }
                 }
-            }).start();
+            }).join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         return politicos;
