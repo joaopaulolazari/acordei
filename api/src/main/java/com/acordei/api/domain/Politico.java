@@ -7,24 +7,34 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Politico {
     private String matricula;
     private String nome;
+    private String nomeParlamentar;
+    private String email;
     private String foto;
     private String uf;
     private String biografia;
     private String situacao;
-    private PoliticoAssiduidade assiduidade;
 
-    public Politico(String matricula, String nome, String foto, String uf) {
+    public Politico() {
+    }
+
+    public Politico(String matricula, String nome, String nomeParlamentar, String email, String foto, String uf) {
         this.matricula = matricula;
         this.nome = nome;
+        this.nomeParlamentar = nomeParlamentar;
+        this.email = email;
         this.foto = foto;
         this.uf = uf;
     }
 
-    public Politico(PoliticoAssiduidade assiduidade) {
-        this.assiduidade = assiduidade;
-    }
-
-    public Politico() {
+    public Politico(String matricula, String nome, String nomeParlamentar, String email, String foto, String uf, String biografia, String situacao) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.nomeParlamentar = nomeParlamentar;
+        this.email = email;
+        this.foto = foto;
+        this.uf = uf;
+        this.biografia = biografia;
+        this.situacao = situacao;
     }
 
     public String getMatricula() {
@@ -43,20 +53,20 @@ public class Politico {
         this.nome = nome;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getFoto() {
         return foto;
     }
 
     public void setFoto(String foto) {
         this.foto = foto;
-    }
-
-    public PoliticoAssiduidade getAssiduidade() {
-        return assiduidade;
-    }
-
-    public void setAssiduidade(PoliticoAssiduidade assiduidade) {
-        this.assiduidade = assiduidade;
     }
 
     public String getUf() {
@@ -75,8 +85,20 @@ public class Politico {
         this.biografia = biografia;
     }
 
+    public String getSituacao() {
+        return situacao;
+    }
+
     public void setSituacao(String situacao) {
         this.situacao = situacao;
+    }
+
+    public String getNomeParlamentar() {
+        return nomeParlamentar;
+    }
+
+    public void setNomeParlamentar(String nomeParlamentar) {
+        this.nomeParlamentar = nomeParlamentar;
     }
 
     @Override

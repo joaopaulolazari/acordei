@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
@@ -23,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="transparencia" />
+        <module name="transparencia-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="transparencia" target="1.8" />
+      <module name="transparencia-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
