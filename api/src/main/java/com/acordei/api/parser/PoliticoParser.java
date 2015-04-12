@@ -29,13 +29,15 @@ public class PoliticoParser {
             NodeList nomes = (NodeList) xPath.compile("//deputado/nome").evaluate(response, XPathConstants.NODESET);
             NodeList fotos = (NodeList) xPath.compile("//deputado/urlFoto").evaluate(response, XPathConstants.NODESET);
             NodeList ufs = (NodeList) xPath.compile("//deputado/uf").evaluate(response, XPathConstants.NODESET);
+            NodeList emails = (NodeList) xPath.compile("//deputado/email").evaluate(response, XPathConstants.NODESET);
 
             for (int i = 0; i < matriculas.getLength(); i++) {
                 String matricula = matriculas.item(i).getFirstChild().getNodeValue();
                 String nome = nomes.item(i).getFirstChild().getNodeValue();
                 String foto = fotos.item(i).getFirstChild().getNodeValue();
                 String uf = ufs.item(i).getFirstChild().getNodeValue();
-                result.add(new Politico(matricula, nome, foto, uf));
+                String email = emails.item(i).getFirstChild().getNodeValue();
+                result.add(new Politico(matricula, nome, email, foto, uf));
             }
         } catch (Exception e) {
             logger.info("Ocorreu um erro ao tentar processar resposta.");

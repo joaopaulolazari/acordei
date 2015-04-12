@@ -42,21 +42,27 @@ public class PoliticoService {
      * Por hora retornando periodo de vigencia atual.
      */
     public Politico getPolitico(String matricula){
+        Document detalhesPolitico = request("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
+        Politico politico = new PoliticoParser(detalhesPolitico).parse().stream().findFirst().get();
+        return politico;
+    }
+
+
+    public PoliticoAssiduidade getPoliticoAssiduidade(String matricula) {
         String uri = "http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?dataIni=01/02/2011&dataFim=31/12/2014&numMatriculaParlamentar="+matricula;
-        Document response = request(uri);
-        PoliticoAssiduidade assiduidade = new PoliticoAssiduidadeParser(response).parse();
-        return new Politico(assiduidade);
+        Document assiduidadeResponse = request(uri);
+        return new PoliticoAssiduidadeParser(assiduidadeResponse).parse();
     }
 
-    public List<Politico> listPoliticos() {
-        Document response = request("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
-        return new PoliticoParser(response).parse();
-    }
+//    public List<Politico> listPoliticos() {
+//        Document response = request("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
+//        return new PoliticoParser(response).parse();
+//    }
 
-    public List<Politico> getPoliticosByEstado(String ufId) {
-        List<Politico> politicos = listPoliticos();
-        return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
-    }
+//    public List<Politico> getPoliticosByEstado(String ufId) {
+//        List<Politico> politicos = listPoliticos();
+//        return politicos.stream().filter(p -> p.getUf().equalsIgnoreCase(ufId)).collect(Collectors.toList());
+//    }
 
 
     private Document request(String wsUrl){

@@ -1,6 +1,7 @@
 package com.acordei.api.controller;
 
 import com.acordei.api.domain.Politico;
+import com.acordei.api.domain.PoliticoAssiduidade;
 import com.acordei.api.domain.PoliticoProjetosDeLei;
 import com.acordei.api.service.PoliticoService;
 import com.wordnik.swagger.annotations.Api;
@@ -21,22 +22,28 @@ public class ApiController {
         return politicoService.findProjetosDeLei(nomePolitico);
     }
 
-    @Cacheable("RESPONSE_CACHE")
-    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
-    public @ResponseBody List<Politico> getPoliticos() {
-        return politicoService.listPoliticos();
-    }
-
-    @Cacheable("RESPONSE_CACHE")
-    @RequestMapping(value = "/api/politicos/UF/{idUf}", method = RequestMethod.GET)
-    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("idUf") String ufId) {
-        return politicoService.getPoliticosByEstado(ufId);
-    }
+//    @Cacheable("RESPONSE_CACHE")
+//    @RequestMapping(value = "/api/politicos/", method = RequestMethod.GET)
+//    public @ResponseBody List<Politico> getPoliticos() {
+//        return politicoService.listPoliticos();
+//    }
+//
+//    @Cacheable("RESPONSE_CACHE")
+//    @RequestMapping(value = "/api/politicos/UF/{idUf}", method = RequestMethod.GET)
+//    public @ResponseBody List<Politico> getPoliticosByUf(@PathVariable("idUf") String ufId) {
+//        return politicoService.getPoliticosByEstado(ufId);
+//    }
 
     @Cacheable("RESPONSE_CACHE")
     @RequestMapping(value = "/api/politico/{matricula}", method = RequestMethod.GET)
     public @ResponseBody Politico getPolitico(@PathVariable("matricula") String matricula) {
         return politicoService.getPolitico(matricula);
+    }
+
+    @Cacheable("RESPONSE_CACHE")
+    @RequestMapping(value = "/api/politico/{matricula}/assiduidade", method = RequestMethod.GET)
+    public @ResponseBody PoliticoAssiduidade getPoliticoAssiduidade(@PathVariable("matricula") String matricula) {
+        return politicoService.getPoliticoAssiduidade(matricula);
     }
 
 
