@@ -145,7 +145,7 @@ public class ApiController {
         old.put("nome", p.getNome());
         old.put("nome_parlamentar", p.getNomeParlamentar());
 
-        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + formatNomeParlamentar(nomeUrna))).parse();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/7met68b8?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + formatNomeParlamentar(nomeUrna))).parse();
         old.put("biografia", politicoBiografia.getBiografia());
         old.put("email", p.getEmail());
         old.put("foto", p.getFoto());
@@ -168,7 +168,7 @@ public class ApiController {
         old.put("nome", p.getNome());
         old.put("nome_parlamentar", p.getNomeParlamentar());
 
-        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/bx2r958a?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + nomeUrna)).parse();
+        Politico politicoBiografia = new PoliticoBiografiaParser(jsonRequest("https://www.kimonolabs.com/api/json/ondemand/7met68b8?apikey=10deb955005b151ee7f6d2d2c796cde6&kimpath1=" + nomeUrna)).parse();
         old.put("biografia", politicoBiografia.getBiografia());
         old.put("email", p.getEmail());
         old.put("foto", p.getFoto());
