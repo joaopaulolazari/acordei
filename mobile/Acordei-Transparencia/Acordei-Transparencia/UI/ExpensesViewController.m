@@ -8,6 +8,7 @@
 
 #import "ExpensesViewController.h"
 #import "ExpensesCell.h"
+#import "ApiCall.h"
 
 @interface ExpensesViewController ()
 
@@ -16,22 +17,26 @@
 @implementation ExpensesViewController
 {
     NSArray *expenses;
-    NSArray *values;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    expenses = [self populateExpenses];
-    values = [self populateValues];
-    // Do any additional setup after loading the view.
+    NSString *nome = [self.fromArray valueForKey:@"nome"];
+    [[[ApiCall alloc] init] callWithUrl:[NSString stringWithFormat:@"http://acordei.cloudapp.net:80/api/politico/gastos/%@", nome]
+                        SuccessCallback:^(NSData *message){
+                            expenses = [self populateProfileArray:message];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self.collectionView reloadData];
+                            });
+                        }ErrorCallback:^(NSData *erro){
+                            NSLog(@"Veio do WS essa mensagem de erro: %@",erro);
+                }];
 }
 
--(NSArray *)populateExpenses{
-    return @[@"Posto de Gasolina", @"Passagens de Avião"];
+-(NSArray *)populateProfileArray:(NSData *)data {
+    NSError *error;
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
 }
 
--(NSArray *)populateValues{
-    return @[@"1.600,00", @"10.600,00"];
-}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return expenses.count;
@@ -40,8 +45,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ExpensesCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.lblExpense.text = [expenses objectAtIndex:indexPath.row];
-    cell.lblValue.text = [values objectAtIndex:indexPath.row];
+    cell.lblExpense.text = [[expenses valueForKey:@"tipo"]objectAtIndex:indexPath.row];
+    cell.lblValue.text = [[expenses valueForKey:@"valor"]objectAtIndex:indexPath.row];
     
     return cell;
 }
