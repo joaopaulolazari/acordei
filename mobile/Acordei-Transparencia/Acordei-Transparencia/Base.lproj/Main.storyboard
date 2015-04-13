@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kto-4x-aXf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -154,6 +155,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RCc-wT-aAc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VEP-7D-Z8d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9fW-Rf-i80">
@@ -621,6 +623,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zCq-7X-zkE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R2o-eR-TJd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-bio" translatesAutoresizingMaskIntoConstraints="NO" id="S20-T4-5gY">
@@ -701,6 +704,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UJ4-ll-NS8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KEM-cJ-TDO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aprovados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-rS-ax9">
@@ -898,6 +902,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eHs-55-Ik2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I4Y-lw-SwV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zny-ie-5oa">
@@ -1004,6 +1009,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0ga-cE-rfk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QHI-Ce-YTe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Prk-c0-B41">
