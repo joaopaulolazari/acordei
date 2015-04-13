@@ -345,6 +345,7 @@
 				TargetAttributes = {
 					9F3673D91AD96A53002FDAC4 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4CVA2UF9AN;
 					};
 					9F3673F21AD96A53002FDAC4 = {
 						CreatedOnToolsVersion = 6.2;
@@ -601,13 +602,17 @@
 			baseConfigurationReference = 7520625321B7FC6E8BBD1BF2 /* Pods-Acordei-Transparencia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Acordei-Transparencia-fisozbxarqvrdvhaprwuvdjvgucu/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -616,13 +621,17 @@
 			baseConfigurationReference = 21631CB6AE80A4BFCCC31A8B /* Pods-Acordei-Transparencia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Acordei-Transparencia-fisozbxarqvrdvhaprwuvdjvgucu/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Acordei-Transparencia/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

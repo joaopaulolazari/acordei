@@ -15,10 +15,10 @@ public class DashBoard {
     private String idPoliticoRelacionado;
 
     private int totalFatias;
-    private List<String> eixoYValores;
+    private List<Double> eixoYValores;
     private List<String> eixoYLabels;
 
-    public DashBoard(String tipo, String titulo, String conteudo, String nomePoliticoRelacionado, String fotoPoliticoRelacionado, String idPoliticoRelacionado, int totalFatias, List<String> eixoYValores, List<String> eixoYLabels) {
+    public DashBoard(String tipo, String titulo, String conteudo, String nomePoliticoRelacionado, String fotoPoliticoRelacionado, String idPoliticoRelacionado, int totalFatias, List<Double> eixoYValores, List<String> eixoYLabels) {
         this.tipo = tipo;
         this.titulo = titulo;
         this.conteudo = conteudo;
@@ -62,11 +62,11 @@ public class DashBoard {
         this.totalFatias = totalFatias;
     }
 
-    public List<String> getEixoYValores() {
+    public List<Double> getEixoYValores() {
         return eixoYValores;
     }
 
-    public void setEixoYValores(List<String> eixoYValores) {
+    public void setEixoYValores(List<Double> eixoYValores) {
         this.eixoYValores = eixoYValores;
     }
 
