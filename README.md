@@ -39,7 +39,7 @@ iOS em breve na loja, mas você pode conferir os print screen do aplicativo:
 * [Java8] - Functional way!
 
 ### Todo's
-
+ - Tela de estatisticas do politico 
  - Android application
  - API to do map reduce by critirias
 
